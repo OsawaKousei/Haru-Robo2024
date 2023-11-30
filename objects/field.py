@@ -284,8 +284,8 @@ class Field:
         self.obstacles.append(obstacle)
 
 
-def GenNHK2022_Field():
-    field = Field(12, 12)
+def GenNHK2022_Field(): #実際にフィールド情報を書き込んでいるところ
+    field = Field(12, 12) #Field(横の長さ、縦の長さ)をfieldに代入
     field.add_obstacle(Rectangle(6.0, 6.0, 9.0, 7.0, 0.0, obstacle=False, fill=False))
 
     field.add_obstacle(Rectangle(6.0, 6.0, 11.9, 11.9, 0.0, obstacle=True, fill=False))
