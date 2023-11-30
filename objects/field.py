@@ -205,7 +205,7 @@ class Field:
         return ax
 
     def plot(self):
-        plt.cla()
+        plt.cla()#今ある軸(axes)を消去
         ax = self.plot_field()
         plt.show()
         return ax
