@@ -325,3 +325,9 @@ def GenTestField(num: int):
         field.add_obstacle(Circle(6.2, 6.0, 0.25 + 0.15, True))
         return field
     return Field(12, 12)
+
+def GenHARUROBO2024_Field():
+    field = Field(7,7)
+    field.add_obstacle(Rectangle(3.5, 3.5, 6.9, 6.9, 0.0, obstacle=True, fill=False))
+    field.add_obstacle(Rectangle(3.5, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+    return field
