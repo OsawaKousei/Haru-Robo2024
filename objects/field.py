@@ -205,7 +205,7 @@ class Field:
         return ax
 
     def plot(self):
-        plt.cla()
+        plt.cla()#今ある軸(axes)を消去
         ax = self.plot_field()
         plt.show()
         return ax
@@ -284,8 +284,8 @@ class Field:
         self.obstacles.append(obstacle)
 
 
-def GenNHK2022_Field():
-    field = Field(12, 12)
+def GenNHK2022_Field(): #実際にフィールド情報を書き込んでいるところ
+    field = Field(12, 12) #Field(横の長さ、縦の長さ)をfieldに代入
     field.add_obstacle(Rectangle(6.0, 6.0, 9.0, 7.0, 0.0, obstacle=False, fill=False))
 
     field.add_obstacle(Rectangle(6.0, 6.0, 11.9, 11.9, 0.0, obstacle=True, fill=False))
@@ -325,3 +325,9 @@ def GenTestField(num: int):
         field.add_obstacle(Circle(6.2, 6.0, 0.25 + 0.15, True))
         return field
     return Field(12, 12)
+
+def GenHARUROBO2024_Field():
+    field = Field(7,7)
+    field.add_obstacle(Rectangle(3.5, 3.5, 6.9, 6.9, 0.0, obstacle=True, fill=False))
+    field.add_obstacle(Rectangle(3.5, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+    return field

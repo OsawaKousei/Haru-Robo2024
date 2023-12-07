@@ -27,13 +27,13 @@ class Point2D:  # x, y, theta
         theta = self.theta + other.theta
         return Point2D(x, y, theta)
 
-    def __sub__(self, other):
+    def __sub__(self, other): #　-
         x = self.x - other.x
         y = self.y - other.y
         theta = self.theta - other.theta
         return Point2D(x, y, theta)
 
-    def __mul__(self, other):
+    def __mul__(self, other): # *
         x = self.x * other
         y = self.y * other
         return Point2D(x, y, self.theta)

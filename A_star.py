@@ -5,7 +5,7 @@ import heapq
 import sys
 
 sys.path.append('./')
-from objects.field import Field, Circle, Point2D, GenTestField
+from objects.field import Field, Circle, Point2D, GenHARUROBO2024_Field
 from models.Robot_model import RobotModel, RobotState
 
 
@@ -89,15 +89,15 @@ def A_star(field: Field, start_point: Point2D, target_point: Point2D,
 
 
 if __name__ == '__main__':
-    field = GenTestField(0)
-    field.plot()
+    field = GenHARUROBO2024_Field()#fieldにGenTestField(0)の情報を入れる
+    field.plot()#fieldのplot
 
     start_point = Point2D(0.1, 0.1)
-    target_point = Point2D(8.0, 8.0)
+    target_point = Point2D(3.0, 3.0)
     r_model = RobotModel([Circle(x=0.0, y=0.0, r=0.2, fill=True)])
 
-    start_time = time.process_time()
+    start_time = time.process_time()#今の時間を記憶
     dist, path = A_star(field, start_point, target_point, r_model, check_length=0.1, unit_dist=0.1, show=True)  # A*
-    print(time.process_time() - start_time)
+    print(time.process_time() - start_time)#処理にかかった時間をprint
     print(dist)
     field.plot_path(path, start_point, target_point, show=True)

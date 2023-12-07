@@ -1,0 +1,39 @@
+point2Dの処理
+
+特殊メソッド def __eq__()などについて
+d1 = Point2D(10,10,10)
+d2 = Point2D(5,10,20)
+としたとき 
+print(d1==d2) False (xとzの値が一致しないため)
+print(d1<d2) 　False (xから参照を始める。xはd1の方が値が大きい)
+d1+d2   
+
+
+def 〜〜-> bool
+bool型で返すという注釈
+
+class object(ABC)
+抽象クラス？を作って後のcircleなどの用意をしている
+
+check collision
+obstacleが当たっていたらtrue を返す
+
+vec.unit()
+大きさ1のベクトル
+
+dot  内積
+
+point2D.py
+point2D((x,y)のベクトルの値)を定義し、計算を簡単にする準備をしている
+field.py
+circleやrectangleなどのフィールドをかくためのオブジェクトの定義及びcollision判定の定義をし、フィールド情報を作っている
+
+フォルダーに入っていないファイルたち　A_star.py ~~ RRT.py
+それぞれ別の方法で経路生成してるっぽい
+
+if __name__ == '__main__':
+これが書かれてあるライブラリが読み込まれた時に、これより後に書かれてあるものをインポートしただけで実行されないための処理
+A_star.py ~~ RRT.pyのこの行以降のプログラムを書くことで、それぞれの方法の経路生成ができるはず
+
+plt.cla()
+Clear the current axes.
