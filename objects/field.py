@@ -328,6 +328,16 @@ def GenTestField(num: int):
 
 def GenHARUROBO2024_Field():
     field = Field(7,7)
-    field.add_obstacle(Rectangle(3.5, 3.5, 6.9, 6.9, 0.0, obstacle=True, fill=False))
+    field.add_obstacle(Rectangle(3.5, 0+0.016, 7.0, 0.038, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(3.5, 7.0-0.016, 7.0, 0.038, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(0+0.016, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(7.0-0.016, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+
     field.add_obstacle(Rectangle(3.5, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+
+    field.add_obstacle(Rectangle(1.0+0.016, 0.5, 0.038, 1.0, 0.0, obstacle=True, fill=True))
+    # field.add_obstacle(Rectangle(7000-1000-0.016, 500, 0.038, 500, 0.0, obstacle=True, fill=True))
+    # field.add_obstacle(Rectangle(1000+0.016, 7000-500, 0.038, 500, 0.0, obstacle=True, fill=True))
+    # field.add_obstacle(Rectangle(7000-1000-0.016, 7000-500, 0.038, 500, 0.0, obstacle=True, fill=True))
+
     return field

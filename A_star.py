@@ -5,7 +5,7 @@ import heapq
 import sys
 
 sys.path.append('./')
-from objects.field import Field, Circle, Point2D, GenHARUROBO2024_Field
+from objects.field import Field, Circle, Point2D, GenHARUROBO2024_Field, GenTestField
 from models.Robot_model import RobotModel, RobotState
 
 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     field = GenHARUROBO2024_Field()#fieldにGenTestField(0)の情報を入れる
     field.plot()#fieldのplot
 
-    start_point = Point2D(0.1, 0.1)
+    start_point = Point2D(20, 20)
     target_point = Point2D(3.0, 3.0)
     r_model = RobotModel([Circle(x=0.0, y=0.0, r=0.2, fill=True)])
 
