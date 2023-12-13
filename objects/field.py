@@ -327,17 +327,53 @@ def GenTestField(num: int):
     return Field(12, 12)
 
 def GenHARUROBO2024_Field():
-    field = Field(7,7)
-    field.add_obstacle(Rectangle(3.5, 0+0.016, 7.0, 0.038, 0.0, obstacle=True, fill=True))
-    field.add_obstacle(Rectangle(3.5, 7.0-0.016, 7.0, 0.038, 0.0, obstacle=True, fill=True))
-    field.add_obstacle(Rectangle(0+0.016, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
-    field.add_obstacle(Rectangle(7.0-0.016, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+    field = Field(6.962,7)
+    field.add_obstacle(Rectangle(3.481, 0.019, 6.962, 0.038, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(3.481, 6.962-0.019, 6.962, 0.038, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(0.019, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(6.962-0.019, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
 
-    field.add_obstacle(Rectangle(3.5, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(3.481, 3.5, 0.038, 7.0, 0.0, obstacle=True, fill=True))
 
-    field.add_obstacle(Rectangle(1.0+0.016, 0.5, 0.038, 1.0, 0.0, obstacle=True, fill=True))
-    # field.add_obstacle(Rectangle(7000-1000-0.016, 500, 0.038, 500, 0.0, obstacle=True, fill=True))
-    # field.add_obstacle(Rectangle(1000+0.016, 7000-500, 0.038, 500, 0.0, obstacle=True, fill=True))
-    # field.add_obstacle(Rectangle(7000-1000-0.016, 7000-500, 0.038, 500, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(1.057, 0.538, 0.038, 1.0, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(6.962-1.057, 0.538, 0.038, 1.0, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(1.057, 7.0-0.538, 0.038, 1.0, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(6.962-1.057, 7.0-0.538, 0.038, 1.0, 0.0, obstacle=True, fill=True))
+
+    field.add_obstacle(Rectangle(3.481, 2.181, 5.286, 0.038, 0.0, obstacle=True, fill=True))
+
+    field.add_obstacle(Rectangle(2.143, 4.081, 0.038, 3.762, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(6.962-2.143, 4.081, 0.038, 3.762, 0.0, obstacle=True, fill=True))
+
+    field.add_obstacle(Rectangle(0.681, 3.419, 1.286, 0.038, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(6.962-0.681, 3.419, 1.286, 0.038, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(1.481, 4.657, 1.286, 0.038, 0.0, obstacle=True, fill=True))
+    field.add_obstacle(Rectangle(6.962-1.481, 4.657, 1.286, 0.038, 0.0, obstacle=True, fill=True))
+
+    field.add_obstacle(Rectangle(1.919, 0.388, 0.7, 0.7, 0.0, obstacle=False, fill=False, color="purple"))
+    field.add_obstacle(Rectangle(6.962-1.919, 0.388, 0.7, 0.7, 0.0, obstacle=False, fill=False, color="purple"))
+
+    field.add_obstacle(Rectangle(3.112, 0.638, 0.7, 1.2, 0.0, obstacle=False, fill=False, color="blue"))
+    field.add_obstacle(Rectangle(6.962-3.112, 0.638, 0.7, 1.2, 0.0, obstacle=False, fill=False, color="blue"))
+
+    field.add_obstacle(Rectangle(3.312, 7.0-0.319, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(3.312, 7.0-0.919, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(3.312, 7.0-1.519, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(3.312, 7.0-2.119, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(3.312, 7.0-2.719, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(3.312, 7.0-3.319, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(3.312, 7.0-3.919, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(3.312, 7.0-4.519, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-0.319, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-0.919, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-1.519, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-1.519, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-2.119, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-2.719, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-3.319, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-3.919, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+    field.add_obstacle(Rectangle(6.962-3.312, 7.0-4.519, 0.3, 0.562, 0.0, obstacle=False, fill=False, color="red"))
+
 
     return field

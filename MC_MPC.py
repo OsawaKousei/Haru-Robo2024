@@ -9,7 +9,7 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(__file__))
-from objects.field import Field, Circle, Point2D, GenTestField, Rectangle
+from objects.field import Field, Circle, Point2D, GenHARUROBO2024_Field, Rectangle
 from models.Robot_model import RobotState, RobotModel_with_Dynamics
 from models.DynamicsModel import V_Omega, V_Omega_Config, Parallel_TwoWheel_Vehicle_Model
 from A_star import A_star
@@ -140,10 +140,10 @@ class MCMPC:
 
 
 if __name__ == '__main__':
-    field = GenTestField(0)
+    field = GenHARUROBO2024_Field()
     field.plot_field()
 
-    start_point, target_point = Point2D(0.5, 0.5), Point2D(8.0, 8.0)
+    start_point, target_point = Point2D(0.5, 0.5), Point2D(3.0, 3.0)
     r_model = Parallel_TwoWheel_Vehicle_Model(
         [Rectangle(x=0.0, y=0.0, w=0.3, h=0.6, theta=math.pi/2.0)]
     )

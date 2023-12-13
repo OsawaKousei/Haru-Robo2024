@@ -92,8 +92,8 @@ if __name__ == '__main__':
     field = GenHARUROBO2024_Field()#fieldにGenTestField(0)の情報を入れる
     field.plot()#fieldのplot
 
-    start_point = Point2D(20, 20)
-    target_point = Point2D(3.0, 3.0)
+    start_point = Point2D(0.5, 0.5)
+    target_point = Point2D(1.5, 1.5)
     r_model = RobotModel([Circle(x=0.0, y=0.0, r=0.2, fill=True)])
 
     start_time = time.process_time()#今の時間を記憶

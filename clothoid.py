@@ -1,7 +1,7 @@
 import numpy as np
 import math
 import scipy.integrate
-from objects.field import Point2D, GenNHK2022_Field
+from objects.field import Point2D, GenNHK2022_Field, GenHARUROBO2024_Field
 from utils.utils import spline
 
 
@@ -84,7 +84,7 @@ def set_angle(points, first_angle):
 
 
 if __name__ == '__main__':
-    field = GenNHK2022_Field()
+    field = GenHARUROBO2024_Field()
     field.plot()
 
     start_point = Point2D(6.0, 2.0, 0.0)
@@ -92,8 +92,8 @@ if __name__ == '__main__':
 
     pointss = [
         start_point,
-        Point2D(10.0, 2.0),
-        Point2D(11.0, 3.0),
+        Point2D(0.1, 0.1),
+        Point2D(3.0, 3.0),
         target_point
     ]
     path = clothoid(pointss, 0.0, math.pi / 2.0)
