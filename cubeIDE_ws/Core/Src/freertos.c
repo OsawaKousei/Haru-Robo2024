@@ -302,7 +302,7 @@ void mcmdMoter3Setting(){ //モーターの回転方向異常
 	    mcmd4M3_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;  //制御タイプを設定
 	    mcmd4M3_struct.ctrl_param.PID_param.kp = 0.075f;
 	    mcmd4M3_struct.ctrl_param.PID_param.ki = 0.025f;
 	    mcmd4M3_struct.ctrl_param.PID_param.kd = 0.01f;
@@ -836,74 +836,37 @@ void freeRTOSChecker(){//無限ループの中で実行
 
 }
 
-void mcmdMotorDutyCecker(MCMD_HandleTypedef mcmd_struct, float duty, int testSec){
-	int ctr_type = mcmd_struct.ctrl_param.ctrl_type;
-	int node_id = mcmd_struct.device.node_id;
-	int device_num = mcmd_struct.device.device_num;
-
-	const dutyLimit = 0.7;
-	if(duty >= dutyLimit){
-		duty = dutyLimit;
-	}else if(duty <= -1*dutyLimit){
-		duty = -1*dutyLimit;
-	}
+void mcmdMotorDutyCecker(MCMD_HandleTypedef *mcmd_struct, float target, int testSec, float endTarget){
+	int node_id = mcmd_struct->device.node_id;
+	int device_num = mcmd_struct->device.device_num;
+	int ctrl_type = mcmd_struct->ctrl_param.ctrl_type;
 
 	printf("MCMD3 Check node_id:%d device_num:%d",node_id,device_num);
 
-	mcmd_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
-	MCMD_SetTarget(&mcmd_struct,duty);
-	osDelay(testSec*1000);
-	MCMD_SetTarget(&mcmd_struct,0.00f);
+	MCMD_Control_Disable(mcmd_struct);
+	mcmd_struct->ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
+	MCMD_ChangeControl(mcmd_struct);
+	MCMD_Calib(mcmd_struct);
+	MCMD_SetTarget(mcmd_struct,target);
+	MCMD_Control_Enable(mcmd_struct);
 
-	mcmd_struct.ctrl_param.ctrl_type = ctr_type;
+	osDelay(testSec);
+
+	MCMD_Control_Disable(mcmd_struct);
+	mcmd_struct->ctrl_param.ctrl_type = ctrl_type;
+	MCMD_ChangeControl(mcmd_struct);
+	MCMD_Calib(mcmd_struct);
+	MCMD_SetTarget(mcmd_struct,endTarget);
+	MCMD_Control_Enable(mcmd_struct);
 }
 
-//M1のエンコーダー確認用
-void mcmdEncorder1Checker(){//無限ループの中で実行
-	mcmdM1_fb = Get_MCMD_Feedback(&(mcmd4M1_struct.device));
-	printf("value of M1 %d\r\n",(int)(mcmdM1_fb.value));
-}
+void mcmdEncChecker(MCMD_Feedback_Typedef *mcmd_fb, MCMD_HandleTypedef *mcmd_struct, int interbalSec){
+	int node_id = mcmd_struct->device.node_id;
+	int device_num = mcmd_struct->device.device_num;
 
-//M2のエンコーダー確認用
-void mcmdEncorder2Checker(){//無限ループの中で実行
-	mcmdM2_fb = Get_MCMD_Feedback(&(mcmd4M2_struct.device));
-	printf("value of M2 %d\r\n",(int)(mcmdM2_fb.value));
-}
-
-//M3のエンコーダー確認用
-void mcmdEncorder3Checker(){//無限ループの中で実行
-	mcmdM3_fb = Get_MCMD_Feedback(&(mcmd4M3_struct.device));
-	printf("value of M3 %d\r\n",(int)(mcmdM3_fb.value));
-}
-
-//M4のエンコーダー確認用
-void mcmdEncorder4Checker(){//無限ループの中で実行
-	mcmdM4_fb = Get_MCMD_Feedback(&(mcmd4M4_struct.device));
-	printf("value of M4 %d\r\n",(int)(mcmdM4_fb.value));
-}
-
-//M5のエンコーダー確認用
-void mcmdEncorder5Checker(){//無限ループの中で実行
-	mcmdM5_fb = Get_MCMD_Feedback(&(mcmd4M5_struct.device));
-	printf("value of M5 %d\r\n",(int)(mcmdM5_fb.value));
-}
-
-//M6のエンコーダー確認用
-void mcmdEncorder6Checker(){//無限ループの中で実行
-	mcmdM6_fb = Get_MCMD_Feedback(&(mcmd4M6_struct.device));
-	printf("value of M6 %d\r\n",(int)(mcmdM6_fb.value));
-}
-
-//M7のエンコーダー確認用
-void mcmdEncorder7Checker(){//無限ループの中で実行
-	mcmdM7_fb = Get_MCMD_Feedback(&(mcmd4M7_struct.device));
-	printf("value of M7 %d\r\n",(int)(mcmdM7_fb.value));
-}
-
-//M8のエンコーダー確認用
-void mcmdEncorder8Checker(){//無限ループの中で実行
-	mcmdM8_fb = Get_MCMD_Feedback(&(mcmd4M8_struct.device));
-	printf("value of M8 %d\r\n",(int)(mcmdM8_fb.value));
+	mcmd_fb->value = Get_MCMD_Feedback(&(mcmd_struct->device)).value;
+	printf("value of %d node %d device %d\r\n",node_id,device_num,(int)(mcmd_fb->value));
+	osDelay(interbalSec);
 }
 
 //サーボの動作確認用
@@ -939,29 +902,18 @@ void StartSysCheckTask(void *argument)
   {
 	  if(finishCANsetting){
 		  if(!finishCheck){
-//			  mcmdMoter1Checker();
-//			  mcmdMoter2Checker();
-//			  mcmdMoter5Checker();
-//			  mcmdMoter6Checker();
-//			  mcmdMoter7Checker();
-//			  mcmdMoter8Checker();
 			  //servo1Checker();
 			  //servo2Checker();
-			  mcmdMotorDutyCecker(mcmd4M3_struct,0.7f,2);
+			  mcmdMotorDutyCecker(&mcmd4M3_struct,0.7f,2000,0.0f);
+			  //mcmdMotorDutyCecker(mcmd4M4_struct,0.7f,2);
 			  finishCheck = true;
 		  	  }
 	  }
 	  //freeRTOSChecker();
 	  //airChecker();
-//	  mcmdEncorder1Checker();
-//	  mcmdEncorder2Checker();
-//	  mcmdEncorder3Checker();
-//	  mcmdEncorder4Checker();
-//	  mcmdEncorder5Checker();
-//	  mcmdEncorder6Checker();
-//	  mcmdEncorder7Checker();
-//	  mcmdEncorder8Checker();
-	  osDelay(1000);
+	  mcmdEncChecker(&mcmdM3_fb,&mcmd4M3_struct,1);
+	  //mcmdEncChecker(mcmdM4_fb,mcmd4M4_struct,0.001);
+	  osDelay(10);
   }
   /* USER CODE END StartSysCheckTask */
 }
