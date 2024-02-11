@@ -147,7 +147,7 @@ private:
 
     this->publisher_->publish(cmd);
     show_message(cmd);
-    sleep(1);
+    sleep(2);
 
     state.base1 = goal->base1;
     state.base2 = goal->base2;

@@ -2,8 +2,9 @@
 #include <rclcpp/allocator/allocator_common.hpp>
 #include "behaviortree_cpp/behavior_tree.h"
 #include "behaviortree_cpp/bt_factory.h"
-#include "catch_node.hpp"
 #include "rclcpp/rclcpp.hpp"
+#include "catch_node.hpp"
+#include "base1_catch_node.hpp"
 
 using namespace BT;
 
@@ -26,10 +27,10 @@ namespace MyActionNodes{
                 NodeStatus onRunning() override {
                 
                         // 時間のかかる処理などを記述
-                        rclcpp::init(0, nullptr);
-                        catch_node = std::make_shared<CatchNode>();
-                        rclcpp::spin(catch_node);
-                        rclcpp::shutdown();
+                        // rclcpp::init(0, nullptr);
+                        // catch_node = std::make_shared<CatchNode>();
+                        // rclcpp::spin(catch_node);
+                        // rclcpp::shutdown();
 
                         return NodeStatus::SUCCESS;
                 }
@@ -58,6 +59,11 @@ namespace MyActionNodes{
                 NodeStatus onRunning() override {
 
                         std::cout << "put work node running" << std::endl;
+
+                        rclcpp::init(0, nullptr);
+                        base1_catch_node = std::make_shared<Base1CatchNode>();
+                        rclcpp::spin(base1_catch_node);
+                        rclcpp::shutdown();
                 
                         return NodeStatus::SUCCESS;
                 }
