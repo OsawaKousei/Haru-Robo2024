@@ -1,0 +1,227 @@
+[0.080s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[0.118s] [  1%] Built target manip__cpp
+[0.124s] [ 11%] Built target manip__rosidl_generator_c
+[0.138s] [ 11%] Built target ament_cmake_python_copy_manip
+[0.147s] [ 21%] Built target manip__rosidl_typesupport_cpp
+[0.163s] [ 31%] Built target manip__rosidl_typesupport_fastrtps_cpp
+[0.164s] [ 41%] Built target manip__rosidl_typesupport_introspection_c
+[0.165s] [ 50%] Built target manip__rosidl_typesupport_fastrtps_c
+[0.166s] [ 60%] Built target manip__rosidl_typesupport_c
+[0.168s] [ 70%] Built target manip__rosidl_typesupport_introspection_cpp
+[0.168s] [35m[1mConsolidate compiler generated dependencies of target manip_control_node[0m
+[0.182s] [ 72%] [32mBuilding CXX object CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o[0m
+[0.185s] [ 76%] Built target manip_joy_node
+[0.186s] [ 76%] Built target manip
+[0.205s] [ 78%] Built target manip__py
+[0.227s] [ 86%] Built target manip__rosidl_generator_py
+[0.253s] [ 94%] Built target manip__rosidl_typesupport_c__pyext
+[0.253s] [ 94%] Built target manip__rosidl_typesupport_fastrtps_c__pyext
+[0.254s] [ 98%] Built target manip__rosidl_typesupport_introspection_c__pyext
+[0.391s] running egg_info
+[0.392s] writing manip.egg-info/PKG-INFO
+[0.392s] writing dependency_links to manip.egg-info/dependency_links.txt
+[0.392s] writing top-level names to manip.egg-info/top_level.txt
+[0.394s] reading manifest file 'manip.egg-info/SOURCES.txt'
+[0.394s] writing manifest file 'manip.egg-info/SOURCES.txt'
+[0.414s] [ 98%] Built target ament_cmake_python_build_manip_egg
+[1.696s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In lambda function:
+[1.696s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:35:64:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.696s]    35 |         auto topic_callback = [this]([01;35m[Kconst manip::msg::Result &msg[m[K) -> void {
+[1.696s]       |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[1.715s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse ManipControlNode::handle_goal(const GoalUUID&, std::shared_ptr<const manip::action::State_Goal_<std::allocator<void> > >)[m[K’:
+[1.715s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:59:40:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.715s]    59 |     [01;35m[Kstd::shared_ptr<const State::Goal> goal[m[K)
+[1.715s]       |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[1.721s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kbool ManipControlNode::make_cmd(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >, manip::msg::Cmd)[m[K’:
+[1.721s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:113:85:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmessage[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.721s]   113 |   bool make_cmd(const std::shared_ptr<GoalHandleState> goal_handle, [01;35m[Kmanip::msg::Cmd message[m[K){
+[1.721s]       |                                                                     [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[1.721s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kvoid ManipControlNode::execute_cmd(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >, manip::msg::Cmd)[m[K’:
+[1.721s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:146:26:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+[1.722s]   146 |     if(!message.work1[0] [01;35m[K==[m[K -1){
+[1.722s]       |                          [01;35m[K^~[m[K
+[1.722s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:146:8:[m[K [01;36m[Knote: [m[Kadd parentheses around left hand side expression to silence this warning
+[1.722s]   146 |     if(!message.work1[0] == -1){
+[1.722s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:146:26:[m[K [01;35m[Kwarning: [m[Kcomparison of constant ‘[01m[K-1[m[K’ with boolean expression is always false [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbool-compare-Wbool-compare]8;;[m[K]
+[1.722s]   146 |     if([01;35m[K!message.work1[0] == -1[m[K){
+[1.722s]       |        [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[5.911s] [100%] [32m[1mLinking CXX executable manip_control_node[0m
+[6.226s] [100%] Built target manip_control_node
+[6.235s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[6.309s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip
+[6.314s] -- Install configuration: ""
+[6.314s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/ament_index/resource_index/rosidl_interfaces/manip
+[6.314s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/cmd.h
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/rosidl_generator_c__visibility_control.h
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/result.h
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__functions.h
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__type_support.h
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__functions.c
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__struct.h
+[6.315s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__struct.h
+[6.316s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__functions.c
+[6.316s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__functions.h
+[6.316s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__type_support.h
+[6.316s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action
+[6.316s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/state.h
+[6.316s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail
+[6.316s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__struct.h
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__functions.h
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__type_support.h
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__functions.c
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/library_path.sh
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/library_path.dsv
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_generator_c.so
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip
+[6.317s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__rosidl_typesupport_fastrtps_c.h
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__rosidl_typesupport_fastrtps_c.h
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__rosidl_typesupport_fastrtps_c.h
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_typesupport_fastrtps_c.so
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/result.hpp
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/cmd.hpp
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__struct.hpp
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__struct.hpp
+[6.318s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__traits.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__builder.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__traits.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__builder.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/state.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__builder.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__traits.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__struct.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/dds_fastrtps
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__rosidl_typesupport_fastrtps_cpp.hpp
+[6.319s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__rosidl_typesupport_fastrtps_cpp.hpp
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/dds_fastrtps
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__rosidl_typesupport_fastrtps_cpp.hpp
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_typesupport_fastrtps_cpp.so
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__rosidl_typesupport_introspection_c.h
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__type_support.c
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__type_support.c
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__rosidl_typesupport_introspection_c.h
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action
+[6.320s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__type_support.c
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__rosidl_typesupport_introspection_c.h
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_typesupport_introspection_c.so
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_typesupport_c.so
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__rosidl_typesupport_introspection_cpp.hpp
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__type_support.cpp
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/cmd__type_support.cpp
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/msg/detail/result__rosidl_typesupport_introspection_cpp.hpp
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__type_support.cpp
+[6.321s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip/manip/action/detail/state__rosidl_typesupport_introspection_cpp.hpp
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_typesupport_introspection_cpp.so
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_typesupport_cpp.so
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/pythonpath.sh
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/pythonpath.dsv
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip-0.0.0-py3.10.egg-info
+[6.322s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip-0.0.0-py3.10.egg-info/dependency_links.txt
+[6.322s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip-0.0.0-py3.10.egg-info/SOURCES.txt
+[6.322s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip-0.0.0-py3.10.egg-info/top_level.txt
+[6.322s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip-0.0.0-py3.10.egg-info/PKG-INFO
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/libmanip__rosidl_generator_py.so
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/__init__.py
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/_manip_s.ep.rosidl_typesupport_introspection_c.c
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/_manip_s.ep.rosidl_typesupport_fastrtps_c.c
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/manip_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[6.322s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/manip_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/_manip_s.ep.rosidl_typesupport_c.c
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/msg
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/msg/__init__.py
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/msg/_result.py
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/msg/_cmd_s.c
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/msg/_cmd.py
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/msg/_result_s.c
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/manip_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/action
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/action/__init__.py
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/action/_state.py
+[6.323s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/action/_state_s.c
+[6.341s] Listing '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip'...
+[6.341s] Listing '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/action'...
+[6.341s] Listing '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/msg'...
+[6.345s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/manip_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[6.345s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/manip_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[6.345s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages/manip/manip_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[6.345s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/libmanip__rosidl_generator_py.so
+[6.345s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/msg/Cmd.idl
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/msg/Result.idl
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/action/State.idl
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/msg/Cmd.msg
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/msg/Result.msg
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/action/State.action
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/include/manip
+[6.346s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/manip/manip_joy_node
+[6.346s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/manip/manip_control_node
+[6.352s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/manip/manip_control_node" to ""
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/ament_index/resource_index/package_run_dependencies/manip
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/ament_index/resource_index/parent_prefix_path/manip
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/ament_prefix_path.sh
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/ament_prefix_path.dsv
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/path.sh
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/environment/path.dsv
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/local_setup.bash
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/local_setup.sh
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/local_setup.zsh
+[6.353s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/local_setup.dsv
+[6.354s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.dsv
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/ament_index/resource_index/packages/manip
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_generator_cExport.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_generator_cExport-noconfig.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_typesupport_fastrtps_cExport.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_generator_cppExport.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_typesupport_fastrtps_cppExport.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_introspection_cExport.cmake
+[6.354s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_cExport.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_cExport-noconfig.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_introspection_cppExport.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_cppExport.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manip__rosidl_typesupport_cppExport-noconfig.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_generator_pyExport.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/export_manip__rosidl_generator_pyExport-noconfig.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/rosidl_cmake-extras.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/ament_cmake_export_libraries-extras.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/ament_cmake_export_targets-extras.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manipConfig.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/cmake/manipConfig-version.cmake
+[6.355s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.xml
+[6.357s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip

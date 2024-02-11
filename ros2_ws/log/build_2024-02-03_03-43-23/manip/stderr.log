@@ -1,0 +1,6 @@
+[31mCMake Error at CMakeLists.txt:36 (target_link_libraries):
+  Cannot specify link libraries for target "manip_control_node" which is not
+  built by this project.
+
+[0m
+gmake: *** [Makefile:911: cmake_check_build_system] エラー 1

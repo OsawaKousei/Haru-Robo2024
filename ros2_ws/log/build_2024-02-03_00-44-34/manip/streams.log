@@ -1,0 +1,39 @@
+[0.085s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[0.126s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_generator_c[0m
+[0.130s] [  1%] Built target manip__cpp
+[0.146s] [ 11%] Built target manip__rosidl_generator_c
+[0.146s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_cpp[0m
+[0.146s] [ 11%] Built target ament_cmake_python_copy_manip
+[0.146s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_cpp[0m
+[0.147s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_cpp[0m
+[0.160s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_c[0m
+[0.163s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_c[0m
+[0.163s] [ 21%] Built target manip__rosidl_typesupport_cpp
+[0.165s] [ 31%] Built target manip__rosidl_typesupport_introspection_cpp
+[0.165s] [ 41%] Built target manip__rosidl_typesupport_fastrtps_cpp
+[0.174s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_c[0m
+[0.177s] [ 50%] Built target manip__rosidl_typesupport_introspection_c
+[0.190s] [ 60%] Built target manip__rosidl_typesupport_c
+[0.196s] [ 70%] Built target manip__rosidl_typesupport_fastrtps_c
+[0.204s] [ 72%] [32mBuilding CXX object CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o[0m
+[0.212s] [35m[1mConsolidate compiler generated dependencies of target manip_joy_node[0m
+[0.221s] [ 72%] Built target manip
+[0.228s] [ 76%] Built target manip_joy_node
+[0.246s] [ 78%] [34m[1mGenerating Python code for ROS interfaces[0m
+[0.468s] running egg_info
+[0.468s] writing manip.egg-info/PKG-INFO
+[0.468s] writing dependency_links to manip.egg-info/dependency_links.txt
+[0.469s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:6:10:[m[K [01;31m[Kfatal error: [m[Kmanip/srv/cmd_list.hpp: そのようなファイルやディレクトリはありません
+[0.469s]     6 | #include [01;31m[K"manip/srv/cmd_list.hpp"[m[K
+[0.469s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.470s] compilation terminated.
+[0.470s] writing top-level names to manip.egg-info/top_level.txt
+[0.470s] reading manifest file 'manip.egg-info/SOURCES.txt'
+[0.471s] writing manifest file 'manip.egg-info/SOURCES.txt'
+[0.471s] gmake[2]: *** [CMakeFiles/manip_control_node.dir/build.make:76: CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o] エラー 1
+[0.471s] gmake[1]: *** [CMakeFiles/Makefile2:212: CMakeFiles/manip_control_node.dir/all] エラー 2
+[0.471s] gmake[1]: *** 未完了のジョブを待っています....
+[0.492s] [ 78%] Built target ament_cmake_python_build_manip_egg
+[1.234s] [ 78%] Built target manip__py
+[1.235s] gmake: *** [Makefile:146: all] エラー 2
+[1.237s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16

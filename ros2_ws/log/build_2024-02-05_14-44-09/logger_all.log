@@ -1,0 +1,513 @@
+[0.524s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.524s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f77b8f55090>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f77b91fb580>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f77b91fb580>>)
+[0.554s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.554s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.554s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.554s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.554s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.554s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.554s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/kousei/HaruRobo2024_ws/ros2_ws'
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.562s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.562s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.562s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.562s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.562s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'ignore'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'ignore_ament_install'
+[0.564s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['colcon_pkg']
+[0.564s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'colcon_pkg'
+[0.564s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['colcon_meta']
+[0.564s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'colcon_meta'
+[0.564s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['ros']
+[0.564s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'ros'
+[0.565s] DEBUG:colcon.colcon_core.package_identification:Package 'src/drive_msgs' with type 'ros.ament_cmake' and name 'drive_msgs'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'ignore'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'ignore_ament_install'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['colcon_pkg']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'colcon_pkg'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['colcon_meta']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'colcon_meta'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['ros']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'ros'
+[0.566s] DEBUG:colcon.colcon_core.package_identification:Package 'src/key_event_msgs' with type 'ros.ament_cmake' and name 'key_event_msgs'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['ignore', 'ignore_ament_install']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'ignore'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'ignore_ament_install'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['colcon_pkg']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'colcon_pkg'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['colcon_meta']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'colcon_meta'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['ros']
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'ros'
+[0.567s] DEBUG:colcon.colcon_core.package_identification:Package 'src/key_event_nodes' with type 'ros.ament_cmake' and name 'key_event_nodes'
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extensions ['ignore', 'ignore_ament_install']
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extension 'ignore'
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extension 'ignore_ament_install'
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extensions ['colcon_pkg']
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extension 'colcon_pkg'
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extensions ['colcon_meta']
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extension 'colcon_meta'
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extensions ['ros']
+[0.567s] Level 1:colcon.colcon_core.package_identification:_identify(src/manip) by extension 'ros'
+[0.568s] DEBUG:colcon.colcon_core.package_identification:Package 'src/manip' with type 'ros.ament_cmake' and name 'manip'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extensions ['ignore', 'ignore_ament_install']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extension 'ignore'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extension 'ignore_ament_install'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extensions ['colcon_pkg']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extension 'colcon_pkg'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extensions ['colcon_meta']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extension 'colcon_meta'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extensions ['ros']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(src/omni_control) by extension 'ros'
+[0.569s] DEBUG:colcon.colcon_core.package_identification:Package 'src/omni_control' with type 'ros.ament_cmake' and name 'omni_control'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['ignore', 'ignore_ament_install']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'ignore'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'ignore_ament_install'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['colcon_pkg']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'colcon_pkg'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['colcon_meta']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'colcon_meta'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['ros']
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'ros'
+[0.570s] DEBUG:colcon.colcon_core.package_identification:Package 'src/urg_node2' with type 'ros.ament_cmake' and name 'urg_node2'
+[0.570s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.570s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.570s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.570s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.570s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.623s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.623s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.640s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/kousei/HaruRobo2024_ws/ros2_ws/install
+[0.648s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/kousei/2DRoboPrac_ws/ros2_ws/install
+[0.657s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 376 installed packages in /opt/ros/humble
+[0.658s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.716s] WARNING:colcon.colcon_core.package_selection:Some selected packages are already built in one or more underlay workspaces:
+	'key_event_msgs' is in: /home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs, /home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs
+	'drive_msgs' is in: /home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs, /home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs
+	'key_event_nodes' is in: /home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes, /home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding drive_msgs key_event_msgs key_event_nodes
+
+This may be promoted to an error in a future release of colcon-override-check.
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_args' from command line to 'None'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_target' from command line to 'None'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.725s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.725s] DEBUG:colcon.colcon_core.verb:Building package 'drive_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs', 'merge_install': False, 'path': '/home/kousei/HaruRobo2024_ws/ros2_ws/src/drive_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_args' from command line to 'None'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_target' from command line to 'None'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.733s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.733s] DEBUG:colcon.colcon_core.verb:Building package 'key_event_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs', 'merge_install': False, 'path': '/home/kousei/HaruRobo2024_ws/ros2_ws/src/key_event_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'cmake_args' from command line to 'None'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'cmake_target' from command line to 'None'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'cmake_clean_cache' from command line to 'False'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'cmake_clean_first' from command line to 'False'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'cmake_force_configure' from command line to 'False'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'ament_cmake_args' from command line to 'None'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'catkin_cmake_args' from command line to 'None'
+[0.741s] Level 5:colcon.colcon_core.verb:set package 'manip' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.741s] DEBUG:colcon.colcon_core.verb:Building package 'manip' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip', 'merge_install': False, 'path': '/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip', 'symlink_install': False, 'test_result_base': None}
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_args' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_target' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_clean_first' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_force_configure' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'ament_cmake_args' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.750s] DEBUG:colcon.colcon_core.verb:Building package 'urg_node2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2', 'merge_install': False, 'path': '/home/kousei/HaruRobo2024_ws/ros2_ws/src/urg_node2', 'symlink_install': False, 'test_result_base': None}
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_args' from command line to 'None'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_target' from command line to 'None'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_clean_cache' from command line to 'False'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_clean_first' from command line to 'False'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_force_configure' from command line to 'False'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'ament_cmake_args' from command line to 'None'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'catkin_cmake_args' from command line to 'None'
+[0.758s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.758s] DEBUG:colcon.colcon_core.verb:Building package 'key_event_nodes' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes', 'merge_install': False, 'path': '/home/kousei/HaruRobo2024_ws/ros2_ws/src/key_event_nodes', 'symlink_install': False, 'test_result_base': None}
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'cmake_args' from command line to 'None'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'cmake_target' from command line to 'None'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.766s] Level 5:colcon.colcon_core.verb:set package 'omni_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.766s] DEBUG:colcon.colcon_core.verb:Building package 'omni_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control', 'merge_install': False, 'path': '/home/kousei/HaruRobo2024_ws/ros2_ws/src/omni_control', 'symlink_install': False, 'test_result_base': None}
+[0.774s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.783s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.783s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/drive_msgs' with build type 'ament_cmake'
+[0.783s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/drive_msgs'
+[0.792s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.792s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.793s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.834s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/key_event_msgs' with build type 'ament_cmake'
+[0.834s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/key_event_msgs'
+[0.843s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.843s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.880s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip' with build type 'ament_cmake'
+[0.880s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip'
+[0.888s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.888s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.923s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/urg_node2' with build type 'ament_cmake'
+[0.924s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/urg_node2'
+[0.932s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.932s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.971s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs -- -j16 -l16
+[0.974s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs -- -j16 -l16
+[0.977s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[0.981s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2 -- -j16 -l16
+[1.104s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2 -- -j16 -l16
+[1.190s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2
+[1.200s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(urg_node2)
+[1.202s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/urg_node2
+[1.223s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2' for CMake module files
+[1.224s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2' for CMake config files
+[1.224s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'cmake_prefix_path')
+[1.242s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.ps1'
+[1.243s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.dsv'
+[1.244s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.sh'
+[1.245s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib'
+[1.245s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'ld_library_path_lib')
+[1.265s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.ps1'
+[1.266s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.dsv'
+[1.266s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.sh'
+[1.266s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/bin'
+[1.266s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib/pkgconfig/urg_node2.pc'
+[1.267s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib/python3.10/site-packages'
+[1.267s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/bin'
+[1.284s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.ps1'
+[1.285s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.dsv'
+[1.285s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.sh'
+[1.286s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.bash'
+[1.286s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.zsh'
+[1.287s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/colcon-core/packages/urg_node2)
+[1.288s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs -- -j16 -l16
+[1.337s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(urg_node2)
+[1.346s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2' for CMake module files
+[1.347s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2' for CMake config files
+[1.347s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'cmake_prefix_path')
+[1.357s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.ps1'
+[1.357s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.dsv'
+[1.358s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.sh'
+[1.358s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib'
+[1.358s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'ld_library_path_lib')
+[1.367s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.ps1'
+[1.367s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.dsv'
+[1.367s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.sh'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/bin'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib/pkgconfig/urg_node2.pc'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib/python3.10/site-packages'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/bin'
+[1.376s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.ps1'
+[1.377s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.dsv'
+[1.377s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.sh'
+[1.377s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.bash'
+[1.378s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/urg_node2/package.zsh'
+[1.378s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/share/colcon-core/packages/urg_node2)
+[1.381s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs
+[1.382s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs -- -j16 -l16
+[1.423s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_msgs)
+[1.423s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_msgs
+[1.440s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs' for CMake module files
+[1.441s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs' for CMake config files
+[1.441s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'cmake_prefix_path')
+[1.449s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.ps1'
+[1.450s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.dsv'
+[1.450s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.sh'
+[1.450s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib'
+[1.450s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'ld_library_path_lib')
+[1.459s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.ps1'
+[1.459s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.dsv'
+[1.459s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.sh'
+[1.460s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/bin'
+[1.460s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib/pkgconfig/key_event_msgs.pc'
+[1.460s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib/python3.10/site-packages'
+[1.460s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/bin'
+[1.470s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.ps1'
+[1.470s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.dsv'
+[1.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.sh'
+[1.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.bash'
+[1.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.zsh'
+[1.471s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/colcon-core/packages/key_event_msgs)
+[1.474s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs
+[1.519s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(drive_msgs)
+[1.524s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/drive_msgs
+[1.534s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs' for CMake module files
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs' for CMake config files
+[1.535s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'cmake_prefix_path')
+[1.545s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.ps1'
+[1.546s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.dsv'
+[1.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.sh'
+[1.546s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib'
+[1.546s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'ld_library_path_lib')
+[1.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.ps1'
+[1.555s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.dsv'
+[1.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.sh'
+[1.556s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/bin'
+[1.556s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib/pkgconfig/drive_msgs.pc'
+[1.556s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib/python3.10/site-packages'
+[1.556s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/bin'
+[1.565s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.ps1'
+[1.565s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.dsv'
+[1.566s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.sh'
+[1.566s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.bash'
+[1.566s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.zsh'
+[1.566s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/colcon-core/packages/drive_msgs)
+[1.576s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_msgs)
+[1.585s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs' for CMake module files
+[1.585s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs' for CMake config files
+[1.586s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'cmake_prefix_path')
+[1.594s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.ps1'
+[1.595s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.dsv'
+[1.595s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.sh'
+[1.595s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib'
+[1.595s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'ld_library_path_lib')
+[1.604s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.ps1'
+[1.604s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.dsv'
+[1.605s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.sh'
+[1.605s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/bin'
+[1.605s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib/pkgconfig/key_event_msgs.pc'
+[1.605s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib/python3.10/site-packages'
+[1.605s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/bin'
+[1.614s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.ps1'
+[1.615s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.dsv'
+[1.615s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.sh'
+[1.615s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.bash'
+[1.615s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.zsh'
+[1.616s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/share/colcon-core/packages/key_event_msgs)
+[1.616s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/key_event_nodes' with build type 'ament_cmake'
+[1.616s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/key_event_nodes'
+[1.633s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.634s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.688s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(drive_msgs)
+[1.697s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs' for CMake module files
+[1.697s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs' for CMake config files
+[1.698s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'cmake_prefix_path')
+[1.705s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.ps1'
+[1.706s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.dsv'
+[1.706s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.sh'
+[1.706s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib'
+[1.706s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'ld_library_path_lib')
+[1.714s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.ps1'
+[1.714s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.dsv'
+[1.715s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.sh'
+[1.715s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/bin'
+[1.715s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib/pkgconfig/drive_msgs.pc'
+[1.715s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib/python3.10/site-packages'
+[1.715s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/bin'
+[1.723s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.ps1'
+[1.723s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.dsv'
+[1.724s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.sh'
+[1.724s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.bash'
+[1.724s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.zsh'
+[1.724s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/share/colcon-core/packages/drive_msgs)
+[1.725s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/omni_control' with build type 'ament_cmake'
+[1.725s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/HaruRobo2024_ws/ros2_ws/src/omni_control'
+[1.733s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.734s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.773s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes -- -j16 -l16
+[1.778s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control -- -j16 -l16
+[1.828s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes' returned '0': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes -- -j16 -l16
+[1.841s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control' returned '0': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control -- -j16 -l16
+[1.848s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes
+[1.856s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_nodes)
+[1.858s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes' returned '0': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/key_event_nodes
+[1.869s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes' for CMake module files
+[1.869s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes' for CMake config files
+[1.870s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'cmake_prefix_path')
+[1.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.ps1'
+[1.878s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.dsv'
+[1.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.sh'
+[1.879s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib'
+[1.879s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'ld_library_path_lib')
+[1.887s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.ps1'
+[1.887s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.dsv'
+[1.887s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.sh'
+[1.887s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/bin'
+[1.887s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib/pkgconfig/key_event_nodes.pc'
+[1.888s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib/python3.10/site-packages'
+[1.888s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/bin'
+[1.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.ps1'
+[1.896s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.dsv'
+[1.896s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.sh'
+[1.896s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.bash'
+[1.896s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.zsh'
+[1.896s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/colcon-core/packages/key_event_nodes)
+[1.899s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control
+[1.906s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(omni_control)
+[1.909s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control' returned '0': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/omni_control
+[1.920s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control' for CMake module files
+[1.921s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control' for CMake config files
+[1.921s] Level 1:colcon.colcon_core.shell:create_environment_hook('omni_control', 'cmake_prefix_path')
+[1.929s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/hook/cmake_prefix_path.ps1'
+[1.929s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/hook/cmake_prefix_path.dsv'
+[1.929s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/hook/cmake_prefix_path.sh'
+[1.930s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/lib'
+[1.930s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/bin'
+[1.930s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/lib/pkgconfig/omni_control.pc'
+[1.930s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/lib/python3.10/site-packages'
+[1.930s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/bin'
+[1.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.ps1'
+[1.939s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.dsv'
+[1.940s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.sh'
+[1.940s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.bash'
+[1.940s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.zsh'
+[1.940s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/colcon-core/packages/omni_control)
+[1.958s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_nodes)
+[1.966s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes' for CMake module files
+[1.967s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes' for CMake config files
+[1.967s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'cmake_prefix_path')
+[1.975s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.ps1'
+[1.976s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.dsv'
+[1.976s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.sh'
+[1.976s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib'
+[1.976s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'ld_library_path_lib')
+[1.986s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.ps1'
+[1.986s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.dsv'
+[1.986s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.sh'
+[1.986s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/bin'
+[1.986s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib/pkgconfig/key_event_nodes.pc'
+[1.987s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib/python3.10/site-packages'
+[1.987s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/bin'
+[1.995s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.ps1'
+[1.996s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.dsv'
+[1.996s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.sh'
+[1.997s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.bash'
+[1.997s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.zsh'
+[1.997s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/share/colcon-core/packages/key_event_nodes)
+[2.009s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(omni_control)
+[2.030s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control' for CMake module files
+[2.031s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control' for CMake config files
+[2.031s] Level 1:colcon.colcon_core.shell:create_environment_hook('omni_control', 'cmake_prefix_path')
+[2.040s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/hook/cmake_prefix_path.ps1'
+[2.040s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/hook/cmake_prefix_path.dsv'
+[2.041s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/hook/cmake_prefix_path.sh'
+[2.041s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/lib'
+[2.041s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/bin'
+[2.041s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/lib/pkgconfig/omni_control.pc'
+[2.041s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/lib/python3.10/site-packages'
+[2.041s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/bin'
+[2.050s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.ps1'
+[2.050s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.dsv'
+[2.050s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.sh'
+[2.051s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.bash'
+[2.051s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/omni_control/package.zsh'
+[2.051s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control/share/colcon-core/packages/omni_control)
+[7.060s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[7.129s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip
+[7.172s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(manip)
+[7.174s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip
+[7.186s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip' for CMake module files
+[7.186s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip' for CMake config files
+[7.187s] Level 1:colcon.colcon_core.shell:create_environment_hook('manip', 'cmake_prefix_path')
+[7.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/cmake_prefix_path.ps1'
+[7.195s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/cmake_prefix_path.dsv'
+[7.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/cmake_prefix_path.sh'
+[7.196s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib'
+[7.196s] Level 1:colcon.colcon_core.shell:create_environment_hook('manip', 'ld_library_path_lib')
+[7.204s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/ld_library_path_lib.ps1'
+[7.204s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/ld_library_path_lib.dsv'
+[7.204s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/ld_library_path_lib.sh'
+[7.204s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/bin'
+[7.204s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/pkgconfig/manip.pc'
+[7.205s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/python3.10/site-packages'
+[7.205s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/bin'
+[7.212s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.ps1'
+[7.213s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.dsv'
+[7.213s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.sh'
+[7.213s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.bash'
+[7.213s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.zsh'
+[7.214s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/colcon-core/packages/manip)
+[7.292s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(manip)
+[7.299s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip' for CMake module files
+[7.300s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip' for CMake config files
+[7.300s] Level 1:colcon.colcon_core.shell:create_environment_hook('manip', 'cmake_prefix_path')
+[7.307s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/cmake_prefix_path.ps1'
+[7.308s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/cmake_prefix_path.dsv'
+[7.308s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/cmake_prefix_path.sh'
+[7.308s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib'
+[7.308s] Level 1:colcon.colcon_core.shell:create_environment_hook('manip', 'ld_library_path_lib')
+[7.316s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/ld_library_path_lib.ps1'
+[7.316s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/ld_library_path_lib.dsv'
+[7.316s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/hook/ld_library_path_lib.sh'
+[7.317s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/bin'
+[7.317s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/pkgconfig/manip.pc'
+[7.317s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib/python3.10/site-packages'
+[7.317s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/bin'
+[7.325s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.ps1'
+[7.325s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.dsv'
+[7.325s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.sh'
+[7.326s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.bash'
+[7.326s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/manip/package.zsh'
+[7.326s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/share/colcon-core/packages/manip)
+[7.326s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.326s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.326s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[7.326s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.347s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.347s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.347s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.356s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.364s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/local_setup.ps1'
+[7.364s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kousei/HaruRobo2024_ws/ros2_ws/install/_local_setup_util_ps1.py'
+[7.365s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/setup.ps1'
+[7.373s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/local_setup.sh'
+[7.374s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kousei/HaruRobo2024_ws/ros2_ws/install/_local_setup_util_sh.py'
+[7.374s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/setup.sh'
+[7.382s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/local_setup.bash'
+[7.382s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/setup.bash'
+[7.391s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/local_setup.zsh'
+[7.391s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/HaruRobo2024_ws/ros2_ws/install/setup.zsh'

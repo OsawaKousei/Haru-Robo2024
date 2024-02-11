@@ -1,0 +1,74 @@
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kvoid ManipControlNode::initialize_state()[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:24:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   24 |       state.[01;31m[Kwork1[m[K = {0,0,0};
+      |             [01;31m[K^~~~~[m[K
+      |             [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:47:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   47 |         auto topic_callback = [this]([01;35m[Kconst manip_msgs::msg::Result &msg[m[K) -> void {
+      |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse ManipControlNode::handle_goal(const GoalUUID&, std::shared_ptr<const manip::action::State_Goal_<std::allocator<void> > >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:71:40:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   71 |     [01;35m[Kstd::shared_ptr<const State::Goal> goal[m[K)
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kvoid ManipControlNode::make_cmd(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:133:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = const struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kconst struct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+  133 |       cmd.work_arm_deploy = goal->[01;31m[Kwork1[m[K[0];
+      |                                   [01;31m[K^~~~~[m[K
+      |                                   [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:136:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = const struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kconst struct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+  136 |       cmd.work_arm = goal->[01;31m[Kwork1[m[K[1];
+      |                            [01;31m[K^~~~~[m[K
+      |                            [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:[m[K In member function ‘[01m[Kvoid ManipJoyNode::initialize_state()[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:24:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   24 |       state.[01;31m[Kwork1[m[K = {0,0,0};
+      |             [01;31m[K^~~~~[m[K
+      |             [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:25:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork2[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   25 |       state.[01;31m[Kwork2[m[K = {0,0,0};
+      |             [01;31m[K^~~~~[m[K
+      |             [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:46:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   46 |             if(state.[01;31m[Kwork1[m[K[0] == 0){
+      |                      [01;31m[K^~~~~[m[K
+      |                      [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:47:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   47 |               state.[01;31m[Kwork1[m[K[0] = 1;
+      |                     [01;31m[K^~~~~[m[K
+      |                     [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:49:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   49 |               state.[01;31m[Kwork1[m[K[0] = 0;
+      |                     [01;31m[K^~~~~[m[K
+      |                     [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:55:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   55 |             if(state.[01;31m[Kwork1[m[K[1] == 0){
+      |                      [01;31m[K^~~~~[m[K
+      |                      [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:56:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   56 |               state.[01;31m[Kwork1[m[K[1] = 1;
+      |                     [01;31m[K^~~~~[m[K
+      |                     [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:58:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   58 |               state.[01;31m[Kwork1[m[K[1] = 0;
+      |                     [01;31m[K^~~~~[m[K
+      |                     [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:64:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   64 |             if(state.[01;31m[Kwork1[m[K[2] == 0){
+      |                      [01;31m[K^~~~~[m[K
+      |                      [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:65:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   65 |               state.[01;31m[Kwork1[m[K[2] = 1;
+      |                     [01;31m[K^~~~~[m[K
+      |                     [32m[Kwork[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:67:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing State_Goal = struct manip::action::State_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip::action::State_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’; did you mean ‘[01m[Kwork[m[K’?
+   67 |               state.[01;31m[Kwork1[m[K[2] = 0;
+      |                     [01;31m[K^~~~~[m[K
+      |                     [32m[Kwork[m[K
+gmake[2]: *** [CMakeFiles/manip_joy_node.dir/build.make:76: CMakeFiles/manip_joy_node.dir/src/manip_joy_node.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/manip_joy_node.dir/all] エラー 2
+gmake[1]: *** 未完了のジョブを待っています....
+gmake[2]: *** [CMakeFiles/manip_control_node.dir/build.make:76: CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:212: CMakeFiles/manip_control_node.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

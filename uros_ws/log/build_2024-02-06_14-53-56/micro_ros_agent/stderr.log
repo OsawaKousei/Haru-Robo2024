@@ -1,0 +1,4 @@
+[0mCMake Error: The current CMakeCache.txt directory /home/kousei/HaruRobo2024_ws/uros_ws/build/micro_ros_agent/CMakeCache.txt is different than the directory /home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_agent where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+gmake[2]: *** 'micro_ros_agent' に必要なターゲット '/opt/ros/humble/lib/libfastrtps.so.2.6.6' を make するルールがありません.  中止.
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/micro_ros_agent.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

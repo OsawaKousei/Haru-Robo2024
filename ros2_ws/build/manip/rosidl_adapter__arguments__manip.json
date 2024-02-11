@@ -1,0 +1,6 @@
+{
+  "package_name": "manip",
+  "non_idl_tuples": [
+    "/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip:action/State.action"
+  ]
+}

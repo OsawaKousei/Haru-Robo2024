@@ -1,0 +1,111 @@
+[0.049s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/bt:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[0.081s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.088s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[0.106s] [  5%] Built target ament_cmake_python_copy_manip
+[0.290s] running egg_info
+[0.291s] writing manip.egg-info/PKG-INFO
+[0.291s] writing dependency_links to manip.egg-info/dependency_links.txt
+[0.291s] writing top-level names to manip.egg-info/top_level.txt
+[0.292s] reading manifest file 'manip.egg-info/SOURCES.txt'
+[0.293s] writing manifest file 'manip.egg-info/SOURCES.txt'
+[0.312s] [  5%] Built target ament_cmake_python_build_manip_egg
+[0.399s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_generator_c[0m
+[0.408s] [  5%] Built target manip__cpp
+[0.410s] [  8%] [32mBuilding C object CMakeFiles/manip__rosidl_generator_c.dir/rosidl_generator_c/manip/action/detail/state__functions.c.o[0m
+[0.416s] [ 11%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[0.417s] [ 14%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[0.420s] [ 17%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[0.504s] [ 20%] [32m[1mLinking C shared library libmanip__rosidl_generator_c.so[0m
+[0.534s] [ 20%] Built target manip__rosidl_generator_c
+[0.544s] [ 22%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[0.548s] [ 25%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[0.548s] [ 28%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[0.719s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_cpp[0m
+[0.731s] [ 31%] [32mBuilding CXX object CMakeFiles/manip__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/manip/action/detail/state__type_support.cpp.o[0m
+[0.732s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_cpp[0m
+[0.745s] [ 34%] [32mBuilding CXX object CMakeFiles/manip__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/manip/action/detail/dds_fastrtps/state__type_support.cpp.o[0m
+[0.821s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_cpp[0m
+[0.838s] [ 37%] [32mBuilding CXX object CMakeFiles/manip__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/manip/action/state__type_support.cpp.o[0m
+[0.862s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_c[0m
+[0.874s] [ 40%] [32mBuilding CXX object CMakeFiles/manip__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/manip/action/detail/state__type_support_c.cpp.o[0m
+[0.895s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_c[0m
+[0.906s] [ 42%] [32mBuilding C object CMakeFiles/manip__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/manip/action/detail/state__type_support.c.o[0m
+[0.954s] [ 45%] [32m[1mLinking C shared library libmanip__rosidl_typesupport_introspection_c.so[0m
+[0.961s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_c[0m
+[0.977s] [ 48%] [32mBuilding CXX object CMakeFiles/manip__rosidl_typesupport_c.dir/rosidl_typesupport_c/manip/action/state__type_support.cpp.o[0m
+[0.981s] [ 48%] Built target manip__rosidl_typesupport_introspection_c
+[1.034s] [ 51%] [32m[1mLinking CXX shared library libmanip__rosidl_typesupport_c.so[0m
+[1.087s] [ 51%] Built target manip__rosidl_typesupport_c
+[1.151s] [ 54%] [32m[1mLinking CXX shared library libmanip__rosidl_typesupport_fastrtps_c.so[0m
+[1.188s] [ 57%] [32m[1mLinking CXX shared library libmanip__rosidl_typesupport_fastrtps_cpp.so[0m
+[1.191s] [ 60%] [32m[1mLinking CXX shared library libmanip__rosidl_typesupport_introspection_cpp.so[0m
+[1.212s] [ 60%] Built target manip__rosidl_typesupport_fastrtps_c
+[1.212s] [ 62%] [32m[1mLinking CXX shared library libmanip__rosidl_typesupport_cpp.so[0m
+[1.245s] [ 62%] Built target manip__rosidl_typesupport_fastrtps_cpp
+[1.247s] [ 62%] Built target manip__rosidl_typesupport_introspection_cpp
+[1.249s] [ 62%] Built target manip__rosidl_typesupport_cpp
+[1.258s] [35m[1mConsolidate compiler generated dependencies of target manip_control_node[0m
+[1.258s] [35m[1mConsolidate compiler generated dependencies of target manip_joy_node[0m
+[1.268s] [ 62%] Built target manip
+[1.272s] [ 68%] [32mBuilding CXX object CMakeFiles/manip_joy_node.dir/src/manip_joy_node.cpp.o[0m
+[1.272s] [ 68%] [32mBuilding CXX object CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o[0m
+[1.290s] [ 71%] [34m[1mGenerating Python code for ROS interfaces[0m
+[1.836s] [ 71%] Built target manip__py
+[1.845s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_generator_py[0m
+[1.855s] [ 74%] [32mBuilding C object CMakeFiles/manip__rosidl_generator_py.dir/rosidl_generator_py/manip/action/_state_s.c.o[0m
+[1.996s] [ 77%] [32m[1mLinking C shared library rosidl_generator_py/manip/libmanip__rosidl_generator_py.so[0m
+[2.034s] [ 77%] Built target manip__rosidl_generator_py
+[2.043s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_c__pyext[0m
+[2.046s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_c__pyext[0m
+[2.047s] [35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_c__pyext[0m
+[2.053s] [ 80%] [32mBuilding C object CMakeFiles/manip__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/manip/_manip_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[2.056s] [ 82%] [32mBuilding C object CMakeFiles/manip__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/manip/_manip_s.ep.rosidl_typesupport_c.c.o[0m
+[2.063s] [ 85%] [32mBuilding C object CMakeFiles/manip__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/manip/_manip_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[2.150s] [ 88%] [32m[1mLinking C shared library rosidl_generator_py/manip/manip_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.151s] [ 91%] [32m[1mLinking C shared library rosidl_generator_py/manip/manip_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.168s] [ 94%] [32m[1mLinking C shared library rosidl_generator_py/manip/manip_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.195s] [ 94%] Built target manip__rosidl_typesupport_fastrtps_c__pyext
+[2.195s] [ 94%] Built target manip__rosidl_typesupport_c__pyext
+[2.223s] [ 94%] Built target manip__rosidl_typesupport_introspection_c__pyext
+[2.954s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kvoid ManipControlNode::initialize_message()[m[K’:
+[2.954s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:29:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kbase1[m[K’
+[2.954s]    29 |     cmd.[01;31m[Kbase1[m[K = {-1,-1};
+[2.954s]       |         [01;31m[K^~~~~[m[K
+[2.954s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:30:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kbase2[m[K’
+[2.954s]    30 |     cmd.[01;31m[Kbase2[m[K = {-1,-1};
+[2.954s]       |         [01;31m[K^~~~~[m[K
+[2.954s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:31:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’
+[2.954s]    31 |     cmd.[01;31m[Kwork1[m[K = {-1,-1,-1};
+[2.955s]       |         [01;31m[K^~~~~[m[K
+[2.955s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:32:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork2[m[K’
+[2.955s]    32 |     cmd.[01;31m[Kwork2[m[K = {-1,-1,-1};
+[2.955s]       |         [01;31m[K^~~~~[m[K
+[2.955s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In lambda function:
+[2.956s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:45:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.956s]    45 |         auto topic_callback = [this]([01;35m[Kconst manip_msgs::msg::Result &msg[m[K) -> void {
+[2.956s]       |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[2.979s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse ManipControlNode::handle_goal(const GoalUUID&, std::shared_ptr<const manip::action::State_Goal_<std::allocator<void> > >)[m[K’:
+[2.979s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:69:40:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.979s]    69 |     [01;35m[Kstd::shared_ptr<const State::Goal> goal[m[K)
+[2.979s]       |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[2.986s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kvoid ManipControlNode::make_cmd(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >)[m[K’:
+[2.986s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:131:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’
+[2.986s]   131 |       cmd.[01;31m[Kwork1[m[K[0] = goal->work1[0];
+[2.986s]       |           [01;31m[K^~~~~[m[K
+[2.986s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:134:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’
+[2.986s]   134 |       cmd.[01;31m[Kwork1[m[K[1] = goal->work1[1];
+[2.986s]       |           [01;31m[K^~~~~[m[K
+[2.986s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:137:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’
+[2.987s]   137 |       cmd.[01;31m[Kwork1[m[K[2] = goal->work1[2];
+[2.987s]       |           [01;31m[K^~~~~[m[K
+[2.987s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kvoid ManipControlNode::show_message(manip_msgs::msg::Cmd)[m[K’:
+[2.987s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:163:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cmd = struct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct manip_msgs::msg::Cmd_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kwork1[m[K’
+[2.987s]   163 |   for (auto const& value : message.[01;31m[Kwork1[m[K) ss << value << "; ";
+[2.987s]       |                                    [01;31m[K^~~~~[m[K
+[4.728s] gmake[2]: *** [CMakeFiles/manip_control_node.dir/build.make:76: CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o] エラー 1
+[4.728s] gmake[1]: *** [CMakeFiles/Makefile2:212: CMakeFiles/manip_control_node.dir/all] エラー 2
+[4.728s] gmake[1]: *** 未完了のジョブを待っています....
+[7.360s] [ 97%] [32m[1mLinking CXX executable manip_joy_node[0m
+[7.671s] [ 97%] Built target manip_joy_node
+[7.672s] gmake: *** [Makefile:146: all] エラー 2
+[7.674s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '2': CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2:/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following:/home/kousei/HaruRobo2024_ws/ros2_ws/install/omni_control:/home/kousei/HaruRobo2024_ws/ros2_ws/install/bt:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/urg_node2/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/drive_msgs/lib:/usr/local/lib:/usr/local/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16

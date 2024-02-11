@@ -1,0 +1,22 @@
+[0.082s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[0.097s] -- Found ament_cmake_auto: 1.3.6 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.312s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.314s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.318s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.326s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.337s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.375s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.377s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.466s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.916s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.918s] -- Configuring incomplete, errors occurred!
+[0.918s] See also "/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip/CMakeFiles/CMakeOutput.log".
+[0.918s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:77 (message):
+[0.919s]   ament_target_dependencies() the passed package name
+[0.919s]   'action_tutorials_interfaces' was not found before
+[0.919s] Call Stack (most recent call first):
+[0.919s]   CMakeLists.txt:34 (ament_target_dependencies)
+[0.919s] 
+[0.919s] [0m
+[0.924s] gmake: *** [Makefile:390: cmake_check_build_system] エラー 1
+[0.942s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16

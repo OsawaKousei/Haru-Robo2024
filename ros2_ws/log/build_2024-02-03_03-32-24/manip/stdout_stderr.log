@@ -1,0 +1,38 @@
+[  1%] Built target manip__cpp
+[ 11%] Built target manip__rosidl_generator_c
+[ 11%] Built target ament_cmake_python_copy_manip
+[ 21%] Built target manip__rosidl_typesupport_fastrtps_cpp
+[ 31%] Built target manip__rosidl_typesupport_cpp
+[ 41%] Built target manip__rosidl_typesupport_introspection_cpp
+[ 50%] Built target manip__rosidl_typesupport_introspection_c
+[ 60%] Built target manip__rosidl_typesupport_c
+[ 70%] Built target manip__rosidl_typesupport_fastrtps_c
+[35m[1mConsolidate compiler generated dependencies of target manip_control_node[0m
+[35m[1mConsolidate compiler generated dependencies of target manip_joy_node[0m
+[ 70%] Built target manip
+[ 72%] [32m[1mLinking CXX executable manip_control_node[0m
+[ 74%] [32m[1mLinking CXX executable manip_joy_node[0m
+[ 76%] Built target manip__py
+[ 84%] Built target manip__rosidl_generator_py
+[ 88%] Built target manip__rosidl_typesupport_fastrtps_c__pyext
+[ 96%] Built target manip__rosidl_typesupport_c__pyext
+[ 96%] Built target manip__rosidl_typesupport_introspection_c__pyext
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x1b): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/manip_control_node.dir/build.make:235: manip_control_node] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:212: CMakeFiles/manip_control_node.dir/all] エラー 2
+gmake[1]: *** 未完了のジョブを待っています....
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x1b): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/manip_joy_node.dir/build.make:235: manip_joy_node] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/manip_joy_node.dir/all] エラー 2
+running egg_info
+writing manip.egg-info/PKG-INFO
+writing dependency_links to manip.egg-info/dependency_links.txt
+writing top-level names to manip.egg-info/top_level.txt
+reading manifest file 'manip.egg-info/SOURCES.txt'
+writing manifest file 'manip.egg-info/SOURCES.txt'
+[ 96%] Built target ament_cmake_python_build_manip_egg
+gmake: *** [Makefile:146: all] エラー 2

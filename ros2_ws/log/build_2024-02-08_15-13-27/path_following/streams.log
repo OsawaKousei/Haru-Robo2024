@@ -1,0 +1,374 @@
+[0.168s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following -- -j16 -l16
+[0.222s] [ 50%] [32mBuilding CXX object CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o[0m
+[1.740s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:10:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip[m[K’ does not name a type
+[1.740s]    10 |     using State = [01;31m[Kmanip[m[K::action::State;
+[1.740s]       |                   [01;31m[K^~~~~[m[K
+[1.743s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:11:61:[m[K [01;31m[Kerror: [m[K‘[01m[KState[m[K’ was not declared in this scope; did you mean ‘[01m[K_xstate[m[K’?
+[1.743s]    11 |     using GoalHandleState = rclcpp_action::ServerGoalHandle<[01;31m[KState[m[K>;
+[1.744s]       |                                                             [01;31m[K^~~~~[m[K
+[1.744s]       |                                                             [32m[K_xstate[m[K
+[1.744s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:11:66:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.744s]    11 |     using GoalHandleState = rclcpp_action::ServerGoalHandle<State[01;31m[K>[m[K;
+[1.744s]       |                                                                  [01;31m[K^[m[K
+[1.744s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:13:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip[m[K’ does not name a type
+[1.744s]    13 |     [01;31m[Kmanip[m[K::action::State_Goal state = manip::action::State_Goal();
+[1.744s]       |     [01;31m[K^~~~~[m[K
+[1.745s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:16:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip_msgs[m[K’ does not name a type
+[1.745s]    16 |     [01;31m[Kmanip_msgs[m[K::msg::Cmd cmd = manip_msgs::msg::Cmd();
+[1.745s]       |     [01;31m[K^~~~~~~~~~[m[K
+[1.749s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:59:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip[m[K’ was not declared in this scope
+[1.749s]    59 |     rclcpp_action::Server<[01;31m[Kmanip[m[K::action::State>::SharedPtr action_server_;
+[1.749s]       |                           [01;31m[K^~~~~[m[K
+[1.749s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:59:47:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.749s]    59 |     rclcpp_action::Server<manip::action::State[01;31m[K>[m[K::SharedPtr action_server_;
+[1.749s]       |                                               [01;31m[K^[m[K
+[1.749s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:59:50:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[1.749s]    59 |     rclcpp_action::Server<manip::action::State>::[01;31m[KSharedPtr[m[K action_server_;
+[1.749s]       |                                                  [01;31m[K^~~~~~~~~[m[K
+[1.749s]       |                                                           [32m[K;[m[K
+[1.750s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:59:60:[m[K [01;31m[Kerror: [m[K‘[01m[Kaction_server_[m[K’ does not name a type; did you mean ‘[01m[Krcl_action_server_t[m[K’?
+[1.750s]    59 |     rclcpp_action::Server<manip::action::State>::SharedPtr [01;31m[Kaction_server_[m[K;
+[1.750s]       |                                                            [01;31m[K^~~~~~~~~~~~~~[m[K
+[1.750s]       |                                                            [32m[Krcl_action_server_t[m[K
+[1.754s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip_msgs[m[K’ was not declared in this scope
+[1.755s]    60 |     rclcpp::Subscription<[01;31m[Kmanip_msgs[m[K::msg::Result>::SharedPtr subscription_;
+[1.755s]       |                          [01;31m[K^~~~~~~~~~[m[K
+[1.755s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:49:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.755s]    60 |     rclcpp::Subscription<manip_msgs::msg::Result[01;31m[K>[m[K::SharedPtr subscription_;
+[1.755s]       |                                                 [01;31m[K^[m[K
+[1.755s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:49:[m[K [01;31m[Kerror: [m[Ktemplate argument 3 is invalid
+[1.755s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:49:[m[K [01;31m[Kerror: [m[Ktemplate argument 4 is invalid
+[1.755s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:49:[m[K [01;31m[Kerror: [m[Ktemplate argument 5 is invalid
+[1.756s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:52:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[1.756s]    60 |     rclcpp::Subscription<manip_msgs::msg::Result>::[01;31m[KSharedPtr[m[K subscription_;
+[1.756s]       |                                                    [01;31m[K^~~~~~~~~[m[K
+[1.756s]       |                                                             [32m[K;[m[K
+[1.756s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:52:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kint PathfollowingNode::SharedPtr[m[K’
+[1.756s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:59:50:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kint PathfollowingNode::SharedPtr[m[K’
+[1.756s]    59 |     rclcpp_action::Server<manip::action::State>::[01;36m[KSharedPtr[m[K action_server_;
+[1.756s]       |                                                  [01;36m[K^~~~~~~~~[m[K
+[1.756s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:60:62:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_[m[K’ does not name a type; did you mean ‘[01m[Krmw_subscription_t[m[K’?
+[1.757s]    60 |     rclcpp::Subscription<manip_msgs::msg::Result>::SharedPtr [01;31m[Ksubscription_[m[K;
+[1.757s]       |                                                              [01;31m[K^~~~~~~~~~~~~[m[K
+[1.757s]       |                                                              [32m[Krmw_subscription_t[m[K
+[1.760s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:61:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip_msgs[m[K’ was not declared in this scope
+[1.761s]    61 |     rclcpp::Publisher<[01;31m[Kmanip_msgs[m[K::msg::Cmd>::SharedPtr publisher_;
+[1.761s]       |                       [01;31m[K^~~~~~~~~~[m[K
+[1.761s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:61:43:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.761s]    61 |     rclcpp::Publisher<manip_msgs::msg::Cmd[01;31m[K>[m[K::SharedPtr publisher_;
+[1.761s]       |                                           [01;31m[K^[m[K
+[1.761s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:61:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[1.762s]    61 |     rclcpp::Publisher<manip_msgs::msg::Cmd>::[01;31m[KSharedPtr[m[K publisher_;
+[1.762s]       |                                              [01;31m[K^~~~~~~~~[m[K
+[1.762s]       |                                                       [32m[K;[m[K
+[1.762s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:61:46:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kint PathfollowingNode::SharedPtr[m[K’
+[1.762s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:59:50:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kint PathfollowingNode::SharedPtr[m[K’
+[1.762s]    59 |     rclcpp_action::Server<manip::action::State>::[01;36m[KSharedPtr[m[K action_server_;
+[1.762s]       |                                                  [01;36m[K^~~~~~~~~[m[K
+[1.762s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:61:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_[m[K’ does not name a type; did you mean ‘[01m[Krmw_publisher_t[m[K’?
+[1.762s]    61 |     rclcpp::Publisher<manip_msgs::msg::Cmd>::SharedPtr [01;31m[Kpublisher_[m[K;
+[1.763s]       |                                                        [01;31m[K^~~~~~~~~~[m[K
+[1.763s]       |                                                        [32m[Krmw_publisher_t[m[K
+[1.763s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:32:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Ktype name[m[K’ with no type [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[1.763s]    66 |     std::shared_ptr<const State[01;31m[K::[m[KGoal> goal)
+[1.763s]       |                                [01;31m[K^~[m[K
+[1.763s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:38:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.763s]    66 |     std::shared_ptr<const State::Goal[01;31m[K>[m[K goal)
+[1.763s]       |                                      [01;31m[K^[m[K
+[1.763s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:32:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Ktype name[m[K’ with no type [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[1.763s]    66 |     std::shared_ptr<const State[01;31m[K::[m[KGoal> goal)
+[1.763s]       |                                [01;31m[K^~[m[K
+[1.763s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:38:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.763s]    66 |     std::shared_ptr<const State::Goal[01;31m[K>[m[K goal)
+[1.763s]       |                                      [01;31m[K^[m[K
+[1.763s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:32:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Ktype name[m[K’ with no type [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[1.763s]    66 |     std::shared_ptr<const State[01;31m[K::[m[KGoal> goal)
+[1.763s]       |                                [01;31m[K^~[m[K
+[1.764s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:38:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.764s]    66 |     std::shared_ptr<const State::Goal[01;31m[K>[m[K goal)
+[1.764s]       |                                      [01;31m[K^[m[K
+[1.764s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:5:[m[K [01;31m[Kerror: [m[Kinvalid template-id
+[1.764s]    66 |     [01;31m[Kstd[m[K::shared_ptr<const State::Goal> goal)
+[1.764s]       |     [01;31m[K^~~[m[K
+[1.764s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:32:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Ktype name[m[K’ with no type [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[1.764s]    66 |     std::shared_ptr<const State[01;31m[K::[m[KGoal> goal)
+[1.764s]       |                                [01;31m[K^~[m[K
+[1.764s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:21:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[Kconst[m[K’
+[1.764s]    66 |     std::shared_ptr<[01;31m[Kconst[m[K State::Goal> goal)
+[1.764s]       |                     [01;31m[K^~~~~[m[K
+[1.764s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K>[m[K’ before ‘[01m[Kconst[m[K’
+[1.764s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:66:5:[m[K [01;31m[Kerror: [m[Kclass template placeholder ‘[01m[Kstd::shared_ptr[m[K’ not permitted in this context
+[1.764s]    66 |     [01;31m[Kstd[m[K::shared_ptr<const State::Goal> goal)
+[1.764s]       |     [01;31m[K^~~[m[K
+[1.767s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:75:27:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleState[m[K’ was not declared in this scope
+[1.768s]    75 |     const std::shared_ptr<[01;31m[KGoalHandleState[m[K> goal_handle)
+[1.768s]       |                           [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.768s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:75:42:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.768s]    75 |     const std::shared_ptr<GoalHandleState[01;31m[K>[m[K goal_handle)
+[1.768s]       |                                          [01;31m[K^[m[K
+[1.773s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:83:46:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleState[m[K’ was not declared in this scope
+[1.773s]    83 |   void handle_accepted(const std::shared_ptr<[01;31m[KGoalHandleState[m[K> goal_handle)
+[1.773s]       |                                              [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.773s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:83:61:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.773s]    83 |   void handle_accepted(const std::shared_ptr<GoalHandleState[01;31m[K>[m[K goal_handle)
+[1.773s]       |                                                             [01;31m[K^[m[K
+[1.779s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:96:38:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleState[m[K’ was not declared in this scope
+[1.779s]    96 |   void execute(const std::shared_ptr<[01;31m[KGoalHandleState[m[K> goal_handle)
+[1.779s]       |                                      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.779s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:96:53:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.779s]    96 |   void execute(const std::shared_ptr<GoalHandleState[01;31m[K>[m[K goal_handle)
+[1.779s]       |                                                     [01;31m[K^[m[K
+[1.785s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:121:39:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleState[m[K’ was not declared in this scope
+[1.785s]   121 |   void make_cmd(const std::shared_ptr<[01;31m[KGoalHandleState[m[K> goal_handle){
+[1.785s]       |                                       [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.785s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:121:54:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.785s]   121 |   void make_cmd(const std::shared_ptr<GoalHandleState[01;31m[K>[m[K goal_handle){
+[1.785s]       |                                                      [01;31m[K^[m[K
+[1.791s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:140:42:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleState[m[K’ was not declared in this scope
+[1.791s]   140 |   void execute_cmd(const std::shared_ptr<[01;31m[KGoalHandleState[m[K> goal_handle){
+[1.791s]       |                                          [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.791s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:140:57:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.791s]   140 |   void execute_cmd(const std::shared_ptr<GoalHandleState[01;31m[K>[m[K goal_handle){
+[1.791s]       |                                                         [01;31m[K^[m[K
+[1.791s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:159:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip_msgs[m[K’ has not been declared
+[1.791s]   159 |   void show_message([01;31m[Kmanip_msgs[m[K::msg::Cmd message){
+[1.791s]       |                     [01;31m[K^~~~~~~~~~[m[K
+[1.791s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:159:42:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[Kmessage[m[K’
+[1.791s]   159 |   void show_message(manip_msgs::msg::Cmd [01;31m[Kmessage[m[K){
+[1.791s]       |                                          [01;31m[K^~~~~~~[m[K
+[1.796s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:168:40:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleState[m[K’ was not declared in this scope
+[1.796s]   168 |   void show_goal(const std::shared_ptr<[01;31m[KGoalHandleState[m[K> goal_handle){
+[1.797s]       |                                        [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.797s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:168:55:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.797s]   168 |   void show_goal(const std::shared_ptr<GoalHandleState[01;31m[K>[m[K goal_handle){
+[1.797s]       |                                                       [01;31m[K^[m[K
+[1.797s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:178:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip[m[K’ has not been declared
+[1.797s]   178 |   void show_state([01;31m[Kmanip[m[K::action::State_Goal state){
+[1.797s]       |                   [01;31m[K^~~~~[m[K
+[1.797s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:178:45:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[Kstate[m[K’
+[1.797s]   178 |   void show_state(manip::action::State_Goal [01;31m[Kstate[m[K){
+[1.797s]       |                                             [01;31m[K^~~~~[m[K
+[1.800s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::initialize_state()[m[K’:
+[1.800s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:19:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kstate[m[K’ was not declared in this scope; did you mean ‘[01m[K_xstate[m[K’?
+[1.800s]    19 |       [01;31m[Kstate[m[K.base1 = {0,0};
+[1.801s]       |       [01;31m[K^~~~~[m[K
+[1.801s]       |       [32m[K_xstate[m[K
+[1.803s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::initialize_message()[m[K’:
+[1.803s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:26:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcmd[m[K’ was not declared in this scope
+[1.803s]    26 |     [01;31m[Kcmd[m[K.base1 = {-1,-1};
+[1.803s]       |     [01;31m[K^~~[m[K
+[1.808s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In constructor ‘[01m[KPathfollowingNode::PathfollowingNode(const rclcpp::NodeOptions&)[m[K’:
+[1.808s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:39:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_publisher_t[m[K’?
+[1.808s]    39 |         [01;31m[Kpublisher_[m[K = this->create_publisher<manip_msgs::msg::Cmd>("manip_cmd_f7", 10);
+[1.808s]       |         [01;31m[K^~~~~~~~~~[m[K
+[1.808s]       |         [32m[Krmw_publisher_t[m[K
+[1.812s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:39:45:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip_msgs[m[K’ was not declared in this scope
+[1.812s]    39 |         publisher_ = this->create_publisher<[01;31m[Kmanip_msgs[m[K::msg::Cmd>("manip_cmd_f7", 10);
+[1.812s]       |                                             [01;31m[K^~~~~~~~~~[m[K
+[1.812s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:39:28:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[1.812s]    39 |         publisher_ = this->[01;31m[Kcreate_publisher<manip_msgs::msg::Cmd>[m[K("manip_cmd_f7", 10);
+[1.812s]       |                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.812s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:39:66:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KPathfollowingNode::create_publisher<<expression error> >(const char [13], int)[m[K’
+[1.812s]    39 |         publisher_ = [01;31m[Kthis->create_publisher<manip_msgs::msg::Cmd>("manip_cmd_f7", 10)[m[K;
+[1.812s]       |                      [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~[m[K
+[1.812s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[1.812s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+[1.812s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.812s]                  from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:5[m[K:
+[1.812s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:195:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)[m[K’
+[1.812s]   195 |   [01;36m[Kcreate_publisher[m[K(
+[1.812s]       |   [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[1.813s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:195:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.813s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:39:66:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.813s]    39 |         publisher_ = [01;31m[Kthis->create_publisher<manip_msgs::msg::Cmd>("manip_cmd_f7", 10)[m[K;
+[1.813s]       |                      [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~[m[K
+[1.813s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:42:44:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip_msgs[m[K’ does not name a type
+[1.813s]    42 |         auto topic_callback = [this](const [01;31m[Kmanip_msgs[m[K::msg::Result &msg) -> void {
+[1.813s]       |                                            [01;31m[K^~~~~~~~~~[m[K
+[1.813s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:46:10:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K;[m[K’ token
+[1.814s]    46 |         }[01;31m[K;[m[K
+[1.814s]       |          [01;31m[K^[m[K
+[1.814s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:42:37:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[1.814s]    42 |         auto topic_callback = [this][01;36m[K([m[Kconst manip_msgs::msg::Result &msg) -> void {
+[1.814s]       |                                     [01;36m[K^[m[K
+[1.814s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In lambda function:
+[1.814s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:46:10:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K{[m[K’ before ‘[01m[K;[m[K’ token
+[1.814s]    46 |         }[01;31m[K;[m[K
+[1.814s]       |          [01;31m[K^[m[K
+[1.818s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In constructor ‘[01m[KPathfollowingNode::PathfollowingNode(const rclcpp::NodeOptions&)[m[K’:
+[1.818s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:49:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_subscription_t[m[K’?
+[1.818s]    49 |         [01;31m[Ksubscription_[m[K = this->create_subscription<manip_msgs::msg::Result>("manip_reult_f7", 10, topic_callback);
+[1.818s]       |         [01;31m[K^~~~~~~~~~~~~[m[K
+[1.819s]       |         [32m[Krmw_subscription_t[m[K
+[1.819s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:49:31:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[1.819s]    49 |         subscription_ = this->[01;31m[Kcreate_subscription<manip_msgs::msg::Result>[m[K("manip_reult_f7", 10, topic_callback);
+[1.819s]       |                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.819s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:49:75:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KPathfollowingNode::create_subscription<manip_msgs>(const char [15], int, PathfollowingNode::PathfollowingNode(const rclcpp::NodeOptions&)::<lambda(int)>&)[m[K’
+[1.819s]    49 |         subscription_ = [01;31m[Kthis->create_subscription<manip_msgs::msg::Result>("manip_reult_f7", 10, topic_callback)[m[K;
+[1.819s]       |                         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.819s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[1.819s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+[1.819s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.819s]                  from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:5[m[K:
+[1.819s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:219:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class MessageT, class CallbackT, class AllocatorT, class SubscriptionT, class MessageMemoryStrategyT> std::shared_ptr<ROSMessageT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr)[m[K’
+[1.819s]   219 |   [01;36m[Kcreate_subscription[m[K(
+[1.819s]       |   [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[1.819s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:219:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.819s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:51:15:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass PathfollowingNode[m[K’ has no member named ‘[01m[Kaction_server_[m[K’
+[1.819s]    51 |         this->[01;31m[Kaction_server_[m[K = rclcpp_action::create_server<manip::action::State>(
+[1.819s]       |               [01;31m[K^~~~~~~~~~~~~~[m[K
+[1.822s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:51:61:[m[K [01;31m[Kerror: [m[K‘[01m[Kmanip[m[K’ was not declared in this scope
+[1.822s]    51 |         this->action_server_ = rclcpp_action::create_server<[01;31m[Kmanip[m[K::action::State>(
+[1.822s]       |                                                             [01;31m[K^~~~~[m[K
+[1.822s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:51:47:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[1.822s]    51 |         this->action_server_ = rclcpp_action::[01;31m[Kcreate_server<manip::action::State>[m[K(
+[1.822s]       |                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.829s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:51:82:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcreate_server<<expression error> >(PathfollowingNode*, const char [14], std::_Bind_helper<false, rclcpp_action::GoalResponse (PathfollowingNode::*)(...), PathfollowingNode*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type, std::_Bind_helper<false, rclcpp_action::CancelResponse (PathfollowingNode::*)(int), PathfollowingNode*, const std::_Placeholder<1>&>::type, std::_Bind_helper<false, void (PathfollowingNode::*)(int), PathfollowingNode*, const std::_Placeholder<1>&>::type)[m[K’
+[1.829s]    51 |         this->action_server_ = [01;31m[Krclcpp_action::create_server<manip::action::State>([m[K
+[1.829s]       |                                [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[1.829s]    52 | [01;31m[K        this,[m[K
+[1.829s]       |         [01;31m[K~~~~~[m[K                                                                     
+[1.830s]    53 | [01;31m[K        "manip_control",[m[K
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~[m[K                                                          
+[1.830s]    54 | [01;31m[K        std::bind(&PathfollowingNode::handle_goal, this, _1, _2),[m[K
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                 
+[1.830s]    55 | [01;31m[K        std::bind(&PathfollowingNode::handle_cancel, this, _1),[m[K
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                   
+[1.830s]    56 | [01;31m[K        std::bind(&PathfollowingNode::handle_accepted, this, _1))[m[K;
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                 
+[1.830s] In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:39[m[K,
+[1.830s]                  from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:6[m[K:
+[1.830s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:58:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT> typename rclcpp_action::Server<ActionT>::SharedPtr rclcpp_action::create_server(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeClockInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, typename rclcpp_action::Server<ActionT>::GoalCallback, typename rclcpp_action::Server<ActionT>::CancelCallback, typename rclcpp_action::Server<ActionT>::AcceptedCallback, const rcl_action_server_options_t&, rclcpp::CallbackGroup::SharedPtr)[m[K’
+[1.830s]    58 | [01;36m[Kcreate_server[m[K(
+[1.830s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.830s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:58:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.830s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:51:82:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.830s]    51 |         this->action_server_ = [01;31m[Krclcpp_action::create_server<manip::action::State>([m[K
+[1.830s]       |                                [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[1.830s]    52 | [01;31m[K        this,[m[K
+[1.830s]       |         [01;31m[K~~~~~[m[K                                                                     
+[1.830s]    53 | [01;31m[K        "manip_control",[m[K
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~[m[K                                                          
+[1.830s]    54 | [01;31m[K        std::bind(&PathfollowingNode::handle_goal, this, _1, _2),[m[K
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                 
+[1.830s]    55 | [01;31m[K        std::bind(&PathfollowingNode::handle_cancel, this, _1),[m[K
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                   
+[1.830s]    56 | [01;31m[K        std::bind(&PathfollowingNode::handle_accepted, this, _1))[m[K;
+[1.830s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                 
+[1.830s] In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:39[m[K,
+[1.830s]                  from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:6[m[K:
+[1.830s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:132:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Server<ActionT>::SharedPtr rclcpp_action::create_server(NodeT, const string&, typename rclcpp_action::Server<ActionT>::GoalCallback, typename rclcpp_action::Server<ActionT>::CancelCallback, typename rclcpp_action::Server<ActionT>::AcceptedCallback, const rcl_action_server_options_t&, rclcpp::CallbackGroup::SharedPtr)[m[K’
+[1.830s]   132 | [01;36m[Kcreate_server[m[K(
+[1.830s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.830s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:132:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.830s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:51:82:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.830s]    51 |         this->action_server_ = [01;31m[Krclcpp_action::create_server<manip::action::State>([m[K
+[1.830s]       |                                [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[1.831s]    52 | [01;31m[K        this,[m[K
+[1.831s]       |         [01;31m[K~~~~~[m[K                                                                     
+[1.831s]    53 | [01;31m[K        "manip_control",[m[K
+[1.831s]       |         [01;31m[K~~~~~~~~~~~~~~~~[m[K                                                          
+[1.831s]    54 | [01;31m[K        std::bind(&PathfollowingNode::handle_goal, this, _1, _2),[m[K
+[1.831s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                 
+[1.831s]    55 | [01;31m[K        std::bind(&PathfollowingNode::handle_cancel, this, _1),[m[K
+[1.831s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                   
+[1.831s]    56 | [01;31m[K        std::bind(&PathfollowingNode::handle_accepted, this, _1))[m[K;
+[1.831s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                 
+[1.834s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::execute(int)[m[K’:
+[1.834s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:102:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kcmd[m[K’ was not declared in this scope
+[1.834s]   102 |     show_message([01;31m[Kcmd[m[K);
+[1.834s]       |                  [01;31m[K^~~[m[K
+[1.837s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:110:38:[m[K [01;31m[Kerror: [m[K‘[01m[KState[m[K’ was not declared in this scope; did you mean ‘[01m[K_xstate[m[K’?
+[1.837s]   110 |     auto feedback = std::make_shared<[01;31m[KState[m[K::Feedback>();
+[1.837s]       |                                      [01;31m[K^~~~~[m[K
+[1.837s]       |                                      [32m[K_xstate[m[K
+[1.838s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:110:26:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[1.838s]   110 |     auto feedback = std::[01;31m[Kmake_shared<State::Feedback>[m[K();
+[1.838s]       |                          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.838s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:110:54:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmake_shared<<expression error> >()[m[K’
+[1.838s]   110 |     auto feedback = [01;31m[Kstd::make_shared<State::Feedback>()[m[K;
+[1.838s]       |                     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[1.838s] In file included from [01m[K/usr/include/c++/11/memory:77[m[K,
+[1.838s]                  from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:2[m[K:
+[1.838s] [01m[K/usr/include/c++/11/bits/shared_ptr.h:875:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class ... _Args> std::shared_ptr<_Tp> std::make_shared(_Args&& ...)[m[K’
+[1.838s]   875 |     [01;36m[Kmake_shared[m[K(_Args&&... __args)
+[1.838s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[1.838s] [01m[K/usr/include/c++/11/bits/shared_ptr.h:875:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.838s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:110:54:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.838s]   110 |     auto feedback = [01;31m[Kstd::make_shared<State::Feedback>()[m[K;
+[1.838s]       |                     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[1.838s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:111:24:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[1.838s]   111 |     auto result = std::[01;31m[Kmake_shared<State::Result>[m[K();
+[1.838s]       |                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.838s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:111:50:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmake_shared<State>()[m[K’
+[1.838s]   111 |     auto result = [01;31m[Kstd::make_shared<State::Result>()[m[K;
+[1.838s]       |                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[1.838s] In file included from [01m[K/usr/include/c++/11/memory:77[m[K,
+[1.838s]                  from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:2[m[K:
+[1.838s] [01m[K/usr/include/c++/11/bits/shared_ptr.h:875:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class ... _Args> std::shared_ptr<_Tp> std::make_shared(_Args&& ...)[m[K’
+[1.838s]   875 |     [01;36m[Kmake_shared[m[K(_Args&&... __args)
+[1.838s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[1.838s] [01m[K/usr/include/c++/11/bits/shared_ptr.h:875:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.838s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:114:16:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+[1.838s]   114 |     goal_handle[01;31m[K->[m[Kpublish_feedback(feedback);
+[1.838s]       |                [01;31m[K^~[m[K
+[1.838s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:118:16:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+[1.838s]   118 |     goal_handle[01;31m[K->[m[Ksucceed(result);
+[1.839s]       |                [01;31m[K^~[m[K
+[1.839s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::make_cmd(int)[m[K’:
+[1.839s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:122:34:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+[1.839s]   122 |     const auto goal = goal_handle[01;31m[K->[m[Kget_goal();
+[1.839s]       |                                  [01;31m[K^~[m[K
+[1.841s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:126:16:[m[K [01;31m[Kerror: [m[K‘[01m[Kstate[m[K’ was not declared in this scope; did you mean ‘[01m[K_xstate[m[K’?
+[1.841s]   126 |     show_state([01;31m[Kstate[m[K);
+[1.841s]       |                [01;31m[K^~~~~[m[K
+[1.841s]       |                [32m[K_xstate[m[K
+[1.844s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:129:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kcmd[m[K’ was not declared in this scope
+[1.844s]   129 |       [01;31m[Kcmd[m[K.work1[0] = goal->work1[0];
+[1.844s]       |       [01;31m[K^~~[m[K
+[1.847s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:132:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kcmd[m[K’ was not declared in this scope
+[1.847s]   132 |       [01;31m[Kcmd[m[K.work1[1] = goal->work1[1];
+[1.847s]       |       [01;31m[K^~~[m[K
+[1.850s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:137:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kcmd[m[K’ was not declared in this scope
+[1.850s]   137 |     show_message([01;31m[Kcmd[m[K);
+[1.850s]       |                  [01;31m[K^~~[m[K
+[1.850s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::execute_cmd(int)[m[K’:
+[1.850s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:141:34:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+[1.850s]   141 |     const auto goal = goal_handle[01;31m[K->[m[Kget_goal();
+[1.850s]       |                                  [01;31m[K^~[m[K
+[1.850s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:145:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass PathfollowingNode[m[K’ has no member named ‘[01m[Kpublisher_[m[K’
+[1.850s]   145 |     this->[01;31m[Kpublisher_[m[K->publish(cmd);
+[1.850s]       |           [01;31m[K^~~~~~~~~~[m[K
+[1.853s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:145:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kcmd[m[K’ was not declared in this scope
+[1.853s]   145 |     this->publisher_->publish([01;31m[Kcmd[m[K);
+[1.853s]       |                               [01;31m[K^~~[m[K
+[1.853s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:149:22:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+[1.853s]   149 |     if(!cmd.work1[0] [01;35m[K==[m[K -1){
+[1.853s]       |                      [01;35m[K^~[m[K
+[1.856s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:153:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kstate[m[K’ was not declared in this scope; did you mean ‘[01m[K_xstate[m[K’?
+[1.856s]   153 |     [01;31m[Kstate[m[K.base1 = goal->base1;
+[1.856s]       |     [01;31m[K^~~~~[m[K
+[1.856s]       |     [32m[K_xstate[m[K
+[1.860s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::show_message(int)[m[K’:
+[1.860s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:163:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kmessage[m[K’ was not declared in this scope
+[1.860s]   163 |   for (auto const& value : [01;31m[Kmessage[m[K.work1) ss << value << "; ";
+[1.860s]       |                            [01;31m[K^~~~~~~[m[K
+[1.860s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:159:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KCmd[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.860s]   159 |   void show_message([01;35m[Kmanip_msgs::msg::Cmd[m[K message){
+[1.860s]       |                     [01;35m[K~~~~~~~~~~~~~~~~~^~~[m[K
+[1.860s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::show_goal(int)[m[K’:
+[1.860s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:170:28:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+[1.860s]   170 |     auto goal = goal_handle[01;31m[K->[m[Kget_goal();
+[1.861s]       |                            [01;31m[K^~[m[K
+[1.864s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::show_state(int)[m[K’:
+[1.864s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:181:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kstate[m[K’ was not declared in this scope; did you mean ‘[01m[K_xstate[m[K’?
+[1.864s]   181 |     for (auto const& value : [01;31m[Kstate[m[K.work1) ss << value << "; ";
+[1.864s]       |                              [01;31m[K^~~~~[m[K
+[1.864s]       |                              [32m[K_xstate[m[K
+[1.864s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:178:34:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KState_Goal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.864s]   178 |   void show_state([01;35m[Kmanip::action::State_Goal[m[K state){
+[1.864s]       |                   [01;35m[K~~~~~~~~~~~~~~~^~~~~~~~~~[m[K
+[2.174s] gmake[2]: *** [CMakeFiles/path_following_node.dir/build.make:76: CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o] エラー 1
+[2.174s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/path_following_node.dir/all] エラー 2
+[2.174s] gmake: *** [Makefile:146: all] エラー 2
+[2.177s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following' returned '2': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following -- -j16 -l16

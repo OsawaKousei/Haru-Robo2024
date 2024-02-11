@@ -1,0 +1,7 @@
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:9:10:[m[K [01;31m[Kfatal error: [m[Kmanip/action/state.hpp: そのようなファイルやディレクトリはありません
+    9 | #include [01;31m[K"manip/action/state.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/path_following_node.dir/build.make:76: CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/path_following_node.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

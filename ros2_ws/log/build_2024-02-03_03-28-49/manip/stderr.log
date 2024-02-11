@@ -1,0 +1,14 @@
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:9:10:[m[K [01;31m[Kfatal error: [m[Krclcpp_components/register_node_macro.hpp: そのようなファイルやディレクトリはありません
+    9 | #include [01;31m[K"rclcpp_components/register_node_macro.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/manip_joy_node.dir/build.make:76: CMakeFiles/manip_joy_node.dir/src/manip_joy_node.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/manip_joy_node.dir/all] エラー 2
+gmake[1]: *** 未完了のジョブを待っています....
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:9:10:[m[K [01;31m[Kfatal error: [m[Krclcpp_components/register_node_macro.hpp: そのようなファイルやディレクトリはありません
+    9 | #include [01;31m[K"rclcpp_components/register_node_macro.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/manip_control_node.dir/build.make:76: CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:212: CMakeFiles/manip_control_node.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

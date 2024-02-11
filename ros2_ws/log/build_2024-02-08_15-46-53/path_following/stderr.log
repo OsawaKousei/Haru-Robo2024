@@ -1,0 +1,12 @@
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:45:70:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   45 |         auto topic_callback = [this]([01;35m[Kconst drive_msgs::msg::OmniEnc &msg[m[K) -> void {
+      |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse PathfollowingNode::handle_goal(const GoalUUID&, std::shared_ptr<const path_following::action::Path_Goal_<std::allocator<void> > >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:69:39:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   69 |     [01;35m[Kstd::shared_ptr<const Path::Goal> goal[m[K)
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::execute_cmd_vel(std::shared_ptr<rclcpp_action::ServerGoalHandle<path_following::action::Path> >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:132:62:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal_handle[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  132 |   void execute_cmd_vel([01;35m[Kconst std::shared_ptr<GoalHandlePath> goal_handle[m[K){
+      |                        [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K

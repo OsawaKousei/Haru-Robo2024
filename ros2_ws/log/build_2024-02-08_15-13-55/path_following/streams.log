@@ -1,0 +1,67 @@
+[0.041s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following -- -j16 -l16
+[0.058s] -- Found ament_cmake_auto: 1.3.7 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.224s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.226s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.230s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.237s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.247s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.286s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.287s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.371s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.189s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.201s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.201s] -- Configured cppcheck include dirs: /home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/include
+[1.201s] -- Configured cppcheck exclude dirs and/or files: 
+[1.202s] -- Added test 'lint_cmake' to check CMake code style
+[1.202s] -- Added test 'uncrustify' to check C / C++ code style
+[1.202s] -- Configured uncrustify additional arguments: 
+[1.202s] -- Added test 'xmllint' to check XML markup files
+[1.204s] -- Configuring done
+[1.212s] -- Generating done
+[1.213s] -- Build files have been written to: /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following
+[1.231s] [35m[1mConsolidate compiler generated dependencies of target path_following_node[0m
+[1.241s] [ 50%] [32mBuilding CXX object CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o[0m
+[2.689s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In lambda function:
+[2.689s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:45:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.689s]    45 |         auto topic_callback = [this]([01;35m[Kconst manip_msgs::msg::Result &msg[m[K) -> void {
+[2.689s]       |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[2.709s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse PathfollowingNode::handle_goal(const GoalUUID&, std::shared_ptr<const manip::action::State_Goal_<std::allocator<void> > >)[m[K’:
+[2.710s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:69:40:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.710s]    69 |     [01;35m[Kstd::shared_ptr<const State::Goal> goal[m[K)
+[2.710s]       |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[2.716s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::execute_cmd(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >)[m[K’:
+[2.717s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:152:22:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+[2.717s]   152 |     if(!cmd.work1[0] [01;35m[K==[m[K -1){
+[2.717s]       |                      [01;35m[K^~[m[K
+[2.718s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:152:8:[m[K [01;36m[Knote: [m[Kadd parentheses around left hand side expression to silence this warning
+[2.718s]   152 |     if(!cmd.work1[0] == -1){
+[2.718s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:152:22:[m[K [01;35m[Kwarning: [m[Kcomparison of constant ‘[01m[K-1[m[K’ with boolean expression is always false [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbool-compare-Wbool-compare]8;;[m[K]
+[2.718s]   152 |     if([01;35m[K!cmd.work1[0] == -1[m[K){
+[2.718s]       |        [01;35m[K~~~~~~~~~~~~~~^~~~~[m[K
+[6.804s] [100%] [32m[1mLinking CXX executable path_following_node[0m
+[7.121s] [100%] Built target path_following_node
+[7.129s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following' returned '0': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following -- -j16 -l16
+[7.145s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following
+[7.150s] -- Install configuration: ""
+[7.150s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include
+[7.150s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following
+[7.150s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/path_following/path_following_node
+[7.152s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/path_following/path_following_node" to ""
+[7.153s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/ament_index/resource_index/package_run_dependencies/path_following
+[7.153s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/ament_index/resource_index/parent_prefix_path/path_following
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/ament_prefix_path.sh
+[7.153s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/ament_prefix_path.dsv
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/path.sh
+[7.153s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/path.dsv
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.bash
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.sh
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.zsh
+[7.153s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.dsv
+[7.153s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/package.dsv
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/ament_index/resource_index/packages/path_following
+[7.153s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/ament_cmake_export_dependencies-extras.cmake
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/ament_cmake_export_include_directories-extras.cmake
+[7.153s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_followingConfig.cmake
+[7.154s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_followingConfig-version.cmake
+[7.154s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/package.xml
+[7.154s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following' returned '0': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following

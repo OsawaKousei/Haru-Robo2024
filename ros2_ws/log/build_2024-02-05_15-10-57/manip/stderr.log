@@ -1,0 +1,7 @@
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:56:11:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+   56 |           [01;31m[K}[m[K
+      |           [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/manip_joy_node.dir/build.make:76: CMakeFiles/manip_joy_node.dir/src/manip_joy_node.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/manip_joy_node.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

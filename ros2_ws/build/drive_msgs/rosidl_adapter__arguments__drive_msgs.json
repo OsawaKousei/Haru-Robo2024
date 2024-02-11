@@ -1,0 +1,9 @@
+{
+  "package_name": "drive_msgs",
+  "non_idl_tuples": [
+    "/home/kousei/HaruRobo2024_ws/ros2_ws/src/drive_msgs:msg/DiffDrive.msg",
+    "/home/kousei/HaruRobo2024_ws/ros2_ws/src/drive_msgs:msg/DiffDriveEnc.msg",
+    "/home/kousei/HaruRobo2024_ws/ros2_ws/src/drive_msgs:msg/Omni.msg",
+    "/home/kousei/HaruRobo2024_ws/ros2_ws/src/drive_msgs:msg/OmniEnc.msg"
+  ]
+}

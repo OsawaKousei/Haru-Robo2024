@@ -1,0 +1,68 @@
+[  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  6%] Built target ament_cmake_python_copy_path_following
+running egg_info
+writing path_following.egg-info/PKG-INFO
+writing dependency_links to path_following.egg-info/dependency_links.txt
+writing top-level names to path_following.egg-info/top_level.txt
+reading manifest file 'path_following.egg-info/SOURCES.txt'
+writing manifest file 'path_following.egg-info/SOURCES.txt'
+[  6%] Built target ament_cmake_python_build_path_following_egg
+[  9%] [32mBuilding C object CMakeFiles/path_following__rosidl_generator_c.dir/rosidl_generator_c/path_following/action/detail/path__functions.c.o[0m
+[ 12%] [32m[1mLinking C shared library libpath_following__rosidl_generator_c.so[0m
+[ 12%] Built target path_following__rosidl_generator_c
+[ 15%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 21%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 21%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 21%] Built target path_following__cpp
+[ 24%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 27%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 30%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/path_following/action/detail/path__type_support_c.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/path_following/action/path__type_support.cpp.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_c.dir/rosidl_typesupport_c/path_following/action/path__type_support.cpp.o[0m
+[ 42%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_c.so[0m
+[ 42%] Built target path_following__rosidl_typesupport_c
+[ 45%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/path_following/action/detail/path__type_support.c.o[0m
+[ 48%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_fastrtps_c.so[0m
+[ 51%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/path_following/action/detail/path__type_support.cpp.o[0m
+[ 54%] [32m[1mLinking C shared library libpath_following__rosidl_typesupport_introspection_c.so[0m
+[ 54%] Built target path_following__rosidl_typesupport_introspection_c
+[ 54%] Built target path_following__rosidl_typesupport_fastrtps_c
+[ 57%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/path_following/action/detail/dds_fastrtps/path__type_support.cpp.o[0m
+[ 60%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_cpp.so[0m
+[ 60%] Built target path_following__rosidl_typesupport_cpp
+[ 63%] [32mBuilding CXX object CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o[0m
+[ 66%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_introspection_cpp.so[0m
+[ 66%] Built target path_following__rosidl_typesupport_introspection_cpp
+[ 69%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 69%] Built target path_following__rosidl_typesupport_fastrtps_cpp
+[ 69%] Built target path_following
+[ 72%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 72%] Built target path_following__py
+[ 75%] [32mBuilding C object CMakeFiles/path_following__rosidl_generator_py.dir/rosidl_generator_py/path_following/action/_path_s.c.o[0m
+[ 78%] [32m[1mLinking C shared library rosidl_generator_py/path_following/libpath_following__rosidl_generator_py.so[0m
+[ 78%] Built target path_following__rosidl_generator_py
+[ 81%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/path_following/_path_following_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 84%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/path_following/_path_following_s.ep.rosidl_typesupport_c.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/path_following/_path_following_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 90%] [32m[1mLinking C shared library rosidl_generator_py/path_following/path_following_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[ 90%] Built target path_following__rosidl_typesupport_fastrtps_c__pyext
+[ 93%] [32m[1mLinking C shared library rosidl_generator_py/path_following/path_following_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[ 96%] [32m[1mLinking C shared library rosidl_generator_py/path_following/path_following_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[ 96%] Built target path_following__rosidl_typesupport_introspection_c__pyext
+[ 96%] Built target path_following__rosidl_typesupport_c__pyext
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:45:70:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   45 |         auto topic_callback = [this]([01;35m[Kconst drive_msgs::msg::OmniEnc &msg[m[K) -> void {
+      |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse PathfollowingNode::handle_goal(const GoalUUID&, std::shared_ptr<const path_following::action::Path_Goal_<std::allocator<void> > >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:69:39:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   69 |     [01;35m[Kstd::shared_ptr<const Path::Goal> goal[m[K)
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::execute_cmd_vel(std::shared_ptr<rclcpp_action::ServerGoalHandle<path_following::action::Path> >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:132:62:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal_handle[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  132 |   void execute_cmd_vel([01;35m[Kconst std::shared_ptr<GoalHandlePath> goal_handle[m[K){
+      |                        [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[100%] [32m[1mLinking CXX executable path_following_node[0m
+[100%] Built target path_following_node

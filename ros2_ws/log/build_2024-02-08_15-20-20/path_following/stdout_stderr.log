@@ -1,0 +1,80 @@
+-- Found ament_cmake_auto: 1.3.7 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+-- Found PythonExtra: .so  
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/include
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following
+[  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  6%] Built target ament_cmake_python_copy_path_following
+running egg_info
+creating path_following.egg-info
+writing path_following.egg-info/PKG-INFO
+writing dependency_links to path_following.egg-info/dependency_links.txt
+writing top-level names to path_following.egg-info/top_level.txt
+writing manifest file 'path_following.egg-info/SOURCES.txt'
+reading manifest file 'path_following.egg-info/SOURCES.txt'
+writing manifest file 'path_following.egg-info/SOURCES.txt'
+[  6%] Built target ament_cmake_python_build_path_following_egg
+[  9%] [32mBuilding C object CMakeFiles/path_following__rosidl_generator_c.dir/rosidl_generator_c/path_following/action/detail/path__functions.c.o[0m
+[  9%] Built target path_following__cpp
+[ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 15%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 18%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 21%] [32m[1mLinking C shared library libpath_following__rosidl_generator_c.so[0m
+[ 21%] Built target path_following__rosidl_generator_c
+[ 24%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 30%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 30%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/path_following/action/path__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/path_following/action/detail/path__type_support.cpp.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/path_following/action/detail/dds_fastrtps/path__type_support.cpp.o[0m
+[ 42%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/path_following/action/detail/path__type_support.c.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/path_following/action/detail/path__type_support_c.cpp.o[0m
+[ 48%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_c.dir/rosidl_typesupport_c/path_following/action/path__type_support.cpp.o[0m
+[ 51%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_cpp.so[0m
+[ 54%] [32m[1mLinking C shared library libpath_following__rosidl_typesupport_introspection_c.so[0m
+[ 57%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_c.so[0m
+[ 57%] Built target path_following__rosidl_typesupport_cpp
+[35m[1mConsolidate compiler generated dependencies of target path_following_node[0m
+[ 57%] Built target path_following__rosidl_typesupport_introspection_c
+[ 57%] Built target path_following__rosidl_typesupport_c
+[ 60%] [32mBuilding CXX object CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o[0m
+[ 63%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_introspection_cpp.so[0m
+[ 63%] Built target path_following__rosidl_typesupport_introspection_cpp
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:10:10:[m[K [01;31m[Kfatal error: [m[Kpath_following/action/Path.hpp: そのようなファイルやディレクトリはありません
+   10 | #include [01;31m[K"path_following/action/Path.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/path_following_node.dir/build.make:76: CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:183: CMakeFiles/path_following_node.dir/all] エラー 2
+gmake[1]: *** 未完了のジョブを待っています....
+[ 66%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_fastrtps_c.so[0m
+[ 66%] Built target path_following__rosidl_typesupport_fastrtps_c
+[ 69%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 69%] Built target path_following__rosidl_typesupport_fastrtps_cpp
+gmake: *** [Makefile:146: all] エラー 2

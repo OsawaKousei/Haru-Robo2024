@@ -1,0 +1,2 @@
+Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kousei/HaruRobo2024_ws/ros2_ws/src/manip_msgs -DCMAKE_INSTALL_PREFIX=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs
+Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip_msgs' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kousei/HaruRobo2024_ws/ros2_ws/src/manip_msgs -DCMAKE_INSTALL_PREFIX=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs

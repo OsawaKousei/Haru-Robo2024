@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from drive_msgs/msg/DiffDriveEnc.msg
+// generated code does not contain a copyright notice
+
+
+module drive_msgs {
+  module msg {
+    struct DiffDriveEnc {
+      string name;
+
+      @verbatim (language="comment", text=
+        "右輪rps")
+      double m1enc;
+
+      @verbatim (language="comment", text=
+        "左輪rps")
+      double m2enc;
+
+      @verbatim (language="comment", text=
+        "x速度m/s")
+      double lxenc;
+
+      @verbatim (language="comment", text=
+        "z角速度rad/s")
+      double azenc;
+    };
+  };
+};

@@ -1,0 +1,85 @@
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_generator_c[0m
+[  1%] Built target manip__cpp
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_cpp[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_cpp[0m
+[ 11%] Built target manip__rosidl_generator_c
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_cpp[0m
+[ 11%] Built target ament_cmake_python_copy_manip
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_c[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_c[0m
+[ 21%] Built target manip__rosidl_typesupport_cpp
+[ 41%] Built target manip__rosidl_typesupport_introspection_cpp
+[ 41%] Built target manip__rosidl_typesupport_fastrtps_cpp
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_c[0m
+[ 50%] Built target manip__rosidl_typesupport_fastrtps_c
+[ 60%] Built target manip__rosidl_typesupport_introspection_c
+[35m[1mConsolidate compiler generated dependencies of target manip_joy_node[0m
+[ 70%] Built target manip__rosidl_typesupport_c
+[35m[1mConsolidate compiler generated dependencies of target manip_control_node[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/manip_joy_node.dir/src/manip_joy_node.cpp.o[0m
+[ 72%] Built target manip
+[ 74%] [32mBuilding CXX object CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o[0m
+[ 76%] Built target manip__py
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_generator_py[0m
+[ 84%] Built target manip__rosidl_generator_py
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_c__pyext[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_c__pyext[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_c__pyext[0m
+[ 88%] Built target manip__rosidl_typesupport_introspection_c__pyext
+[ 96%] Built target manip__rosidl_typesupport_c__pyext
+[ 96%] Built target manip__rosidl_typesupport_fastrtps_c__pyext
+running egg_info
+writing manip.egg-info/PKG-INFO
+writing dependency_links to manip.egg-info/dependency_links.txt
+writing top-level names to manip.egg-info/top_level.txt
+reading manifest file 'manip.egg-info/SOURCES.txt'
+writing manifest file 'manip.egg-info/SOURCES.txt'
+[ 96%] Built target ament_cmake_python_build_manip_egg
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:4[m[K:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse manip_control_cpp::ManipControlNode::handle_goal(const GoalUUID&, std::shared_ptr<const manip::action::State_Goal_<std::allocator<void> > >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:38:37:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 5 has type ‘[01m[Klong int[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   38 |     RCLCPP_INFO(this->get_logger(), [01;35m[K"Received goal request with order %d"[m[K, goal->base1[0]);
+      |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:38:72:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   38 |     RCLCPP_INFO(this->get_logger(), "Received goal request with order [01;36m[K%d[m[K", goal->base1[0]);
+      |                                                                       [01;36m[K~^[m[K
+      |                                                                        [01;36m[K|[m[K
+      |                                                                        [01;36m[Kint[m[K
+      |                                                                       [32m[K%ld[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:[m[K In member function ‘[01m[Kvoid manip_control_cpp::ManipControlNode::execute(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:60:59:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal_handle[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   60 |   void execute([01;35m[Kconst std::shared_ptr<GoalHandleFibonacci> goal_handle[m[K)
+      |                [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:[m[K In member function ‘[01m[Kvoid manip_control_cpp::ManipJoyNode::feedback_callback(rclcpp_action::ClientGoalHandle<manip::action::State>::SharedPtr, std::shared_ptr<const manip::action::State_Feedback_<std::allocator<void> > >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:71:50:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kfeedback[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   71 |     [01;35m[Kconst std::shared_ptr<const State::Feedback> feedback[m[K)
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:[m[K In member function ‘[01m[Kvoid manip_control_cpp::ManipJoyNode::result_callback(const rclcpp_action::ClientGoalHandle<manip::action::State>::WrappedResult&)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:76:63:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kresult[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   76 |   void result_callback([01;35m[Kconst GoalHandleState::WrappedResult & result[m[K)
+      |                        [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[ 98%] [32m[1mLinking CXX executable manip_control_node[0m
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x1b): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/manip_control_node.dir/build.make:235: manip_control_node] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:212: CMakeFiles/manip_control_node.dir/all] エラー 2
+gmake[1]: *** 未完了のジョブを待っています....
+[100%] [32m[1mLinking CXX executable manip_joy_node[0m
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x1b): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/manip_joy_node.dir/build.make:235: manip_joy_node] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/manip_joy_node.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

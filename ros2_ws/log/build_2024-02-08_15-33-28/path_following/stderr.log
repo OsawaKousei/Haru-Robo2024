@@ -1,0 +1,17 @@
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:55:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   55 |         auto topic_callback = [this]([01;35m[Kconst manip_msgs::msg::Result &msg[m[K) -> void {
+      |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse PathfollowingNode::handle_goal(const GoalUUID&, std::shared_ptr<const manip::action::State_Goal_<std::allocator<void> > >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:79:40:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   79 |     [01;35m[Kstd::shared_ptr<const State::Goal> goal[m[K)
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::execute_cmd(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >)[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:162:22:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+  162 |     if(!cmd.work1[0] [01;35m[K==[m[K -1){
+      |                      [01;35m[K^~[m[K
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:162:8:[m[K [01;36m[Knote: [m[Kadd parentheses around left hand side expression to silence this warning
+  162 |     if(!cmd.work1[0] == -1){
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:162:22:[m[K [01;35m[Kwarning: [m[Kcomparison of constant ‘[01m[K-1[m[K’ with boolean expression is always false [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbool-compare-Wbool-compare]8;;[m[K]
+  162 |     if([01;35m[K!cmd.work1[0] == -1[m[K){
+      |        [01;35m[K~~~~~~~~~~~~~~^~~~~[m[K

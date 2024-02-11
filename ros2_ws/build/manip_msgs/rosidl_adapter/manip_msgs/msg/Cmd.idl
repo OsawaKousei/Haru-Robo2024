@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from manip_msgs/msg/Cmd.msg
+// generated code does not contain a copyright notice
+
+
+module manip_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "-1: no change")
+    struct Cmd {
+      @verbatim (language="comment", text=
+        "0:up,1:down")
+      int64 top_base_arm;
+
+      @verbatim (language="comment", text=
+        "0:close,1:open")
+      int64 top_base_hand;
+
+      @verbatim (language="comment", text=
+        "0:up,1:down")
+      int64 bottom_base_arm;
+
+      @verbatim (language="comment", text=
+        "0:close,1:open")
+      int64 bottom_base_hand;
+
+      @verbatim (language="comment", text=
+        "0:deploy,1:retract")
+      int64 work_arm_deploy;
+
+      @verbatim (language="comment", text=
+        "0:up,1:down")
+      int64 work_arm;
+
+      @verbatim (language="comment", text=
+        "0:close,1:open")
+      int64 work_hand;
+
+      @verbatim (language="comment", text=
+        "cmd num")
+      int64 num;
+    };
+  };
+};

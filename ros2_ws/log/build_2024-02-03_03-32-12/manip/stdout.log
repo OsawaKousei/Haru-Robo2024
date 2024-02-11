@@ -1,0 +1,39 @@
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_generator_c[0m
+[  1%] Built target manip__cpp
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_cpp[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_cpp[0m
+[ 11%] Built target manip__rosidl_generator_c
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_cpp[0m
+[ 11%] Built target ament_cmake_python_copy_manip
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_c[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_c[0m
+[ 21%] Built target manip__rosidl_typesupport_cpp
+[ 41%] Built target manip__rosidl_typesupport_introspection_cpp
+[ 41%] Built target manip__rosidl_typesupport_fastrtps_cpp
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_c[0m
+[ 50%] Built target manip__rosidl_typesupport_fastrtps_c
+[ 60%] Built target manip__rosidl_typesupport_introspection_c
+[35m[1mConsolidate compiler generated dependencies of target manip_joy_node[0m
+[ 70%] Built target manip__rosidl_typesupport_c
+[35m[1mConsolidate compiler generated dependencies of target manip_control_node[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/manip_joy_node.dir/src/manip_joy_node.cpp.o[0m
+[ 72%] Built target manip
+[ 74%] [32mBuilding CXX object CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o[0m
+[ 76%] Built target manip__py
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_generator_py[0m
+[ 84%] Built target manip__rosidl_generator_py
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_introspection_c__pyext[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_fastrtps_c__pyext[0m
+[35m[1mConsolidate compiler generated dependencies of target manip__rosidl_typesupport_c__pyext[0m
+[ 88%] Built target manip__rosidl_typesupport_introspection_c__pyext
+[ 96%] Built target manip__rosidl_typesupport_c__pyext
+[ 96%] Built target manip__rosidl_typesupport_fastrtps_c__pyext
+running egg_info
+writing manip.egg-info/PKG-INFO
+writing dependency_links to manip.egg-info/dependency_links.txt
+writing top-level names to manip.egg-info/top_level.txt
+reading manifest file 'manip.egg-info/SOURCES.txt'
+writing manifest file 'manip.egg-info/SOURCES.txt'
+[ 96%] Built target ament_cmake_python_build_manip_egg
+[ 98%] [32m[1mLinking CXX executable manip_control_node[0m
+[100%] [32m[1mLinking CXX executable manip_joy_node[0m

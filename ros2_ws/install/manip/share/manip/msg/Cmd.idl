@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from manip/msg/Cmd.msg
+// generated code does not contain a copyright notice
+
+
+module manip {
+  module msg {
+    @verbatim (language="comment", text=
+      "-1: no change")
+    struct Cmd {
+      @verbatim (language="comment", text=
+        "0:servo(0:close,1:open),1:updown(0:up,1:down),2:open_close(0:close,1:open)")
+      sequence<int64> base1;
+
+      @verbatim (language="comment", text=
+        "0:servo(0:close,1:open),1:updown(0:up,1:down),2:open_close(0:close,1:open)")
+      sequence<int64> base2;
+
+      @verbatim (language="comment", text=
+        "0:updown(0:up,1:down),1:open_close(0:close,1:open)")
+      sequence<int64> work1;
+
+      @verbatim (language="comment", text=
+        "0:updown(0:up,1:down),1:open_close(0:close,1:open)")
+      sequence<int64> work2;
+
+      @verbatim (language="comment", text=
+        "cmd num")
+      int64 num;
+    };
+  };
+};

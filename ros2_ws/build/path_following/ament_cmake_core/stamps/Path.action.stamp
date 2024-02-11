@@ -1,0 +1,11 @@
+#request(goal)
+float64[] start #[x,y]
+float64[] goal #[x,y]
+int64 head #0:foward,1:backward,2:left,3:right 
+---
+#result
+int64 feedback #state(0:working,1:succeed,2;failed)
+---
+#feedback
+float64[] posi #[x,y]
+int64 head #0:foward,1:backward,2:left,3:right 

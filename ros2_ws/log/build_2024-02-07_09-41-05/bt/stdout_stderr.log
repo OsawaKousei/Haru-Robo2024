@@ -1,0 +1,35 @@
+[35m[1mConsolidate compiler generated dependencies of target bt_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/bt_node.dir/src/bt_node.cpp.o[0m
+In file included from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/bt_node.cpp:1[m[K:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/../include/action_node.hpp:[m[K In member function ‘[01m[Kvirtual BT::NodeStatus MyActionNodes::Catch_work::onRunning()[m[K’:
+[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/../include/action_node.hpp:33:17:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   33 |                 [01;35m[K}[m[K
+      |                 [01;35m[K^[m[K
+[100%] [32m[1mLinking CXX executable bt_node[0m
+[100%] Built target bt_node
+-- Install configuration: ""
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt//config
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt//config/HaruRobo_BT.xml
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/include
+-- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/include/action_node.hpp
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/include/bt
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/include/catch_node.hpp
+-- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/lib/bt/bt_node
+-- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/lib/bt/bt_node" to ""
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/ament_index/resource_index/package_run_dependencies/bt
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/ament_index/resource_index/parent_prefix_path/bt
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/environment/ament_prefix_path.sh
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/environment/path.sh
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/environment/path.dsv
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/local_setup.bash
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/local_setup.sh
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/local_setup.zsh
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/local_setup.dsv
+-- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/package.dsv
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/ament_index/resource_index/packages/bt
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/cmake/btConfig.cmake
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/cmake/btConfig-version.cmake
+-- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/bt/share/bt/package.xml

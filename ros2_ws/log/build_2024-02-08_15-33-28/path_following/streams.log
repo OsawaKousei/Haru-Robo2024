@@ -1,0 +1,254 @@
+[0.043s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following -- -j16 -l16
+[0.060s] -- Found ament_cmake_auto: 1.3.7 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.224s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.225s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.230s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.237s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.246s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.281s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.282s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.371s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.208s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.398s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.739s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.873s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.888s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.904s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.904s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.904s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.959s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.960s] -- Configured cppcheck include dirs: /home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/include
+[1.960s] -- Configured cppcheck exclude dirs and/or files: 
+[1.960s] -- Added test 'lint_cmake' to check CMake code style
+[1.961s] -- Added test 'uncrustify' to check C / C++ code style
+[1.961s] -- Configured uncrustify additional arguments: 
+[1.961s] -- Added test 'xmllint' to check XML markup files
+[1.963s] -- Configuring done
+[2.000s] -- Generating done
+[2.002s] -- Build files have been written to: /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following
+[2.023s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.031s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.035s] [  6%] Built target ament_cmake_python_copy_path_following
+[2.191s] running egg_info
+[2.191s] writing path_following.egg-info/PKG-INFO
+[2.191s] writing dependency_links to path_following.egg-info/dependency_links.txt
+[2.191s] writing top-level names to path_following.egg-info/top_level.txt
+[2.193s] reading manifest file 'path_following.egg-info/SOURCES.txt'
+[2.193s] writing manifest file 'path_following.egg-info/SOURCES.txt'
+[2.212s] [  6%] Built target ament_cmake_python_build_path_following_egg
+[2.342s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_generator_c[0m
+[2.351s] [  9%] [32mBuilding C object CMakeFiles/path_following__rosidl_generator_c.dir/rosidl_generator_c/path_following/action/detail/path__functions.c.o[0m
+[2.359s] [  9%] Built target path_following__cpp
+[2.366s] [ 15%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.366s] [ 15%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.369s] [ 18%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.441s] [ 21%] [32m[1mLinking C shared library libpath_following__rosidl_generator_c.so[0m
+[2.467s] [ 21%] Built target path_following__rosidl_generator_c
+[2.475s] [ 24%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.479s] [ 27%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.480s] [ 30%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.599s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_cpp[0m
+[2.609s] [ 33%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/path_following/action/path__type_support.cpp.o[0m
+[2.634s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_introspection_cpp[0m
+[2.644s] [ 36%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/path_following/action/detail/path__type_support.cpp.o[0m
+[2.779s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_introspection_c[0m
+[2.788s] [ 39%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/path_following/action/detail/path__type_support.c.o[0m
+[2.826s] [ 42%] [32m[1mLinking C shared library libpath_following__rosidl_typesupport_introspection_c.so[0m
+[2.828s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_fastrtps_cpp[0m
+[2.845s] [ 45%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/path_following/action/detail/dds_fastrtps/path__type_support.cpp.o[0m
+[2.850s] [ 45%] Built target path_following__rosidl_typesupport_introspection_c
+[2.857s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_c[0m
+[2.866s] [ 48%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_c.dir/rosidl_typesupport_c/path_following/action/path__type_support.cpp.o[0m
+[2.899s] [ 51%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_cpp.so[0m
+[2.900s] [ 54%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_c.so[0m
+[2.930s] [ 54%] Built target path_following__rosidl_typesupport_cpp
+[2.931s] [ 54%] Built target path_following__rosidl_typesupport_c
+[2.938s] [35m[1mConsolidate compiler generated dependencies of target path_following_node[0m
+[2.953s] [ 57%] [32mBuilding CXX object CMakeFiles/path_following_node.dir/src/path_following_node.cpp.o[0m
+[2.958s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_fastrtps_c[0m
+[2.969s] [ 60%] [32mBuilding CXX object CMakeFiles/path_following__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/path_following/action/detail/path__type_support_c.cpp.o[0m
+[3.051s] [ 63%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_introspection_cpp.so[0m
+[3.102s] [ 63%] Built target path_following__rosidl_typesupport_introspection_cpp
+[3.223s] [ 66%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_fastrtps_c.so[0m
+[3.280s] [ 66%] Built target path_following__rosidl_typesupport_fastrtps_c
+[3.340s] [ 69%] [32m[1mLinking CXX shared library libpath_following__rosidl_typesupport_fastrtps_cpp.so[0m
+[3.392s] [ 69%] Built target path_following__rosidl_typesupport_fastrtps_cpp
+[3.408s] [ 69%] Built target path_following
+[3.423s] [ 72%] [34m[1mGenerating Python code for ROS interfaces[0m
+[4.010s] [ 72%] Built target path_following__py
+[4.019s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_generator_py[0m
+[4.030s] [ 75%] [32mBuilding C object CMakeFiles/path_following__rosidl_generator_py.dir/rosidl_generator_py/path_following/action/_path_s.c.o[0m
+[4.139s] [ 78%] [32m[1mLinking C shared library rosidl_generator_py/path_following/libpath_following__rosidl_generator_py.so[0m
+[4.173s] [ 78%] Built target path_following__rosidl_generator_py
+[4.180s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_fastrtps_c__pyext[0m
+[4.183s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_introspection_c__pyext[0m
+[4.183s] [35m[1mConsolidate compiler generated dependencies of target path_following__rosidl_typesupport_c__pyext[0m
+[4.190s] [ 81%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/path_following/_path_following_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[4.197s] [ 87%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/path_following/_path_following_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[4.197s] [ 87%] [32mBuilding C object CMakeFiles/path_following__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/path_following/_path_following_s.ep.rosidl_typesupport_c.c.o[0m
+[4.278s] [ 90%] [32m[1mLinking C shared library rosidl_generator_py/path_following/path_following_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.323s] [ 90%] Built target path_following__rosidl_typesupport_fastrtps_c__pyext
+[4.325s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/path_following/path_following_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.329s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/path_following/path_following_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.368s] [ 96%] Built target path_following__rosidl_typesupport_introspection_c__pyext
+[4.378s] [ 96%] Built target path_following__rosidl_typesupport_c__pyext
+[4.626s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In lambda function:
+[4.626s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:55:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[4.626s]    55 |         auto topic_callback = [this]([01;35m[Kconst manip_msgs::msg::Result &msg[m[K) -> void {
+[4.626s]       |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[4.647s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse PathfollowingNode::handle_goal(const GoalUUID&, std::shared_ptr<const manip::action::State_Goal_<std::allocator<void> > >)[m[K’:
+[4.647s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:79:40:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgoal[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[4.648s]    79 |     [01;35m[Kstd::shared_ptr<const State::Goal> goal[m[K)
+[4.648s]       |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[4.655s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:[m[K In member function ‘[01m[Kvoid PathfollowingNode::execute_cmd(std::shared_ptr<rclcpp_action::ServerGoalHandle<manip::action::State> >)[m[K’:
+[4.655s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:162:22:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+[4.655s]   162 |     if(!cmd.work1[0] [01;35m[K==[m[K -1){
+[4.655s]       |                      [01;35m[K^~[m[K
+[4.655s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:162:8:[m[K [01;36m[Knote: [m[Kadd parentheses around left hand side expression to silence this warning
+[4.655s]   162 |     if(!cmd.work1[0] == -1){
+[4.655s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/path_following/src/path_following_node.cpp:162:22:[m[K [01;35m[Kwarning: [m[Kcomparison of constant ‘[01m[K-1[m[K’ with boolean expression is always false [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbool-compare-Wbool-compare]8;;[m[K]
+[4.655s]   162 |     if([01;35m[K!cmd.work1[0] == -1[m[K){
+[4.655s]       |        [01;35m[K~~~~~~~~~~~~~~^~~~~[m[K
+[8.779s] [100%] [32m[1mLinking CXX executable path_following_node[0m
+[9.083s] [100%] Built target path_following_node
+[9.091s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following' returned '0': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following -- -j16 -l16
+[9.131s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following
+[9.137s] -- Install configuration: ""
+[9.137s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/ament_index/resource_index/rosidl_interfaces/path_following
+[9.137s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following
+[9.137s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg
+[9.137s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg/rosidl_generator_c__visibility_control.h
+[9.137s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action
+[9.137s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/path.h
+[9.137s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail
+[9.137s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__type_support.h
+[9.137s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__functions.c
+[9.137s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__functions.h
+[9.137s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__struct.h
+[9.137s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/library_path.sh
+[9.137s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/library_path.dsv
+[9.137s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_generator_c.so
+[9.138s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_generator_c.so" to ""
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail
+[9.138s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__rosidl_typesupport_fastrtps_c.h
+[9.138s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_fastrtps_c.so
+[9.138s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_fastrtps_c.so" to ""
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action
+[9.138s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/path.hpp
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail
+[9.138s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__traits.hpp
+[9.138s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__builder.hpp
+[9.138s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__struct.hpp
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[9.138s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action
+[9.139s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail
+[9.139s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/dds_fastrtps
+[9.139s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__rosidl_typesupport_fastrtps_cpp.hpp
+[9.139s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_fastrtps_cpp.so
+[9.139s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_fastrtps_cpp.so" to ""
+[9.139s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following
+[9.139s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg
+[9.139s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[9.139s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action
+[9.139s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail
+[9.139s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__type_support.c
+[9.139s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__rosidl_typesupport_introspection_c.h
+[9.140s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_introspection_c.so
+[9.140s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_introspection_c.so" to ""
+[9.140s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_c.so
+[9.140s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_c.so" to ""
+[9.140s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following
+[9.140s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action
+[9.140s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail
+[9.140s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__type_support.cpp
+[9.140s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following/path_following/action/detail/path__rosidl_typesupport_introspection_cpp.hpp
+[9.140s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_introspection_cpp.so
+[9.140s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_introspection_cpp.so" to ""
+[9.140s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_cpp.so
+[9.140s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_typesupport_cpp.so" to ""
+[9.140s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/pythonpath.sh
+[9.140s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/pythonpath.dsv
+[9.140s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following-0.0.0-py3.10.egg-info
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following-0.0.0-py3.10.egg-info/dependency_links.txt
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following-0.0.0-py3.10.egg-info/SOURCES.txt
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following-0.0.0-py3.10.egg-info/top_level.txt
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following-0.0.0-py3.10.egg-info/PKG-INFO
+[9.141s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/__init__.py
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/_path_following_s.ep.rosidl_typesupport_c.c
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/_path_following_s.ep.rosidl_typesupport_introspection_c.c
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/libpath_following__rosidl_generator_py.so
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.141s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/_path_following_s.ep.rosidl_typesupport_fastrtps_c.c
+[9.142s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/action
+[9.142s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/action/_path_s.c
+[9.142s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/action/__init__.py
+[9.142s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/action/_path.py
+[9.171s] Listing '/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following'...
+[9.171s] Compiling '/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/__init__.py'...
+[9.171s] Listing '/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/action'...
+[9.171s] Compiling '/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/action/__init__.py'...
+[9.171s] Compiling '/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/action/_path.py'...
+[9.174s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.174s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.175s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.175s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.175s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.175s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/local/lib/python3.10/dist-packages/path_following/path_following_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.175s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_generator_py.so
+[9.175s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/libpath_following__rosidl_generator_py.so" to ""
+[9.175s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/action/Path.idl
+[9.176s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/action/Path.action
+[9.176s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include
+[9.176s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/include/path_following
+[9.176s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/path_following/path_following_node
+[9.178s] -- Set runtime path of "/home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/lib/path_following/path_following_node" to ""
+[9.178s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/ament_index/resource_index/package_run_dependencies/path_following
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/ament_index/resource_index/parent_prefix_path/path_following
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/ament_prefix_path.sh
+[9.179s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/ament_prefix_path.dsv
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/path.sh
+[9.179s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/environment/path.dsv
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.bash
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.sh
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.zsh
+[9.179s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/local_setup.dsv
+[9.179s] -- Installing: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/package.dsv
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/ament_index/resource_index/packages/path_following
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_generator_cExport.cmake
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_generator_cExport-noconfig.cmake
+[9.179s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_typesupport_fastrtps_cExport.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_generator_cppExport.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_typesupport_fastrtps_cppExport.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_introspection_cExport.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_cExport.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_cExport-noconfig.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_introspection_cppExport.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_cppExport.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_following__rosidl_typesupport_cppExport-noconfig.cmake
+[9.180s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_generator_pyExport.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/export_path_following__rosidl_generator_pyExport-noconfig.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/rosidl_cmake-extras.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/ament_cmake_export_dependencies-extras.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/ament_cmake_export_include_directories-extras.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/ament_cmake_export_libraries-extras.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/ament_cmake_export_targets-extras.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_followingConfig.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/cmake/path_followingConfig-version.cmake
+[9.181s] -- Up-to-date: /home/kousei/HaruRobo2024_ws/ros2_ws/install/path_following/share/path_following/package.xml
+[9.182s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following' returned '0': AMENT_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/omni_control:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/lib:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip/local/lib/python3.10/dist-packages:/home/kousei/HaruRobo2024_ws/ros2_ws/install/manip_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kousei/HaruRobo2024_ws/ros2_ws/build/path_following

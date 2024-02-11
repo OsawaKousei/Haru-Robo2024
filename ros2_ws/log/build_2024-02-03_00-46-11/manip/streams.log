@@ -1,0 +1,35 @@
+[0.067s] Invoking command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
+[0.101s] [  1%] Built target manip__cpp
+[0.111s] [ 11%] Built target manip__rosidl_generator_c
+[0.118s] [ 11%] Built target ament_cmake_python_copy_manip
+[0.131s] [ 21%] Built target manip__rosidl_typesupport_fastrtps_cpp
+[0.135s] [ 31%] Built target manip__rosidl_typesupport_cpp
+[0.138s] [ 41%] Built target manip__rosidl_typesupport_fastrtps_c
+[0.138s] [ 50%] Built target manip__rosidl_typesupport_introspection_cpp
+[0.142s] [ 60%] Built target manip__rosidl_typesupport_introspection_c
+[0.144s] [ 70%] Built target manip__rosidl_typesupport_c
+[0.151s] [ 72%] [32mBuilding CXX object CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o[0m
+[0.154s] [ 76%] Built target manip_joy_node
+[0.162s] [ 76%] Built target manip
+[0.177s] [ 78%] Built target manip__py
+[0.191s] [ 80%] [32mBuilding C object CMakeFiles/manip__rosidl_generator_py.dir/rosidl_generator_py/manip/msg/_result_s.c.o[0m
+[0.193s] [ 82%] [32mBuilding C object CMakeFiles/manip__rosidl_generator_py.dir/rosidl_generator_py/manip/msg/_cmd_s.c.o[0m
+[0.194s] [ 84%] [32mBuilding C object CMakeFiles/manip__rosidl_generator_py.dir/rosidl_generator_py/manip/action/_state_s.c.o[0m
+[0.305s] [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_control_node.cpp:6:10:[m[K [01;31m[Kfatal error: [m[Kmanip/srv/state.hpp: そのようなファイルやディレクトリはありません
+[0.306s]     6 | #include [01;31m[K"manip/srv/state.hpp"[m[K
+[0.306s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[0.306s] compilation terminated.
+[0.306s] gmake[2]: *** [CMakeFiles/manip_control_node.dir/build.make:76: CMakeFiles/manip_control_node.dir/src/manip_control_node.cpp.o] エラー 1
+[0.307s] gmake[1]: *** [CMakeFiles/Makefile2:212: CMakeFiles/manip_control_node.dir/all] エラー 2
+[0.307s] gmake[1]: *** 未完了のジョブを待っています....
+[0.328s] [ 86%] [32m[1mLinking C shared library rosidl_generator_py/manip/libmanip__rosidl_generator_py.so[0m
+[0.361s] [ 86%] Built target manip__rosidl_generator_py
+[0.362s] running egg_info
+[0.363s] writing manip.egg-info/PKG-INFO
+[0.363s] writing dependency_links to manip.egg-info/dependency_links.txt
+[0.363s] writing top-level names to manip.egg-info/top_level.txt
+[0.366s] reading manifest file 'manip.egg-info/SOURCES.txt'
+[0.366s] writing manifest file 'manip.egg-info/SOURCES.txt'
+[0.390s] [ 86%] Built target ament_cmake_python_build_manip_egg
+[0.391s] gmake: *** [Makefile:146: all] エラー 2
+[0.393s] Invoked command in '/home/kousei/HaruRobo2024_ws/ros2_ws/build/manip' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/HaruRobo2024_ws/ros2_ws/build/manip -- -j16 -l16
