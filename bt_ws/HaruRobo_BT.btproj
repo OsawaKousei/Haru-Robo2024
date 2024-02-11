@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" project_name="Project">
+    <include path="HaruRobo_BT.xml"/>
+    <!-- Description of Node Models (used by Groot) -->
+    <TreeNodesModel>
+        <Action ID="catch_base" editable="true"/>
+        <Action ID="catch_work" editable="true"/>
+        <Action ID="follow_path" editable="true">
+            <input_port name="path"/>
+        </Action>
+        <Action ID="positionaize" editable="true">
+            <input_port name="goal"/>
+        </Action>
+        <Action ID="put_base" editable="true"/>
+        <Action ID="put_work" editable="true"/>
+    </TreeNodesModel>
+</root>

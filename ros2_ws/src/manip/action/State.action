@@ -1,0 +1,12 @@
+#request(goal)　-1:no action
+int64[] base1 #0:updown(0:up,1:down),1:open_close(0:close,1:open)
+int64[] base2 
+int64[] work #0:servo(0:close,1:open),1:updown(0:up,1:down),2:open_close(0:close,1:open)
+---
+#result
+int64 feedback #state(0:working,1:succeed,2;failed)
+---
+#feedback
+int64[] base1 
+int64[] base2 
+int64[] work 
