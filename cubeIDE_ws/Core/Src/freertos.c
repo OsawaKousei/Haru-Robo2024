@@ -212,11 +212,11 @@ void canSetting(){
 	CAN_SystemInit(&hcan1); // F7のCAN通信のinit
 
 	// デバイス数の設定
-	num_of_devices.mcmd3 = 1;
-//	num_of_devices.mcmd3 = 4;
-//	num_of_devices.mcmd4 = 0;
-//	num_of_devices.air = 1;
-//	num_of_devices.servo = 1;
+//	num_of_devices.mcmd3 = 1;
+	num_of_devices.mcmd3 = 3;
+	num_of_devices.mcmd4 = 0;
+	num_of_devices.air = 1;
+	num_of_devices.servo = 1;
 
 	printf("Start Initializing CAN System:End\n\r");
 	HAL_Delay(10);
@@ -227,7 +227,7 @@ void canSetting(){
 void mcmdMoter1Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M1_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M1_struct.device.node_id = 1;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M1_struct.device.node_id = 0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M1_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -263,7 +263,7 @@ void mcmdMoter1Setting(){
 void mcmdMoter2Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M2_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M2_struct.device.node_id = 1;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M2_struct.device.node_id = 0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M2_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -302,7 +302,7 @@ void mcmdMoter3Setting(){ //モーターの回転方向異常
 	    mcmd4M3_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;  //制御タイプを設定
+	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
 	    mcmd4M3_struct.ctrl_param.PID_param.kp = 0.075f;
 	    mcmd4M3_struct.ctrl_param.PID_param.ki = 0.025f;
 	    mcmd4M3_struct.ctrl_param.PID_param.kd = 0.01f;
@@ -368,13 +368,13 @@ void mcmdMoter4Setting(){
 void mcmdMoter5Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M5_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M5_struct.device.node_id =9;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M5_struct.device.node_id =5;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M5_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
-	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.075f;
-	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;  //制御タイプを設定
+	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.1f;
+	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.05f;
 	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M5_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
@@ -402,19 +402,19 @@ void mcmdMoter5Setting(){
 
 void mcmdMoter6Setting(){
 	    mcmd4M6_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M6_struct.device.node_id =9;
+	    mcmd4M6_struct.device.node_id =5;
 	    mcmd4M6_struct.device.device_num = 1;
 
-	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;
-	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.075f;
-	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.025f;
-	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.01f;
+	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
+	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.1f;
+	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.0f;
+	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.0f;
 	    mcmd4M6_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
 	    mcmd4M6_struct.ctrl_param.accel_limit_size = 2.0f;
 	    mcmd4M6_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
 	    mcmd4M6_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
 	    mcmd4M6_struct.enc_dir = MCMD_DIR_FW;
-	    mcmd4M6_struct.rot_dir = MCMD_DIR_BC;
+	    mcmd4M6_struct.rot_dir = MCMD_DIR_FW;
 	    mcmd4M6_struct.quant_per_unit = 1.0/1024.0f;
 
 	    mcmd4M6_struct.limit_sw_type = LIMIT_SW_NO;
@@ -465,7 +465,7 @@ void mcmdMoter7Setting(){
 void mcmdMoter8Setting(){
 	    mcmd4M8_struct.device.node_type = NODE_MCMD3;
 	    mcmd4M8_struct.device.node_id =3;
-	    mcmd4M8_struct.device.device_num = 0;
+	    mcmd4M8_struct.device.device_num = 1;
 
 	    mcmd4M8_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
 	    mcmd4M8_struct.ctrl_param.PID_param.kp = 0.075f;
@@ -638,13 +638,16 @@ void manipsub_callback(const void * msgin)
 	  const manip_msgs__msg__Cmd * msub = (const manip_msgs__msg__Cmd *)msgin;
 
 	  print_int(msub->num);
-	  print_int(msub->work_arm_deploy);
-	  print_int(msub->work_arm);
-	  print_int(msub->work_hand);
+	  print_int(msub->top_base_arm);
+	  print_int(msub->top_base_hand);
 
 	  work_arm_deployer(msub->work_arm_deploy);
 	  work_arm_setter(msub->work_arm);
 	  work_hand_setter(msub->work_hand);
+	  base1_arm_setter(msub->top_base_arm);
+	  base1_hand_setter(msub->top_base_hand);
+	  base2_arm_setter(msub->bottom_base_arm);
+	  base2_hand_setter(msub->bottom_base_hand);
 
 	  HAL_GPIO_TogglePin(GPIOB, LD2_Pin);  // PINのPin stateを反転
 }
@@ -686,6 +689,43 @@ void work_arm_setter(int state){//state:{0:up,1:down}
 		  AirCylinder_SendOutput(&air_device, AIR_ON);
 	  }
 }
+
+void base1_arm_setter(int state){
+	if(state == 0){
+		MCMD_SetTarget(&mcmd4M5_struct,0.0f);
+	}else if(state == 1){
+		MCMD_SetTarget(&mcmd4M5_struct,0.5f);
+	}
+}
+
+void base1_hand_setter(int state){
+	if(state == 0){
+		air_device.device_num=3;
+		AirCylinder_SendOutput(&air_device, AIR_OFF);
+		}else if(state == 1){
+			air_device.device_num=3;
+			AirCylinder_SendOutput(&air_device, AIR_ON);
+		}
+}
+
+void base2_arm_setter(int state){
+	if(state == 0){
+		MCMD_SetTarget(&mcmd4M6_struct,0.0f);
+	}else if(state == 1){
+		MCMD_SetTarget(&mcmd4M5_struct,0.5f);
+	}
+}
+
+void base2_hand_setter(int state){
+	if(state == 0){
+		air_device.device_num=2;
+		AirCylinder_SendOutput(&air_device, AIR_OFF);
+		}else if(state == 1){
+			air_device.device_num=2;
+			AirCylinder_SendOutput(&air_device, AIR_ON);
+		}
+}
+
 
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
@@ -791,15 +831,15 @@ void StartDefaultTask(void *argument)
 
 //	mcmdMoter1Setting();
 //	mcmdMoter2Setting();
-	mcmdMoter3Setting();
-	mcmdMoter4Setting();
-//	mcmdMoter5Setting();
-//	mcmdMoter6Setting();
+//	mcmdMoter3Setting();
+//	mcmdMoter4Setting();
+	mcmdMoter5Setting();
+	mcmdMoter6Setting();
 //	mcmdMoter7Setting();
 //	mcmdMoter8Setting();
-//	servo1Setting();
-//	servo2Setting();
-//	airSetting();
+	servo1Setting();
+	servo2Setting();
+	airSetting();
 	printf("calibrationFinished\r\n");
 
 	finishCANsetting = true;
@@ -865,7 +905,7 @@ void mcmdEncChecker(MCMD_Feedback_Typedef *mcmd_fb, MCMD_HandleTypedef *mcmd_str
 	int device_num = mcmd_struct->device.device_num;
 
 	mcmd_fb->value = Get_MCMD_Feedback(&(mcmd_struct->device)).value;
-	printf("value of %d node %d device %d\r\n",node_id,device_num,(int)(mcmd_fb->value));
+	printf("value of %d node %d device %d\r\n",node_id,device_num,(int)((mcmd_fb->value)*100));
 	osDelay(interbalSec);
 }
 
@@ -904,15 +944,24 @@ void StartSysCheckTask(void *argument)
 		  if(!finishCheck){
 			  //servo1Checker();
 			  //servo2Checker();
-			  mcmdMotorDutyCecker(&mcmd4M3_struct,0.7f,2000,0.0f);
-			  //mcmdMotorDutyCecker(mcmd4M4_struct,0.7f,2);
+//			  mcmdMotorDutyCecker(&mcmd4M1_struct,0.3f,2000,0.0f);
+//			  mcmdMotorDutyCecker(&mcmd4M2_struct,0.3f,2000,0.0f);
+//			  mcmdMotorDutyCecker(&mcmd4M3_struct,0.3f,2000,0.0f);
+//			  mcmdMotorDutyCecker(&mcmd4M4_struct,0.3f,2000,0.0f);
+//			  mcmdMotorDutyCecker(&mcmd4M5_struct,0.3f,500,0.0f);
+//			  mcmdMotorDutyCecker(&mcmd4M6_struct,0.3f,500,0.0f);
+
 			  finishCheck = true;
 		  	  }
 	  }
 	  //freeRTOSChecker();
 	  //airChecker();
-	  mcmdEncChecker(&mcmdM3_fb,&mcmd4M3_struct,1);
-	  //mcmdEncChecker(mcmdM4_fb,mcmd4M4_struct,0.001);
+//	  mcmdEncChecker(&mcmdM1_fb,&mcmd4M1_struct,10);
+//	  mcmdEncChecker(&mcmdM2_fb,&mcmd4M2_struct,10);
+//	  mcmdEncChecker(&mcmdM3_fb,&mcmd4M3_struct,10);
+//	  mcmdEncChecker(&mcmdM4_fb,&mcmd4M4_struct,10);
+//	  mcmdEncChecker(&mcmdM5_fb,&mcmd4M5_struct,10);
+//	  mcmdEncChecker(&mcmdM6_fb,&mcmd4M6_struct,10);
 	  osDelay(10);
   }
   /* USER CODE END StartSysCheckTask */
