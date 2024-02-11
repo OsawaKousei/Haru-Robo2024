@@ -1,4 +1,0 @@
-source;share/manip/environment/ament_prefix_path.sh
-source;share/manip/environment/library_path.sh
-source;share/manip/environment/path.sh
-source;share/manip/environment/pythonpath.sh

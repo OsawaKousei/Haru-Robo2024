@@ -1,9 +1,0 @@
-In file included from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/../include/action_node.hpp:5[m[K,
-                 from [01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/bt_node.cpp:1[m[K:
-[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/../include/catch_node.hpp:[m[K In member function ‘[01m[Kint CatchNode::start(int, char**)[m[K’:
-[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/../include/catch_node.hpp:60:23:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
-   60 |         int start([01;35m[Kint argc[m[K, char *argv[]) {
-      |                   [01;35m[K~~~~^~~~[m[K
-[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/bt/src/../include/catch_node.hpp:60:35:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
-   60 |         int start(int argc, [01;35m[Kchar *argv[][m[K) {
-      |                             [01;35m[K~~~~~~^~~~~~[m[K

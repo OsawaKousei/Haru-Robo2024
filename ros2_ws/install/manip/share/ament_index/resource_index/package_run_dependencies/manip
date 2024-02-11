@@ -1,1 +1,0 @@
-rclcpp;std_msgs;geometry_msgs;sensor_msgs;nav_msgs;manip_msgs;action_msgs;rclcpp_action;rclcpp_components;tf2_msgs;tf2_ros;tf2;rosidl_default_generators;robot_state_publisher;rosidl_default_runtime;ament_lint_auto;ament_lint_common

@@ -1,1 +1,0 @@
-[0mCMake Error: The current CMakeCache.txt directory /home/kousei/HaruRobo2024_ws/uros_ws/build/micro_ros_setup/CMakeCache.txt is different than the directory /home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m

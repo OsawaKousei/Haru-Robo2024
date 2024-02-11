@@ -1,5 +1,0 @@
-[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:[m[K In lambda function:
-[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:66:30:[m[K [01;35m[Kwarning: [m[Kvalue computed is not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
-   66 |               state.work1[2] == 1;
-[01m[K/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip/src/manip_joy_node.cpp:68:30:[m[K [01;35m[Kwarning: [m[Kvalue computed is not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
-   68 |               state.work1[2] == 0;

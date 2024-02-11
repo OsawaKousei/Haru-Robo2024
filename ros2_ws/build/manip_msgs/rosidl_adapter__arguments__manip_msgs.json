@@ -1,7 +1,0 @@
-{
-  "package_name": "manip_msgs",
-  "non_idl_tuples": [
-    "/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip_msgs:msg/Cmd.msg",
-    "/home/kousei/HaruRobo2024_ws/ros2_ws/src/manip_msgs:msg/Result.msg"
-  ]
-}

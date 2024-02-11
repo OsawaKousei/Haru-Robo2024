@@ -1,9 +1,0 @@
-setup.py
-manip_msgs/__init__.py
-manip_msgs.egg-info/PKG-INFO
-manip_msgs.egg-info/SOURCES.txt
-manip_msgs.egg-info/dependency_links.txt
-manip_msgs.egg-info/top_level.txt
-manip_msgs/msg/__init__.py
-manip_msgs/msg/_cmd.py
-manip_msgs/msg/_result.py
