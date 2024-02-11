@@ -11373,50 +11373,50 @@ LOAD /opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.
                 0x0000000008002238       0xc8 ./Core/Src/freertos.o
                 0x0000000008002238                mcmdMoter5Setting
  .text.mcmdMoter6Setting
-                0x0000000008002300       0xc4 ./Core/Src/freertos.o
+                0x0000000008002300       0xc8 ./Core/Src/freertos.o
                 0x0000000008002300                mcmdMoter6Setting
  .text.servo1Setting
-                0x00000000080023c4       0x58 ./Core/Src/freertos.o
-                0x00000000080023c4                servo1Setting
+                0x00000000080023c8       0x58 ./Core/Src/freertos.o
+                0x00000000080023c8                servo1Setting
  .text.servo2Setting
-                0x000000000800241c       0x58 ./Core/Src/freertos.o
-                0x000000000800241c                servo2Setting
+                0x0000000008002420       0x58 ./Core/Src/freertos.o
+                0x0000000008002420                servo2Setting
  .text.airSetting
-                0x0000000008002474       0x48 ./Core/Src/freertos.o
-                0x0000000008002474                airSetting
+                0x0000000008002478       0x48 ./Core/Src/freertos.o
+                0x0000000008002478                airSetting
  .text.MX_FREERTOS_Init
-                0x00000000080024bc       0x78 ./Core/Src/freertos.o
-                0x00000000080024bc                MX_FREERTOS_Init
+                0x00000000080024c0       0x78 ./Core/Src/freertos.o
+                0x00000000080024c0                MX_FREERTOS_Init
  .text.service_callback
-                0x0000000008002534       0x4c ./Core/Src/freertos.o
-                0x0000000008002534                service_callback
+                0x0000000008002538       0x4c ./Core/Src/freertos.o
+                0x0000000008002538                service_callback
  .text.subscription_callback
-                0x0000000008002580       0x5c ./Core/Src/freertos.o
-                0x0000000008002580                subscription_callback
+                0x0000000008002584       0x5c ./Core/Src/freertos.o
+                0x0000000008002584                subscription_callback
  .text.print_int
-                0x00000000080025dc       0x60 ./Core/Src/freertos.o
-                0x00000000080025dc                print_int
+                0x00000000080025e0       0x60 ./Core/Src/freertos.o
+                0x00000000080025e0                print_int
  .text.manipsub_callback
-                0x000000000800263c       0xac ./Core/Src/freertos.o
-                0x000000000800263c                manipsub_callback
+                0x0000000008002640       0xac ./Core/Src/freertos.o
+                0x0000000008002640                manipsub_callback
  .text.work_arm_deployer
-                0x00000000080026e8       0x98 ./Core/Src/freertos.o
-                0x00000000080026e8                work_arm_deployer
+                0x00000000080026ec       0x98 ./Core/Src/freertos.o
+                0x00000000080026ec                work_arm_deployer
  .text.work_hand_setter
-                0x0000000008002780       0x40 ./Core/Src/freertos.o
-                0x0000000008002780                work_hand_setter
+                0x0000000008002784       0x40 ./Core/Src/freertos.o
+                0x0000000008002784                work_hand_setter
  .text.work_arm_setter
-                0x00000000080027c0       0x40 ./Core/Src/freertos.o
-                0x00000000080027c0                work_arm_setter
+                0x00000000080027c4       0x40 ./Core/Src/freertos.o
+                0x00000000080027c4                work_arm_setter
  .text.base1_arm_setter
-                0x0000000008002800       0x3c ./Core/Src/freertos.o
-                0x0000000008002800                base1_arm_setter
+                0x0000000008002804       0x3c ./Core/Src/freertos.o
+                0x0000000008002804                base1_arm_setter
  .text.base1_hand_setter
-                0x000000000800283c       0x40 ./Core/Src/freertos.o
-                0x000000000800283c                base1_hand_setter
+                0x0000000008002840       0x40 ./Core/Src/freertos.o
+                0x0000000008002840                base1_hand_setter
  .text.base2_arm_setter
-                0x000000000800287c       0x40 ./Core/Src/freertos.o
-                0x000000000800287c                base2_arm_setter
+                0x0000000008002880       0x3c ./Core/Src/freertos.o
+                0x0000000008002880                base2_arm_setter
  .text.base2_hand_setter
                 0x00000000080028bc       0x40 ./Core/Src/freertos.o
                 0x00000000080028bc                base2_hand_setter

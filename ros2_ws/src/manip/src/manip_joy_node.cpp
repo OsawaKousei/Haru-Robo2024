@@ -42,6 +42,24 @@ public:
           }
           bool send_goal_frag = false;
 
+          if(msg.buttons[7] == 1 && buttons[7] == 0){
+            if(state.base2[1] == 0){
+              state.base2[1] = 1;
+            }else{
+              state.base2[1] = 0;
+            }
+            send_goal_frag = true;
+          }
+
+          if(msg.buttons[6] == 1 && buttons[6] == 0){
+            if(state.base2[0] == 0){
+              state.base2[0] = 1;
+            }else{
+              state.base2[0] = 0;
+            }
+            send_goal_frag = true;
+          }
+
           if(msg.buttons[5] == 1 && buttons[5] == 0){
             if(state.base1[1] == 0){
               state.base1[1] = 1;

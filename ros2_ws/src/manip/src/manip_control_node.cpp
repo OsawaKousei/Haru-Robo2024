@@ -134,6 +134,12 @@ private:
     if(!(goal->base1[1] == state.base1[1])){
       cmd.top_base_hand = goal->base1[1];
     }
+    if(!(goal->base2[0] == state.base2[0])){
+      cmd.bottom_base_arm = goal->base2[0];
+    }
+    if(!(goal->base2[1] == state.base2[1])){
+      cmd.bottom_base_hand = goal->base2[1];
+    }
   }
 
   void execute_cmd(const std::shared_ptr<GoalHandleState> goal_handle){
@@ -141,7 +147,7 @@ private:
 
     this->publisher_->publish(cmd);
     show_message(cmd);
-    sleep(5);
+    sleep(1);
 
     state.base1 = goal->base1;
     state.base2 = goal->base2;

@@ -373,7 +373,7 @@ void mcmdMoter5Setting(){
 
 	    // 制御パラメータの設定
 	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;  //制御タイプを設定
-	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.1f;
+	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.2f;
 	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.05f;
 	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
@@ -406,9 +406,9 @@ void mcmdMoter6Setting(){
 	    mcmd4M6_struct.device.device_num = 1;
 
 	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
-	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.1f;
-	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.0f;
-	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.0f;
+	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.2f;
+	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.05f;
+	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M6_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
 	    mcmd4M6_struct.ctrl_param.accel_limit_size = 2.0f;
 	    mcmd4M6_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
@@ -712,7 +712,7 @@ void base2_arm_setter(int state){
 	if(state == 0){
 		MCMD_SetTarget(&mcmd4M6_struct,0.0f);
 	}else if(state == 1){
-		MCMD_SetTarget(&mcmd4M5_struct,0.5f);
+		MCMD_SetTarget(&mcmd4M6_struct,0.75f);
 	}
 }
 
