@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+//micro-rosのためのインクルード
 #include <stdbool.h>
 #include <rcl/rcl.h>
 #include <rcl/error_handling.h>
@@ -69,7 +70,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-// サービスのリクエストとレスポンスの構造体を定義
+//micro-rosのメッセージを定義
 custom_test_msgs__srv__AddThreeInts_Request req;
 custom_test_msgs__srv__AddThreeInts_Response res;
 drive_msgs__msg__Omni sub;
@@ -164,10 +165,12 @@ const osThreadAttr_t EncorderTask_attributes = {
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-//このコード固有の変数
-bool finishCANsetting = false;
-float cmd_motor[4] = {0,0,0,0};
 
+//このコード固有の変数
+bool finishCANsetting = false;//can設定が終わったかどうかのフラグ
+float cmd_motor[4] = {0,0,0,0};//モーターの制御値を格納しておく変数
+
+//micro-rosのためのプロトタイプ宣言
 bool cubemx_transport_open(struct uxrCustomTransport * transport);
 bool cubemx_transport_close(struct uxrCustomTransport * transport);
 size_t cubemx_transport_write(struct uxrCustomTransport* transport, const uint8_t * buf, size_t len, uint8_t * err);
@@ -207,197 +210,176 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 //can通信の設定
 void canSetting(){
 	printf("Start Initializing CAN System:Begin\n\r");
-	HAL_Delay(10);
+	osDelay(10);
 
-	CAN_SystemInit(&hcan1); // F7のCAN通信のinit
+	CAN_SystemInit(&hcan1);
 
-	// デバイス数の設定
 //	num_of_devices.mcmd3 = 1;
 	num_of_devices.mcmd3 = 3;
 	num_of_devices.mcmd4 = 0;
-	num_of_devices.air = 1;
-	num_of_devices.servo = 1;
+	num_of_devices.air = 0;
+	num_of_devices.servo = 0;
 
 	printf("Start Initializing CAN System:End\n\r");
-	HAL_Delay(10);
-	CAN_WaitConnect(&num_of_devices);  // 設定された全てのCANモジュール基板との接続が確認できるまで待機
+	osDelay(10);
+	CAN_WaitConnect(&num_of_devices);
 }
 
 //モータ1のmcmd設定
 void mcmdMoter1Setting(){
-	    // 接続先のMCMDの設定
-	    mcmd4M1_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M1_struct.device.node_id = 0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
-	    mcmd4M1_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
+	    mcmd4M1_struct.device.node_type = NODE_MCMD3;
+	    mcmd4M1_struct.device.node_id = 0;
+	    mcmd4M1_struct.device.device_num = 0;
 
-	    // 制御パラメータの設定
-	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;
 	    mcmd4M1_struct.ctrl_param.PID_param.kp = 0.075f;
 	    mcmd4M1_struct.ctrl_param.PID_param.ki = 0.025f;
 	    mcmd4M1_struct.ctrl_param.PID_param.kd = 0.01f;
-	    mcmd4M1_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
-	    mcmd4M1_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
-	    mcmd4M1_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
-	    mcmd4M1_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
-	    mcmd4M1_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
-	    mcmd4M1_struct.rot_dir = MCMD_DIR_FW;  // モーターの回転方向設定
-	    mcmd4M1_struct.quant_per_unit = 1.0/1024.0f; 	 // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M1_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
+	    mcmd4M1_struct.ctrl_param.accel_limit_size = 2.0f;
+	    mcmd4M1_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
+	    mcmd4M1_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
+	    mcmd4M1_struct.enc_dir = MCMD_DIR_FW;
+	    mcmd4M1_struct.rot_dir = MCMD_DIR_FW;
+	    mcmd4M1_struct.quant_per_unit = 1.0/1024.0f;
 
-	    // 原点サーチの設定
-	    mcmd4M1_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
-	    mcmd4M1_struct.calib = CALIBRATION_DISABLE;  // 原点サーチを行うかどうか。
-	    mcmd4M1_struct.calib_duty = -0.2f;  // 原点サーチ時のduty
-	    mcmd4M1_struct.offset = 0.0f;  // 原点のオフセット
-	    mcmd4M1_struct.fb_type = MCMD_FB_POS;  // 読み取った位置情報をF7にフィードバックする。
+	    mcmd4M1_struct.limit_sw_type = LIMIT_SW_NO;
+	    mcmd4M1_struct.calib = CALIBRATION_DISABLE;
+	    mcmd4M1_struct.calib_duty = -0.2f;
+	    mcmd4M1_struct.offset = 0.0f;
+	    mcmd4M1_struct.fb_type = MCMD_FB_POS;
 
-	    // パラメータなどの設定と動作命令をMCMDに送信する
 		 MCMD_init(&mcmd4M1_struct);
-		 HAL_Delay(10);
-		 MCMD_Calib(&mcmd4M1_struct);  // キャリブレーションを行う
-		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
-		 MCMD_SetTarget(&mcmd4M1_struct, 0.00f);  // 目標値を設定
-		 MCMD_Control_Enable(&mcmd4M1_struct);  // 制御開始
+		 osDelay(10);
+		 MCMD_Calib(&mcmd4M1_struct);
+		 osDelay(50);
+		 MCMD_SetTarget(&mcmd4M1_struct, 0.00f);
+		 MCMD_Control_Enable(&mcmd4M1_struct);
 }
 
 //モータ2のmcmd設定
 void mcmdMoter2Setting(){
-	    // 接続先のMCMDの設定
-	    mcmd4M2_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M2_struct.device.node_id = 0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
-	    mcmd4M2_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
+	    mcmd4M2_struct.device.node_type = NODE_MCMD3;
+	    mcmd4M2_struct.device.node_id = 0;
+	    mcmd4M2_struct.device.device_num = 1;
 
-	    // 制御パラメータの設定
-	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;
 	    mcmd4M2_struct.ctrl_param.PID_param.kp = 0.075f;
 	    mcmd4M2_struct.ctrl_param.PID_param.ki = 0.025f;
 	    mcmd4M2_struct.ctrl_param.PID_param.kd = 0.01f;
-	    mcmd4M2_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
-	    mcmd4M2_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
-	    mcmd4M2_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
-	    mcmd4M2_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
-	    mcmd4M2_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
-	    mcmd4M2_struct.rot_dir = MCMD_DIR_FW;  // モーターの回転方向設定
-	    mcmd4M2_struct.quant_per_unit = 1.0/1024.0f;  // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M2_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
+	    mcmd4M2_struct.ctrl_param.accel_limit_size = 2.0f;
+	    mcmd4M2_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
+	    mcmd4M2_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
+	    mcmd4M2_struct.enc_dir = MCMD_DIR_FW;
+	    mcmd4M2_struct.rot_dir = MCMD_DIR_FW;
+	    mcmd4M2_struct.quant_per_unit = 1.0/1024.0f;
 
-	    // 原点サーチの設定
-	    mcmd4M2_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
-	    mcmd4M2_struct.calib = CALIBRATION_DISABLE;  // 原点サーチを行うかどうか。
-	    mcmd4M2_struct.calib_duty = -0.2f;  // 原点サーチ時のduty
-	    mcmd4M2_struct.offset = 0.0f;  // 原点のオフセット
-	    mcmd4M2_struct.fb_type = MCMD_FB_POS;  // 読み取った位置情報をF7にフィードバックする。
+	    mcmd4M2_struct.limit_sw_type = LIMIT_SW_NO;
+	    mcmd4M2_struct.calib = CALIBRATION_DISABLE;
+	    mcmd4M2_struct.calib_duty = -0.2f;
+	    mcmd4M2_struct.offset = 0.0f;
+	    mcmd4M2_struct.fb_type = MCMD_FB_POS;
 
-	    // パラメータなどの設定と動作命令をMCMDに送信する
 		 MCMD_init(&mcmd4M2_struct);
-		 HAL_Delay(10);
-		 MCMD_Calib(&mcmd4M2_struct);  // キャリブレーションを行う
-		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
-		 MCMD_SetTarget(&mcmd4M2_struct, 0.00f);  // 目標値を設定
-		 MCMD_Control_Enable(&mcmd4M2_struct);  // 制御開始
+		 osDelay(10);
+		 MCMD_Calib(&mcmd4M2_struct);
+		 osDelay(50);
+		 MCMD_SetTarget(&mcmd4M2_struct, 0.00f);
+		 MCMD_Control_Enable(&mcmd4M2_struct);
 }
 
-void mcmdMoter3Setting(){ //モーターの回転方向異常
-	    // 接続先のMCMDの設定
-	    mcmd4M3_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M3_struct.device.node_id = 2;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
-	    mcmd4M3_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
+void mcmdMoter3Setting(){
+	    mcmd4M3_struct.device.node_type = NODE_MCMD3;
+	    mcmd4M3_struct.device.node_id = 2;
+	    mcmd4M3_struct.device.device_num = 0;
 
-	    // 制御パラメータの設定
-	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;
 	    mcmd4M3_struct.ctrl_param.PID_param.kp = 0.075f;
 	    mcmd4M3_struct.ctrl_param.PID_param.ki = 0.025f;
 	    mcmd4M3_struct.ctrl_param.PID_param.kd = 0.01f;
-	    mcmd4M3_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
-	    mcmd4M3_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
-	    mcmd4M3_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
-	    mcmd4M3_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
-	    mcmd4M3_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
-	    mcmd4M3_struct.rot_dir = MCMD_DIR_BC;  // モーターの回転方向設定
-	    mcmd4M3_struct.quant_per_unit = 1.0/1024.0f;   // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M3_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
+	    mcmd4M3_struct.ctrl_param.accel_limit_size = 2.0f;
+	    mcmd4M3_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
+	    mcmd4M3_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
+	    mcmd4M3_struct.enc_dir = MCMD_DIR_FW;
+	    mcmd4M3_struct.rot_dir = MCMD_DIR_FW;
+	    mcmd4M3_struct.quant_per_unit = 1.0/1024.0f;
 
-	    // 原点サーチの設定
-	    mcmd4M3_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
-	    mcmd4M3_struct.calib = CALIBRATION_DISABLE;  // 原点サーチを行うかどうか。
-	    mcmd4M3_struct.calib_duty = -0.2f;  // 原点サーチ時のduty
-	    mcmd4M3_struct.offset = 0.0f;  // 原点のオフセット
-	    mcmd4M3_struct.fb_type = MCMD_FB_POS;  // 読み取った位置情報をF7にフィードバックする。
+	    mcmd4M3_struct.limit_sw_type = LIMIT_SW_NO;
+	    mcmd4M3_struct.calib = CALIBRATION_DISABLE;
+	    mcmd4M3_struct.calib_duty = -0.2f;
+	    mcmd4M3_struct.offset = 0.0f;
+	    mcmd4M3_struct.fb_type = MCMD_FB_POS;
 
-	    // パラメータなどの設定と動作命令をMCMDに送信する
 		 MCMD_init(&mcmd4M3_struct);
-		 HAL_Delay(10);
-		 MCMD_Calib(&mcmd4M3_struct);  // キャリブレーションを行う
-		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
-		 MCMD_SetTarget(&mcmd4M3_struct, 0.00f);  // 目標値を設定
-		 MCMD_Control_Enable(&mcmd4M3_struct);  // 制御開始
+		 osDelay(10);
+		 MCMD_Calib(&mcmd4M3_struct);
+		 osDelay(50);
+		 MCMD_SetTarget(&mcmd4M3_struct, 0.00f);
+		 MCMD_Control_Enable(&mcmd4M3_struct);
 }
 
 void mcmdMoter4Setting(){
-	    // 接続先のMCMDの設定
-	    mcmd4M4_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M4_struct.device.node_id =2;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
-	    mcmd4M4_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
+	    mcmd4M4_struct.device.node_type = NODE_MCMD3;
+	    mcmd4M4_struct.device.node_id =2;
+	    mcmd4M4_struct.device.device_num = 1;
 
-	    // 制御パラメータの設定
-	    mcmd4M4_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M4_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;
 	    mcmd4M4_struct.ctrl_param.PID_param.kp = 0.075f;
 	    mcmd4M4_struct.ctrl_param.PID_param.ki = 0.025f;
 	    mcmd4M4_struct.ctrl_param.PID_param.kd = 0.01f;
-	    mcmd4M4_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
-	    mcmd4M4_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
-	    mcmd4M4_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
-	    mcmd4M4_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
-	    mcmd4M4_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
-	    mcmd4M4_struct.rot_dir = MCMD_DIR_FW;  // モーターの回転方向設定
-	    mcmd4M4_struct.quant_per_unit = 1.0/1024.0f;   // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M4_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
+	    mcmd4M4_struct.ctrl_param.accel_limit_size = 2.0f;
+	    mcmd4M4_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
+	    mcmd4M4_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
+	    mcmd4M4_struct.enc_dir = MCMD_DIR_FW;
+	    mcmd4M4_struct.rot_dir = MCMD_DIR_FW;
+	    mcmd4M4_struct.quant_per_unit = 1.0/1024.0f;
 
-	    // 原点サーチの設定
-	    mcmd4M4_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
-	    mcmd4M4_struct.calib = CALIBRATION_DISABLE;  // 原点サーチを行うかどうか。
-	    mcmd4M4_struct.calib_duty = -0.2f;  // 原点サーチ時のduty
-	    mcmd4M4_struct.offset = 0.0f;  // 原点のオフセット
-	    mcmd4M4_struct.fb_type = MCMD_FB_POS;  // 読み取った位置情報をF7にフィードバックする。
+	    mcmd4M4_struct.limit_sw_type = LIMIT_SW_NO;
+	    mcmd4M4_struct.calib = CALIBRATION_DISABLE;
+	    mcmd4M4_struct.calib_duty = -0.2f;
+	    mcmd4M4_struct.offset = 0.0f;
+	    mcmd4M4_struct.fb_type = MCMD_FB_POS;
 
-	    // パラメータなどの設定と動作命令をMCMDに送信する
 		 MCMD_init(&mcmd4M4_struct);
-		 HAL_Delay(10);
-		 MCMD_Calib(&mcmd4M4_struct);  // キャリブレーションを行う
-		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
-		 MCMD_SetTarget(&mcmd4M4_struct, 0.00f);  // 目標値を設定
-		 MCMD_Control_Enable(&mcmd4M4_struct);  // 制御開始
+		 osDelay(10);
+		 MCMD_Calib(&mcmd4M4_struct);
+		 osDelay(50);
+		 MCMD_SetTarget(&mcmd4M4_struct, 0.00f);
+		 MCMD_Control_Enable(&mcmd4M4_struct);
 }
 
 void mcmdMoter5Setting(){
-	    // 接続先のMCMDの設定
-	    mcmd4M5_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M5_struct.device.node_id =5;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
-	    mcmd4M5_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
+	    mcmd4M5_struct.device.node_type = NODE_MCMD3;
+	    mcmd4M5_struct.device.node_id =5;
+	    mcmd4M5_struct.device.device_num = 0;
 
-	    // 制御パラメータの設定
-	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;  //制御タイプを設定
+	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
 	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.2f;
 	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.05f;
 	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;
-	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
-	    mcmd4M5_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
-	    mcmd4M5_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
-	    mcmd4M5_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
-	    mcmd4M5_struct.enc_dir = MCMD_DIR_BC;  // Encoderの回転方向設定
-	    mcmd4M5_struct.rot_dir = MCMD_DIR_BC;  // モーターの回転方向設定
-	    mcmd4M5_struct.quant_per_unit = 1.0/1024.0f;  // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
+	    mcmd4M5_struct.ctrl_param.accel_limit_size = 2.0f;
+	    mcmd4M5_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
+	    mcmd4M5_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
+	    mcmd4M5_struct.enc_dir = MCMD_DIR_BC;
+	    mcmd4M5_struct.rot_dir = MCMD_DIR_BC;
+	    mcmd4M5_struct.quant_per_unit = 1.0/1024.0f;
 
-	    // 原点サーチの設定
-	    mcmd4M5_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
-	    mcmd4M5_struct.calib = CALIBRATION_DISABLE;  // 原点サーチを行うかどうか。
-	    mcmd4M5_struct.calib_duty = -0.2f;  // 原点サーチ時のduty
-	    mcmd4M5_struct.offset = 0.0f;  // 原点のオフセット
-	    mcmd4M5_struct.fb_type = MCMD_FB_POS;  // 読み取った位置情報をF7にフィードバックする。
+	    mcmd4M5_struct.limit_sw_type = LIMIT_SW_NO;
+	    mcmd4M5_struct.calib = CALIBRATION_DISABLE;
+	    mcmd4M5_struct.calib_duty = -0.2f;
+	    mcmd4M5_struct.offset = 0.0f;
+	    mcmd4M5_struct.fb_type = MCMD_FB_POS;
 
-	    // パラメータなどの設定と動作命令をMCMDに送信する
 		 MCMD_init(&mcmd4M5_struct);
-		 HAL_Delay(10);
-		 MCMD_Calib(&mcmd4M5_struct);  // キャリブレーションを行う
-		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
-		 MCMD_SetTarget(&mcmd4M5_struct, 0.00f);  // 目標値を設定
-		 MCMD_Control_Enable(&mcmd4M5_struct);  // 制御開始
+		 osDelay(10);
+		 MCMD_Calib(&mcmd4M5_struct);
+		 osDelay(50);
+		 MCMD_SetTarget(&mcmd4M5_struct, 0.00f);
+		 MCMD_Control_Enable(&mcmd4M5_struct);
 }
 
 void mcmdMoter6Setting(){
@@ -424,9 +406,9 @@ void mcmdMoter6Setting(){
 	    mcmd4M6_struct.fb_type = MCMD_FB_POS;
 
 		 MCMD_init(&mcmd4M6_struct);
-		 HAL_Delay(10);
+		 osDelay(10);
 		 MCMD_Calib(&mcmd4M6_struct);
-		 HAL_Delay(50);
+		 osDelay(50);
 		 MCMD_SetTarget(&mcmd4M6_struct, 0.00f);
 		 MCMD_Control_Enable(&mcmd4M6_struct);
 }
@@ -455,9 +437,9 @@ void mcmdMoter7Setting(){
 	    mcmd4M7_struct.fb_type = MCMD_FB_POS;
 
 		 MCMD_init(&mcmd4M7_struct);
-		 HAL_Delay(10);
+		 osDelay(10);
 		 MCMD_Calib(&mcmd4M7_struct);
-		 HAL_Delay(50);
+		 osDelay(50);
 		 MCMD_SetTarget(&mcmd4M7_struct, 0.00f);
 		 MCMD_Control_Enable(&mcmd4M7_struct);
 }
@@ -486,50 +468,49 @@ void mcmdMoter8Setting(){
 	    mcmd4M8_struct.fb_type = MCMD_FB_POS;
 
 		 MCMD_init(&mcmd4M8_struct);
-		 HAL_Delay(10);
+		 osDelay(10);
 		 MCMD_Calib(&mcmd4M8_struct);
-		 HAL_Delay(50);
+		 osDelay(50);
 		 MCMD_SetTarget(&mcmd4M8_struct, 0.00f);
 		 MCMD_Control_Enable(&mcmd4M8_struct);
 }
 
 //サーボ基盤設定
 void servo1Setting(){
-	// Servo基板のdevice設定
 	servo_device1.node_type = NODE_SERVO;
 	servo_device1.node_id = 1;
-	servo_device1.device_num = 0;//0~3を指定する
+	servo_device1.device_num = 0;
 
-	// Servo基板のパラメータ (offset以外はあまり変更しない)
-	servo_param1.angle_range=270.0f;//サーボの動作範囲
-	servo_param1.angle_offset=0.0f;//原点の位置
-	servo_param1.pulse_width_max=2.4f;//サーボの制御のPWM信号のパルス幅の最大値
-	servo_param1.pulse_width_min=0.5f;//サーボの制御のPWM信号のパルス幅の最小値
-	servo_param1.pwm_frequency=50;//PWM周波数（この変更は未実装
+	servo_param1.angle_range=270.0f;
+	servo_param1.angle_offset=0.0f;
+	servo_param1.pulse_width_max=2.4f;
+	servo_param1.pulse_width_min=0.5f;
+	servo_param1.pwm_frequency=50;
+
+	osDelay(50);
 }
 
 void servo2Setting(){
-	// Servo基板のdevice設定
 	servo_device2.node_type = NODE_SERVO;
 	servo_device2.node_id = 1;
-	servo_device2.device_num = 1;//0~3を指定する
+	servo_device2.device_num = 1;
 
-	// Servo基板のパラメータ (offset以外はあまり変更しない)
-	servo_param2.angle_range=270.0f;//サーボの動作範囲
-	servo_param2.angle_offset=0.0f;//原点の位置
-	servo_param2.pulse_width_max=2.4f;//サーボの制御のPWM信号のパルス幅の最大値
-	servo_param2.pulse_width_min=0.5f;//サーボの制御のPWM信号のパルス幅の最小値
-	servo_param2.pwm_frequency=50;//PWM周波数（この変更は未実装
+	servo_param2.angle_range=270.0f;
+	servo_param2.angle_offset=0.0f;
+	servo_param2.pulse_width_max=2.4f;
+	servo_param2.pulse_width_min=0.5f;
+	servo_param2.pwm_frequency=50;
+
+	osDelay(50);
 }
 
 //エアシリ基盤設定
 void airSetting(){
-	air_device.node_type = NODE_AIR; //エアシリンダ基盤であることを示す
-	air_device.node_id = 0; //基板の番号
+	air_device.node_type = NODE_AIR;
+	air_device.node_id = 0;
 
-	//初期化
-	 for(uint8_t i=PORT_1; i<=PORT_8; i++){  //すべてのポートを初期化しないとAir基板は動かない
-		air_device.device_num = i; // (i番ポートを指定)
+	 for(uint8_t i=PORT_1; i<=PORT_8; i++){
+		air_device.device_num = i; //
 		AirCylinder_Init(&air_device, AIR_OFF);
 		HAL_Delay(10);  // このdelayは必要
 	 }
@@ -599,23 +580,21 @@ void MX_FREERTOS_Init(void) {
   * @param  argument: Not used
   * @retval None
   */
-int count = 1;
 
-// サービスのコールバック関数を定義
+//過去の遺物
 void service_callback(const void *request, void *response)
 {
-	// リクエストとレスポンスを適切な型にキャスト
 	custom_test_msgs__srv__AddThreeInts_Request *_req = (custom_test_msgs__srv__AddThreeInts_Request *)request;
 	custom_test_msgs__srv__AddThreeInts_Response *_res = (custom_test_msgs__srv__AddThreeInts_Response *)response;
-	// 1秒スリープ（重い処理の代わり）
+
 	osDelay(1000);
-	// レスポンスに合計値をセット
+
 	_res->sum = _req->a + _req->b + _req->c;
 }
 
+//速度司令を格納
 void subscription_callback(const void * msgin)
 {
-	 // Cast received message to used type
 	  const drive_msgs__msg__Omni * sub = (const drive_msgs__msg__Omni *)msgin;
 
 	  cmd_motor[0] = sub->mfontright;
@@ -624,6 +603,7 @@ void subscription_callback(const void * msgin)
 	  cmd_motor[3] = sub->mbackleft;
 }
 
+//micro-rosでのデバッグ用
 void print_int(int num){
 	rosidl_runtime_c__String__init(&pub);
 	char val[12];
@@ -632,6 +612,7 @@ void print_int(int num){
 	RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 }
 
+//マニピュレーションのためのコールバック関数群
 void manipsub_callback(const void * msgin)
 {
 	 // Cast received message to used type
@@ -649,7 +630,7 @@ void manipsub_callback(const void * msgin)
 	  base2_arm_setter(msub->bottom_base_arm);
 	  base2_hand_setter(msub->bottom_base_hand);
 
-	  HAL_GPIO_TogglePin(GPIOB, LD2_Pin);  // PINのPin stateを反転
+	  HAL_GPIO_TogglePin(GPIOB, LD2_Pin);
 }
 
 void work_arm_deployer(int state){//state:{0:close,1:open}
@@ -658,7 +639,7 @@ void work_arm_deployer(int state){//state:{0:close,1:open}
 		osDelay(100);  // 適切なdelayを入れる
 		ServoDriver_SendValue(&servo_device1, 45.0f);
 		ServoDriver_Init(&servo_device2, &servo_param2);
-		osDelay(100);  // 適切なdelayを入れる
+		osDelay(100);
 		ServoDriver_SendValue(&servo_device2, 135.0f);
 	}else if(state == 1){
 		ServoDriver_Init(&servo_device2, &servo_param2);
@@ -733,7 +714,7 @@ void StartDefaultTask(void *argument)
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
-  // micro-ROSの初期化
+  // micro-ROSの設定
   	rmw_uros_set_custom_transport(
   	    true,
   	    (void *) &huart3,
@@ -751,7 +732,8 @@ void StartDefaultTask(void *argument)
   		printf("Error on default allocators (line %d)\n", __LINE__);
   	}
 
-      // ここからサービスサーバの実装
+  	osDelay(100);
+
   	setvbuf(stdout, NULL, _IONBF, BUFSIZ);
   	rcl_init_options_t init_options = rcl_get_zero_initialized_init_options();
   	rcl_allocator_t allocator = rcl_get_default_allocator();
@@ -764,50 +746,41 @@ void StartDefaultTask(void *argument)
   	rclc_executor_t executor = rclc_executor_get_zero_initialized_executor();
   	rcl_node_options_t node_ops = rcl_node_get_default_options();
 
-  	RCCHECK(rcl_init_options_init(&init_options, allocator));
+  	osDelay(100);
 
-      // ROS_DOMAIN_IDの設定。
+  	//ノードの設定
+  	RCCHECK(rcl_init_options_init(&init_options, allocator));
   	RCCHECK(rcl_init_options_set_domain_id(&init_options, 0));
   	rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator);
-
-      // ノードの作成
   	RCCHECK(rclc_node_init_with_options(&node, "f7_node", "", &support, &node_ops));
-
-      // サービスの作成
   	RCCHECK(rclc_service_init_default(&service, &node, ROSIDL_GET_SRV_TYPE_SUPPORT(custom_test_msgs, srv, AddThreeInts), "add_three_ints"));
 
-  	 //publisherの作成
 	RCCHECK(rclc_publisher_init_default(
 	  &publisher,
 	  &node,
 	  ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, String),
 	  "/from_f767zi"));
 
-	 //publisherの作成
 		RCCHECK(rclc_publisher_init_default(
 		  &encpublisher,
 		  &node,
 		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, OmniEnc),
 		  "/enc_val_f7"));
 
-
-	 //subscriberの作成
 		RCCHECK(rclc_subscription_init_default(
 		  &subscriber,
 		  &node,
 		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, Omni),
 		  "/cmd_motor_f7"));
 
-//		//subscriberの作成
 		RCCHECK(rclc_subscription_init_default(
 		  &manipsub,
 		  &node,
 		  ROSIDL_GET_MSG_TYPE_SUPPORT(manip_msgs, msg, Cmd),
 		  "/manip_cmd_f7"));
-      // エグゼキューターの作成。三番目の引数はextecuterに登録するコールバック関数の数。
-  	RCCHECK(rclc_executor_init(&executor, &support.context, 3, &allocator));
 
-      // エグゼキューターにサービスを追加
+		RCCHECK(rclc_executor_init(&executor, &support.context, 3, &allocator));
+
   	RCCHECK(rclc_executor_add_service(&executor, &service, &req, &res, &service_callback));
   	RCCHECK(rclc_executor_add_subscription(
   		  &executor, &subscriber, &sub,
@@ -816,23 +789,23 @@ void StartDefaultTask(void *argument)
   	  		  &executor, &manipsub, &msub,
   	  		  &manipsub_callback, ON_NEW_DATA));
 
+  	osDelay(100);
+
     //配列データを扱うときの処理
     rosidl_runtime_c__String__init(&pub);
     char hello[] = "initialized from f7";
     rosidl_runtime_c__String__assignn(&pub.data, hello, sizeof(hello));
-
     RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 
-    //初期化
+    //ピンの初期化
     HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
 
-	//記事ではmcmdなどの初期化コードを描くことになっている場所
+    //CANの設定を実行
 	canSetting();
-
-//	mcmdMoter1Setting();
-//	mcmdMoter2Setting();
-//	mcmdMoter3Setting();
-//	mcmdMoter4Setting();
+	mcmdMoter1Setting();
+	mcmdMoter2Setting();
+	mcmdMoter3Setting();
+	mcmdMoter4Setting();
 	mcmdMoter5Setting();
 	mcmdMoter6Setting();
 //	mcmdMoter7Setting();
@@ -840,16 +813,17 @@ void StartDefaultTask(void *argument)
 	servo1Setting();
 	servo2Setting();
 	airSetting();
-	printf("calibrationFinished\r\n");
 
+	printf("All Setting Finished\r\n");
 	finishCANsetting = true;
+	osDelay(100);
 
   /* Infinite loop */
   for(;;)
   {
 	  // エグゼキューターを実行してリクエストを処理
 	  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
-	  RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));
+	  //RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
 
 	  osDelay(10);
   }
@@ -868,23 +842,59 @@ void StartDefaultTask(void *argument)
 * @param argument: Not used
 * @retval None
 */
-bool finishCheck = false;
-//freeRTOSの動作確認用
+//動作確認のための関数群
+bool finishCheck = false;//動作確認が終わったかどうかのフラグ
+
 void freeRTOSChecker(){//無限ループの中で実行
 	HAL_GPIO_TogglePin(GPIOB, LD2_Pin);  // PINのPin stateを反転
 	printf("RTOSchecking\r\n");
 
 }
 
-void mcmdMotorDutyCecker(MCMD_HandleTypedef *mcmd_struct, float target, int testSec, float endTarget){
+
+float velLimmiter(float input){
+	const float velLimmit = 3.0f;
+	if(input >= velLimmit){
+		input = velLimmit;
+	}else if(input <= velLimmit*-1.0){
+		input = velLimmit*-1.0;
+	}
+
+	return input;
+}
+
+float dutyLimmiter(float input){
+	const float dutyLimmit = 0.75;
+	if(input >= dutyLimmit){
+		input = dutyLimmit;
+	}else if(input <= dutyLimmit*-1.0){
+		input = dutyLimmit*-1.0;
+	}
+
+	return input;
+}
+
+void mcmdMotorCecker(MCMD_HandleTypedef *mcmd_struct, int ctrl_mode,float target, int testSec, float endTarget){
 	int node_id = mcmd_struct->device.node_id;
 	int device_num = mcmd_struct->device.device_num;
 	int ctrl_type = mcmd_struct->ctrl_param.ctrl_type;
 
-	printf("MCMD3 Check node_id:%d device_num:%d",node_id,device_num);
+	osDelay(100);
+	switch(ctrl_mode){
+		case MCMD_CTRL_DUTY:
+			target = dutyLimmiter(target);
+			break;
+		case MCMD_CTRL_VEL:
+			target = velLimmiter(target);
+			break;
+		default:
+			break;
+	}
+
+	printf("MCMD3 Check node_id:%d device_num:%d\r\n",node_id,device_num);
 
 	MCMD_Control_Disable(mcmd_struct);
-	mcmd_struct->ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
+	mcmd_struct->ctrl_param.ctrl_type = ctrl_mode;
 	MCMD_ChangeControl(mcmd_struct);
 	MCMD_Calib(mcmd_struct);
 	MCMD_SetTarget(mcmd_struct,target);
@@ -898,6 +908,8 @@ void mcmdMotorDutyCecker(MCMD_HandleTypedef *mcmd_struct, float target, int test
 	MCMD_Calib(mcmd_struct);
 	MCMD_SetTarget(mcmd_struct,endTarget);
 	MCMD_Control_Enable(mcmd_struct);
+
+	osDelay(100);
 }
 
 void mcmdEncChecker(MCMD_Feedback_Typedef *mcmd_fb, MCMD_HandleTypedef *mcmd_struct, int interbalSec){
@@ -942,26 +954,25 @@ void StartSysCheckTask(void *argument)
   {
 	  if(finishCANsetting){
 		  if(!finishCheck){
+			  osDelay(1000);//このdelayは必要？
 			  //servo1Checker();
 			  //servo2Checker();
-//			  mcmdMotorDutyCecker(&mcmd4M1_struct,0.3f,2000,0.0f);
-//			  mcmdMotorDutyCecker(&mcmd4M2_struct,0.3f,2000,0.0f);
-//			  mcmdMotorDutyCecker(&mcmd4M3_struct,0.3f,2000,0.0f);
-//			  mcmdMotorDutyCecker(&mcmd4M4_struct,0.3f,2000,0.0f);
-//			  mcmdMotorDutyCecker(&mcmd4M5_struct,0.3f,500,0.0f);
-//			  mcmdMotorDutyCecker(&mcmd4M6_struct,0.3f,500,0.0f);
+			  //mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_VEL,-2.0f,5000,0.0f);
+			  //mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_VEL,-2.0f,5000,0.0f);
+			  //mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_VEL,-2.0f,10000,0.0f);
+			  //mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_VEL,-2.0f,5000,0.0f);
 
 			  finishCheck = true;
 		  	  }
 	  }
 	  //freeRTOSChecker();
 	  //airChecker();
-//	  mcmdEncChecker(&mcmdM1_fb,&mcmd4M1_struct,10);
-//	  mcmdEncChecker(&mcmdM2_fb,&mcmd4M2_struct,10);
-//	  mcmdEncChecker(&mcmdM3_fb,&mcmd4M3_struct,10);
-//	  mcmdEncChecker(&mcmdM4_fb,&mcmd4M4_struct,10);
-//	  mcmdEncChecker(&mcmdM5_fb,&mcmd4M5_struct,10);
-//	  mcmdEncChecker(&mcmdM6_fb,&mcmd4M6_struct,10);
+//	  mcmdEncChecker(&mcmdM1_fb,&mcmd4M1_struct,100);
+//	  mcmdEncChecker(&mcmdM2_fb,&mcmd4M2_struct,100);
+//	  mcmdEncChecker(&mcmdM3_fb,&mcmd4M3_struct,100);
+//	  mcmdEncChecker(&mcmdM4_fb,&mcmd4M4_struct,100);
+//	  mcmdEncChecker(&mcmdM5_fb,&mcmd4M5_struct,100);
+//	  mcmdEncChecker(&mcmdM6_fb,&mcmd4M6_struct,100);
 	  osDelay(10);
   }
   /* USER CODE END StartSysCheckTask */
@@ -974,13 +985,7 @@ void StartSysCheckTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartMotorRunTask */
-float velLimmit = 3.0f;
-float velLimmiter(float input){
-	if(input >= velLimmit){
-		input = velLimmit;
-	}
-	return input;
-}
+
 void motorRun(){
 	//初期化
 	MCMD_SetTarget(&mcmd4M1_struct, 0.0f);
