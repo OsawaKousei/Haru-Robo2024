@@ -16,7 +16,7 @@ public:
     manip::action::State_Goal state = manip::action::State_Goal();
     bool state_initialize_frag = false;
 
-    std::vector<int> buttons = {0,0,0,0};
+    std::vector<int> buttons = {0,0,0,0,0,0,0,0};
 
     void initialize_state(){
       state.base1 = {0,0};
@@ -41,6 +41,43 @@ public:
             RCLCPP_INFO(this->get_logger(), "initialized state");
           }
           bool send_goal_frag = false;
+
+          if(msg.buttons[7] == 1 && buttons[7] == 0){
+            if(state.base2[1] == 0){
+              state.base2[1] = 1;
+            }else{
+              state.base2[1] = 0;
+            }
+            send_goal_frag = true;
+          }
+
+          if(msg.buttons[6] == 1 && buttons[6] == 0){
+            if(state.base2[0] == 0){
+              state.base2[0] = 1;
+            }else{
+              state.base2[0] = 0;
+            }
+            send_goal_frag = true;
+          }
+
+          if(msg.buttons[5] == 1 && buttons[5] == 0){
+            if(state.base1[1] == 0){
+              state.base1[1] = 1;
+            }else{
+              state.base1[1] = 0;
+            }
+            send_goal_frag = true;
+          }
+
+          if(msg.buttons[4] == 1 && buttons[4] == 0){
+            if(state.base1[0] == 0){
+              state.base1[0] = 1;
+            }else{
+              state.base1[0] = 0;
+            }
+            send_goal_frag = true;
+          }
+
           if(msg.buttons[3] == 1 && buttons[3] == 0){
             if(state.work[0] == 0){
               state.work[0] = 1;
@@ -68,9 +105,18 @@ public:
             send_goal_frag = true;
           }
 
+          if(msg.buttons[0] == 1 && buttons[0] == 0){
+            
+          }
+
           buttons[1] = msg.buttons[1];
           buttons[2] = msg.buttons[2];
           buttons[3] = msg.buttons[3];
+          buttons[4] = msg.buttons[4];
+          buttons[5] = msg.buttons[5];
+          buttons[6] = msg.buttons[6];
+          buttons[7] = msg.buttons[7];
+          buttons[8] = msg.buttons[8];
 
           if(send_goal_frag){
             RCLCPP_INFO(this->get_logger(), "Sending goal");

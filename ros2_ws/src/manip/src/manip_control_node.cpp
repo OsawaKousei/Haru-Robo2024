@@ -128,6 +128,18 @@ private:
     if(!(goal->work[2] == state.work[2])){
       cmd.work_hand = goal->work[2];
     }
+    if(!(goal->base1[0] == state.base1[0])){
+      cmd.top_base_arm = goal->base1[0];
+    }
+    if(!(goal->base1[1] == state.base1[1])){
+      cmd.top_base_hand = goal->base1[1];
+    }
+    if(!(goal->base2[0] == state.base2[0])){
+      cmd.bottom_base_arm = goal->base2[0];
+    }
+    if(!(goal->base2[1] == state.base2[1])){
+      cmd.bottom_base_hand = goal->base2[1];
+    }
   }
 
   void execute_cmd(const std::shared_ptr<GoalHandleState> goal_handle){
@@ -135,7 +147,7 @@ private:
 
     this->publisher_->publish(cmd);
     show_message(cmd);
-    sleep(5);
+    sleep(2);
 
     state.base1 = goal->base1;
     state.base2 = goal->base2;
@@ -145,7 +157,14 @@ private:
   void show_message(manip_msgs::msg::Cmd message){
     
   std::stringstream ss;
-  ss << "cmd message: ";
+  ss << "cmd message ";
+  ss << "base1:";
+  ss << message.top_base_arm << "; ";
+  ss << message.top_base_hand << "; ";
+  ss << "base2:";
+  ss << message.bottom_base_arm << "; ";
+  ss << message.bottom_base_hand << "; ";
+  ss << "work: ";
   ss << message.work_arm_deploy << "; ";
   ss << message.work_arm << "; ";
   ss << message.work_hand << "; ";
