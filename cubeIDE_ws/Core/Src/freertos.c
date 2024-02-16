@@ -801,18 +801,18 @@ void StartDefaultTask(void *argument)
     HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
 
     //CANの設定を実行
-	canSetting();
-	mcmdMoter1Setting();
-	mcmdMoter2Setting();
-	mcmdMoter3Setting();
-	mcmdMoter4Setting();
-	mcmdMoter5Setting();
-	mcmdMoter6Setting();
+//	canSetting();
+//	mcmdMoter1Setting();
+//	mcmdMoter2Setting();
+//	mcmdMoter3Setting();
+//	mcmdMoter4Setting();
+//	mcmdMoter5Setting();
+//	mcmdMoter6Setting();
 //	mcmdMoter7Setting();
 //	mcmdMoter8Setting();
-	servo1Setting();
-	servo2Setting();
-	airSetting();
+//	servo1Setting();
+//	servo2Setting();
+//	airSetting();
 
 	printf("All Setting Finished\r\n");
 	finishCANsetting = true;
@@ -823,7 +823,7 @@ void StartDefaultTask(void *argument)
   {
 	  // エグゼキューターを実行してリクエストを処理
 	  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
-	  //RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
+	  RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
 
 	  osDelay(10);
   }
@@ -985,23 +985,6 @@ void StartSysCheckTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartMotorRunTask */
-
-void motorRun(){
-	//初期化
-	MCMD_SetTarget(&mcmd4M1_struct, 0.0f);
-	MCMD_SetTarget(&mcmd4M2_struct, 0.0f);
-	MCMD_SetTarget(&mcmd4M3_struct, 0.0f);
-	MCMD_SetTarget(&mcmd4M4_struct, 0.0f);
-	MCMD_SetTarget(&mcmd4M5_struct, 0.0f);
-	MCMD_SetTarget(&mcmd4M6_struct, 0.0f);
-
-	MCMD_SetTarget(&mcmd4M1_struct, velLimmiter(cmd_motor[0]));
-	MCMD_SetTarget(&mcmd4M2_struct, velLimmiter(cmd_motor[1]));
-	MCMD_SetTarget(&mcmd4M3_struct, velLimmiter(cmd_motor[2]));
-	MCMD_SetTarget(&mcmd4M4_struct, velLimmiter(cmd_motor[3]));
-	//MCMD_SetTarget(&mcmd4M5_struct, velLimmiter(cmd_motor[3]));
-	//MCMD_SetTarget(&mcmd4M4_struct, velLimmiter(cmd_motor[3]));
-}
 void StartMotorRunTask(void *argument)
 {
   /* USER CODE BEGIN StartMotorRunTask */
@@ -1021,22 +1004,38 @@ void StartMotorRunTask(void *argument)
 * @param argument: Not used
 * @retval None
 */
+
+int16_t read_encoder_value(void)
+{
+  uint16_t enc_buff = TIM1->CNT;
+  TIM1->CNT = 0;//初期化
+  return (int16_t)enc_buff;
+}
+
+//エンコーダーの値を読む際に用いる変数の宣言
+char usr_buf[1000];
+int64_t count;
+float quant_per_unit = 1.0/4096.0f;
 /* USER CODE END Header_StartEncorderTask */
 void StartEncorderTask(void *argument)
 {
   /* USER CODE BEGIN StartEncorderTask */
+	//エンコーダーの読み取りをスタート
+	HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
   /* Infinite loop */
   for(;;)
   {
+	  count += read_encoder_value();
+
 //	  enc.encfontright = Get_MCMD_Feedback(&(mcmd4M1_struct.device)).value;
 //	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
 //	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
 //	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
-//	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M5_struct.device)).value;
+	  enc.enclx = (int)(count*quant_per_unit);
 //	  enc.encly = 0.0f;
 //	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
 
-    osDelay(10);
+    osDelay(100);
   }
   /* USER CODE END StartEncorderTask */
 }
