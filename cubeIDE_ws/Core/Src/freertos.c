@@ -1005,16 +1005,23 @@ void StartMotorRunTask(void *argument)
 * @retval None
 */
 
-int16_t read_encoder_value(void)
+int16_t read_encoder1_value(void)
 {
   uint16_t enc_buff = TIM1->CNT;
   TIM1->CNT = 0;//初期化
   return (int16_t)enc_buff;
 }
 
+int16_t read_encoder2_value(void)
+{
+  uint16_t enc_buff = TIM8->CNT;
+  TIM8->CNT = 0;//初期化
+  return (int16_t)enc_buff;
+}
+
 //エンコーダーの値を読む際に用いる変数の宣言
-char usr_buf[1000];
-int64_t count;
+int64_t count1;
+int64_t count2;
 float quant_per_unit = 1.0/4096.0f;
 /* USER CODE END Header_StartEncorderTask */
 void StartEncorderTask(void *argument)
@@ -1022,17 +1029,19 @@ void StartEncorderTask(void *argument)
   /* USER CODE BEGIN StartEncorderTask */
 	//エンコーダーの読み取りをスタート
 	HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
+	HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL);
   /* Infinite loop */
   for(;;)
   {
-	  count += read_encoder_value();
+	  count1 += read_encoder1_value();
+	  count2 += read_encoder2_value();
 
 //	  enc.encfontright = Get_MCMD_Feedback(&(mcmd4M1_struct.device)).value;
 //	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
 //	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
 //	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
-	  enc.enclx = (int)(count*quant_per_unit);
-//	  enc.encly = 0.0f;
+	  enc.enclx = (int)(count1*quant_per_unit);
+	  enc.encly = (int)(count2*quant_per_unit);
 //	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
 
     osDelay(100);

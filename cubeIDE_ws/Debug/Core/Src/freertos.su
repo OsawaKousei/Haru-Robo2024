@@ -40,5 +40,6 @@
 ../Core/Src/freertos.c:937:6:airChecker	8	static
 ../Core/Src/freertos.c:949:6:StartSysCheckTask	16	static
 ../Core/Src/freertos.c:988:6:StartMotorRunTask	16	static
-../Core/Src/freertos.c:1008:9:read_encoder_value	16	static
-../Core/Src/freertos.c:1020:6:StartEncorderTask	32	static
+../Core/Src/freertos.c:1008:9:read_encoder1_value	16	static
+../Core/Src/freertos.c:1015:9:read_encoder2_value	16	static
+../Core/Src/freertos.c:1027:6:StartEncorderTask	48	static
