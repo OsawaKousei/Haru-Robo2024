@@ -29,7 +29,7 @@
 ../Core/Src/freertos.c:682:6:base1_hand_setter	16	static
 ../Core/Src/freertos.c:692:6:base2_arm_setter	16	static
 ../Core/Src/freertos.c:700:6:base2_hand_setter	16	static
-../Core/Src/freertos.c:712:6:StartDefaultTask	472	static
+../Core/Src/freertos.c:712:6:StartDefaultTask	464	static
 ../Core/Src/freertos.c:848:6:freeRTOSChecker	8	static
 ../Core/Src/freertos.c:855:7:velLimmiter	24	static
 ../Core/Src/freertos.c:866:7:dutyLimmiter	24	static
@@ -39,7 +39,8 @@
 ../Core/Src/freertos.c:930:6:servo2Checker	8	static
 ../Core/Src/freertos.c:937:6:airChecker	8	static
 ../Core/Src/freertos.c:949:6:StartSysCheckTask	16	static
-../Core/Src/freertos.c:988:6:StartMotorRunTask	16	static
-../Core/Src/freertos.c:1008:9:read_encoder1_value	16	static
-../Core/Src/freertos.c:1015:9:read_encoder2_value	16	static
-../Core/Src/freertos.c:1027:6:StartEncorderTask	48	static
+../Core/Src/freertos.c:987:6:motorRun	8	static
+../Core/Src/freertos.c:994:6:StartMotorRunTask	16	static
+../Core/Src/freertos.c:1018:9:read_encoder1_value	16	static
+../Core/Src/freertos.c:1025:9:read_encoder2_value	16	static
+../Core/Src/freertos.c:1037:6:StartEncorderTask	16	static

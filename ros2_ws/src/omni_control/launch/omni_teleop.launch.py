@@ -84,8 +84,8 @@ def generate_launch_description():
         joy_node,
         omni_joy_node,
         omni_drive_node,
-        #omni_hardware_node,
-        states_pub_node,
-        robot_state_publisher,
-        rviz2,
+        omni_hardware_node,
+        #states_pub_node,
+        #robot_state_publisher,
+        #rviz2,
     ])

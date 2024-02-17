@@ -48,16 +48,16 @@ public:
             message.linear.y = ly * msg.axes[0];
 
             //十字キーでの操作を上書き
-            if(msg.axes[5] != 0){
-                message.linear.x = lx * msg.axes[5];
+            if(msg.axes[7] != 0){
+                message.linear.x = lx * msg.axes[7];
             }
-            if (msg.axes[4] != 0)
+            if (msg.axes[6] != 0)
             {
-                message.linear.y = ly * msg.axes[4];
+                message.linear.y = ly * msg.axes[6];
             }
             
             //z軸周りの角速度を設定
-            message.angular.z = az * msg.axes[2];
+            message.angular.z = az * msg.axes[3];
 
             //メッセージを送信
             this->publisher_->publish(message);
