@@ -22,19 +22,19 @@ public:
         //モーターの制御値を計算
         //lx
         if(lx != 0){
-            cmd[0] = -lx/sin(M_PI/4);
-            cmd[1] = lx/sin(M_PI/4);
-            cmd[2] = -lx/sin(M_PI/4);
-            cmd[3] = lx/sin(M_PI/4);    
+            cmd[0] += -1*lx;
+            cmd[1] += lx;
+            cmd[2] += -1*lx;
+            cmd[3] += lx;
         }
         
 
         //ly
         if(ly != 0){
-            cmd[0] = -ly/cos(M_PI/4);
-            cmd[1] = -ly/cos(M_PI/4);
-            cmd[2] = ly/cos(M_PI/4);
-            cmd[3] = ly/cos(M_PI/4);
+            cmd[0] += ly;
+            cmd[1] += ly;
+            cmd[2] += -1*ly;
+            cmd[3] += -1*ly;
         }
 
         //az

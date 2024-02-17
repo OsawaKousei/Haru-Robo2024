@@ -48,6 +48,14 @@ ament_auto_add_executable(
 omni_states_node src/omni_states_node.cpp
 )
 
+ament_auto_add_executable(
+duty_hardware_node src/duty_hardware_node.cpp
+)
+
+ament_auto_add_executable(
+duty_drive_node src/duty_drive_node.cpp
+)
+
 #実行ファイルのビルド、共有ファイルのインストール
 ament_auto_package(
   INSTALL_TO_SHARE

@@ -18,7 +18,7 @@ def generate_launch_description():
                 package='omni_control',
                 executable='omni_states_node',
                 output='screen',
-                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
+                parameters=[os.path.join(pkg_dir,'config','duty_params.yaml')]
                 )
     #joyの起動   
     joy_node = Node(
@@ -31,21 +31,21 @@ def generate_launch_description():
                 package='omni_control',
                 executable='omni_joy_node',
                 output='screen',
-                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
+                parameters=[os.path.join(pkg_dir,'config','duty_params.yaml')]
                 )
     #omni_driveの起動
     omni_drive_node = Node(
                 package='omni_control',
-                executable='omni_drive_node',
+                executable='duty_drive_node',
                 output='screen'
                 )
     
     #omni_hardwareの起動
     omni_hardware_node = Node(
                 package='omni_control',
-                executable='omni_hardware_node',
+                executable='duty_hardware_node',
                 output='screen',
-                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
+                parameters=[os.path.join(pkg_dir,'config','duty_params.yaml')]
                 )
 
     

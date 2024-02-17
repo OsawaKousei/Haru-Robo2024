@@ -49,10 +49,10 @@ public:
 
             auto message = drive_msgs::msg::Omni();
 
-            message.mbackright = msg.mbackright/(2*M_PI*w_rad);
-            message.mbackleft = msg.mbackleft/(2*M_PI*w_rad);
-            message.mfontright = msg.mfontright/(2*M_PI*w_rad);
-            message.mfrontleft = msg.mfrontleft/(2*M_PI*w_rad);
+            message.mbackright = msg.mbackright;
+            message.mbackleft = msg.mbackleft;
+            message.mfontright = msg.mfontright;
+            message.mfrontleft = msg.mfrontleft;
 
             this->motorpub->publish(message);
         }; 

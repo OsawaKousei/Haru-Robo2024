@@ -11,9 +11,9 @@ omni_states_node:
 omni_joy_node:
   ros__parameters:
     robot_type: "omni" #ロボットの種類
-    max_lx: 0.5 #x方向最大速度m/s
-    max_ly: 0.5 #y方向最大速度m/s
-    max_az: 0.5 #z周り最大速度rad/s
+    max_lx: 0.15 #x方向最大duty
+    max_ly: 0.15 #y方向最大duty
+    max_az: 0.15 #z周り最大duty
 
 # omni_hardware_nodeのパラメータ
 omni_hardware_node:
