@@ -8,7 +8,7 @@
 #include "path_following/action/path.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
-class DammyPathNode : public rclcpp::Node {
+class PathNode : public rclcpp::Node {
 public:
     using Path = path_following::action::Path;
     using GoalHandleState = rclcpp_action::ClientGoalHandle<Path>;
@@ -31,8 +31,8 @@ public:
     std::double_t x_target;
     std::double_t y_target;
 
-    explicit DammyPathNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
-    : Node("dammy_path_node", options)
+    explicit PathNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
+    : Node("path_node", options)
     {
       //パラメータの宣言
       declare_parameter("x", 0.0);
@@ -40,6 +40,9 @@ public:
 
       x_target = get_parameter("x").as_double();
       y_target = get_parameter("y").as_double();
+
+      RCLCPP_INFO(this->get_logger(), "robot type:%f\r\n",x_target);
+      RCLCPP_INFO(this->get_logger(), "robot type:%f\r\n",y_target);
 
       using namespace std::placeholders;
 
@@ -70,11 +73,11 @@ public:
 
     auto send_goal_options = rclcpp_action::Client<Path>::SendGoalOptions();
     send_goal_options.goal_response_callback =
-      std::bind(&DammyPathNode::goal_response_callback, this, _1);
+      std::bind(&PathNode::goal_response_callback, this, _1);
     send_goal_options.feedback_callback =
-      std::bind(&DammyPathNode::feedback_callback, this, _1, _2);
+      std::bind(&PathNode::feedback_callback, this, _1, _2);
     send_goal_options.result_callback =
-      std::bind(&DammyPathNode::result_callback, this, _1);
+      std::bind(&PathNode::result_callback, this, _1);
     this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
   }
 private:
@@ -127,9 +130,4 @@ private:
   }
 };
 
-int main(int argc, char *argv[]) {
-    rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<DammyPathNode>());
-    rclcpp::shutdown();
-    return 0;
-}
+std::shared_ptr<PathNode> path_node;
