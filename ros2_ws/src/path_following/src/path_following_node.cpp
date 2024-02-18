@@ -16,23 +16,64 @@ public:
     using Path = path_following::action::Path;
     using GoalHandlePath = rclcpp_action::ServerGoalHandle<Path>;
 
-    path_following::action::Path_Goal path = path_following::action::Path_Goal();
-    bool path_initialize_frag = false;
+      path_following::action::Path_Goal path = path_following::action::Path_Goal();
+      geometry_msgs::msg::Twist cmd_vel = geometry_msgs::msg::Twist();
 
-    geometry_msgs::msg::Twist cmd_vel = geometry_msgs::msg::Twist();
+      struct pid_param
+    {
+      float Kp;
+      float Ki;
+      float Kd;
+    };
 
-    void initialize_path(){
+    struct pid_param pid = {0,0,0};
+
+    bool initialize_frag = false;
+    bool control_flag = false;
+    bool succeed_flag = false;
+
+    const float zone = 0.5;
+
+    void initialize(){
+      pid.Kp = 0.2;
+      pid.Ki = 0.0;
+      pid.Kd = 0.0;
+
       path.start = {0,0};
       path.goal = {0,0};
       path.head = 0;
+
+      succeed_flag = false;
+
+      cmd_vel.linear.x = 0;
+      cmd_vel.linear.y = 0;
+      cmd_vel.angular.z = 0;
     }
 
-    void initialize_message(){
-    cmd_vel.linear.x = 0;
-    cmd_vel.linear.y = 0;
-    cmd_vel.linear.z = 0;
-  }
- 
+    void set_cmd(float x_diff, float y_diff){
+      cmd_vel.linear.x = 0.0;
+      cmd_vel.linear.y = 0.0;
+
+      cmd_vel.linear.x = pid.Kp*x_diff;
+      cmd_vel.linear.y = pid.Kp*y_diff;
+
+      cmd_vel.linear.x = duty_limit(cmd_vel.linear.x);
+      cmd_vel.linear.y = duty_limit(cmd_vel.linear.y);
+    }
+
+    float duty_limit(float duty){
+      const float duty_max = 0.5;
+      const float duty_min = -0.5;
+
+      if(duty > duty_max){
+        return duty_max;
+      }else if(duty < duty_min){  
+        return duty_min;  
+      }else{ 
+        return duty;  
+      }
+    }
+
     explicit PathfollowingNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
     : Node("path_following_node", options)
     {
@@ -43,13 +84,36 @@ public:
 
         //サブスクリプションのコールバック関数
         auto topic_callback = [this](const drive_msgs::msg::OmniEnc &msg) -> void {
+
+          if(!initialize_frag){
+            initialize();
+            initialize_frag = true;
+            RCLCPP_INFO(this->get_logger(), "initialized path");
+          }
+
+          float x_diff = path.goal[0] - msg.enclx;
+          float y_diff = path.goal[1] - msg.encly;
+
+          if(x_diff < zone && x_diff > -zone && y_diff < zone && y_diff > -zone && control_flag){
+            control_flag = false;
+            succeed_flag = true;
+
+            cmd_vel.linear.x = 0.0;
+            cmd_vel.linear.y = 0.0;
+            publisher_->publish(cmd_vel);
             
-            //コンソールにメッセージを表示
-            RCLCPP_INFO(this->get_logger(), "catch message");
+            RCLCPP_INFO(this->get_logger(), "detect success");
+          }
+
+          if (control_flag)
+          {
+            set_cmd(x_diff, y_diff);
+            publisher_->publish(cmd_vel);
+          }
         }; 
 
         //サブスクリプションの作成<メッセージ型>(topic名,qos,コールバック関数)
-        subscription_ = this->create_subscription<drive_msgs::msg::OmniEnc>("manip_reult_f7", 10, topic_callback);
+        subscription_ = this->create_subscription<drive_msgs::msg::OmniEnc>("enc_val_f7", 10, topic_callback);
 
         this->action_server_ = rclcpp_action::create_server<path_following::action::Path>(
         this,
@@ -85,13 +149,9 @@ private:
 
   void handle_accepted(const std::shared_ptr<GoalHandlePath> goal_handle)
   {
-    if(!path_initialize_frag){
-            initialize_path();
-            path_initialize_frag = true;
-            RCLCPP_INFO(this->get_logger(), "initialized path");
-    }
-
     using namespace std::placeholders;
+
+    control_flag = false;
     // this needs to return quickly to avoid blocking the executor, so spin up a new thread
     std::thread{std::bind(&PathfollowingNode::execute, this, _1), goal_handle}.detach();
   }
@@ -100,39 +160,43 @@ private:
   {
     RCLCPP_INFO(this->get_logger(), "Executing goal");
 
-    initialize_message();
-
-    show_message(cmd_vel);
+    if(!initialize_frag){
+            initialize();
+            initialize_frag = true;
+            RCLCPP_INFO(this->get_logger(), "initialized path");
+    }
     
-    make_cmd_vel(goal_handle);
-    execute_cmd_vel(goal_handle);
+    auto goal = goal_handle->get_goal();
+    path.goal[0] = goal->goal[0];
+    path.goal[1] = goal->goal[1];
+
+    succeed_flag = false;
+    control_flag = true;
 
 
-    RCLCPP_INFO(this->get_logger(), "Executed goal");
+    RCLCPP_INFO(this->get_logger(), "Execute goal");
 
-    auto feedback = std::make_shared<Path::Feedback>();
+    while(1){
+      sleep(1);
+      if(succeed_flag){
+
+        send_success(goal_handle);
+        break;
+      }
+    }
+
+    // auto feedback = std::make_shared<Path::Feedback>();
+    
+    // // Publish feedback
+    // goal_handle->publish_feedback(feedback);
+    // RCLCPP_INFO(this->get_logger(), "Publish feedback");
+  }
+
+  void send_success(const std::shared_ptr<GoalHandlePath> goal_handle){
     auto result = std::make_shared<Path::Result>();
-
-    // Publish feedback
-    goal_handle->publish_feedback(feedback);
-    RCLCPP_INFO(this->get_logger(), "Publish feedback");
 
     RCLCPP_INFO(this->get_logger(), "Goal succeeded");
     goal_handle->succeed(result);
-  }
-
-  void make_cmd_vel(const std::shared_ptr<GoalHandlePath> goal_handle){
-    auto goal = goal_handle->get_goal();
-    path.start = goal->start;
-    path.goal = goal->goal;
-    path.head = goal->head;
-    show_goal(goal_handle);
-  }
-
-  void execute_cmd_vel(const std::shared_ptr<GoalHandlePath> goal_handle){
-    cmd_vel.linear.x = 0.1;
-    publisher_->publish(cmd_vel);
-    RCLCPP_INFO(this->get_logger(), "publish cmd_vel");
   }
 
   void show_message(geometry_msgs::msg::Twist message){

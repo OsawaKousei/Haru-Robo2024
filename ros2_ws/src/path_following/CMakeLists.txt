@@ -25,6 +25,10 @@ ament_auto_add_executable(
   path_following_node src/path_following_node.cpp
 )
 
+ament_auto_add_executable(
+  dammy_path_node src/dammy_path_node.cpp
+)
+
 ## msg/srv generation
 #file(GLOB ${PROJECT_NAME}_msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} msg/*)
 #file(GLOB ${PROJECT_NAME}_srv_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} srv/*)
@@ -39,6 +43,7 @@ rosidl_generate_interfaces(
 
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} rosidl_typesupport_cpp)
 target_link_libraries(path_following_node "${cpp_typesupport_target}")
+target_link_libraries(dammy_path_node "${cpp_typesupport_target}")
 
 #実行ファイルのビルド、共有ファイルのインストール
 ament_auto_package(

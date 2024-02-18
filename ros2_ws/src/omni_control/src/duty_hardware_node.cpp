@@ -22,7 +22,7 @@ public:
 
     OmniHardwareNode() : Node("omni_hardware_node") {
 
-         //パラメータの宣言
+        //パラメータの宣言
         declare_parameter("robot_type", "default");
         declare_parameter("wheel_radious", -1.0);
         declare_parameter("wheel_distance", -1.0);
