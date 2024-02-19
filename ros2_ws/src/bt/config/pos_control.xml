@@ -7,6 +7,17 @@
     </Sequence>
   </BehaviorTree>
 
+  <BehaviorTree ID="pos_control_test2">
+    <Sequence>
+      <pos_control x_target="5"
+                   y_target="0"/>
+      <pos_control x_target="5"
+                   y_target="5"/>
+      <pos_control x_target="0"
+                   y_target="5"/>
+    </Sequence>
+  </BehaviorTree>
+
   <!-- Description of Node Models (used by Groot) -->
   <TreeNodesModel>
     <Action ID="pos_control"

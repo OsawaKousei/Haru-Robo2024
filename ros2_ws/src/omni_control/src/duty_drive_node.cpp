@@ -31,10 +31,10 @@ public:
 
         //ly
         if(ly != 0){
-            cmd[0] += ly;
-            cmd[1] += ly;
-            cmd[2] += -1*ly;
-            cmd[3] += -1*ly;
+            cmd[0] += -1*ly;
+            cmd[1] += -1*ly;
+            cmd[2] += ly;
+            cmd[3] += ly;
         }
 
         //az

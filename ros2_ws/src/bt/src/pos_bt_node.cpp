@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
   factory.registerBehaviorTreeFromFile(package_path + "/config/pos_control.xml");
 
   // main_bt.xml内のMainBTツリーを作成
-  BT::Tree tree = factory.createTree("pos_control_test");
+  BT::Tree tree = factory.createTree("pos_control_test2");
 
   // Tree構造を表示
   printTreeRecursively(tree.rootNode());

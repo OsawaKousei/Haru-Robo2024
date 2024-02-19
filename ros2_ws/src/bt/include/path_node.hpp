@@ -41,8 +41,8 @@ public:
       x_target = get_parameter("x").as_double();
       y_target = get_parameter("y").as_double();
 
-      RCLCPP_INFO(this->get_logger(), "robot type:%f\r\n",x_target);
-      RCLCPP_INFO(this->get_logger(), "robot type:%f\r\n",y_target);
+      RCLCPP_INFO(this->get_logger(), "x target:%f\r\n",x_target);
+      RCLCPP_INFO(this->get_logger(), "y target:%f\r\n",y_target);
 
       using namespace std::placeholders;
 
