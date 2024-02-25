@@ -23,21 +23,17 @@ public:
       path_following::action::Path_Goal path = path_following::action::Path_Goal();
       geometry_msgs::msg::Twist cmd_vel = geometry_msgs::msg::Twist();
 
-      struct pid_param
-    {
-      float Kp;
-      float Ki;
-      float Kd;
-    };
-
-    struct pid_param pid = {0,0,0};
-
     bool initialize_frag = false;
     bool control_flag = false;
     bool succeed_flag = false;
+    float succeed_count = 0;
+    float succeed_time = 100;
 
     float present_x = 0;
     float present_y = 0;
+
+    PID_ctrl pid_ctrl_x = PID_ctrl(0);
+    PID_ctrl pid_ctrl_y = PID_ctrl(0);
 
     void initialize(){
       path.start = {0,0};
@@ -47,19 +43,38 @@ public:
       present_x = 0;
       present_y = 0;
 
-      succeed_flag = false;
-
       cmd_vel.linear.x = 0;
       cmd_vel.linear.y = 0;
       cmd_vel.angular.z = 0;
+
+      succeed_count = 0;
+      succeed_flag = false;
+
+      pid_ctrl_x.cmd_debug_flag = true;
+      pid_ctrl_x.Kp = 0.1;
+      pid_ctrl_x.Ki = 0.01;
+      pid_ctrl_x.max_limit_flag = true;
+      pid_ctrl_x.max_limit = 0.2;
+      pid_ctrl_x.min_limit_flag = true;
+      pid_ctrl_x.min_limit = 0.025;
+      pid_ctrl_x.integral_limit_flag = true;
+      pid_ctrl_x.integral_limit = 6;//i項を変えるとここも変える]
+      pid_ctrl_x.torelance_judge_flag = true;
+      pid_ctrl_x.torelance = 0.1;
+      pid_ctrl_x.torelance_type = Stop;
+      pid_ctrl_x.torelance_debug_flag = true;
+      //pid_ctrl_y.cmd_debug_flag = true;
     }
 
     void set_cmd(){
       cmd_vel.linear.x = 0.0;
       cmd_vel.linear.y = 0.0;
 
+      cmd_vel.linear.x = pid_ctrl_x.pid_ctrl(present_x, path.goal[0]);
+      //cmd_vel.linear.y = pid_ctrl_y.pid_ctrl(present_y, path.goal[1]);
+
       cmd_vel.linear.x = duty_limit(cmd_vel.linear.x);
-      cmd_vel.linear.y = duty_limit(cmd_vel.linear.y);
+      //cmd_vel.linear.y = duty_limit(cmd_vel.linear.y);
     }
 
     float duty_limit(float duty){
@@ -95,9 +110,8 @@ public:
           present_x = msg.enclx;
           present_y = msg.encly;
 
-          if(false && control_flag){
+          if(succeed_flag){
             control_flag = false;
-            succeed_flag = true;
 
             cmd_vel.linear.x = 0.0;
             cmd_vel.linear.y = 0.0;
@@ -107,8 +121,16 @@ public:
           }
 
           auto timer_callback = [this]() -> void {  
-              if (control_flag)
+            if (control_flag)
             {
+              if(pid_ctrl_x.if_torelance()){
+                succeed_count++;
+                if(succeed_count > succeed_time){
+                  succeed_flag = true;
+                }
+              }else{
+                succeed_count = 0;
+              }
               set_cmd();
               publisher_->publish(cmd_vel);
             }

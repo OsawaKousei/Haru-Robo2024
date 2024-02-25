@@ -98,12 +98,22 @@ MCMD_HandleTypedef mcmd4M7_struct;
 MCMD_Feedback_Typedef mcmdM7_fb;
 MCMD_HandleTypedef mcmd4M8_struct;
 MCMD_Feedback_Typedef mcmdM8_fb;
+MCMD_HandleTypedef mcmd4Mt_struct;
+MCMD_Feedback_Typedef mcmdMt_fb;
 
 //サーボの設定
 CANServo_Param_Typedef servo_param1;
 CAN_Device servo_device1;
 CANServo_Param_Typedef servo_param2;
 CAN_Device servo_device2;
+CANServo_Param_Typedef servo_param3;
+CAN_Device servo_device3;
+CANServo_Param_Typedef servo_param4;
+CAN_Device servo_device4;
+CANServo_Param_Typedef servo_param5;
+CAN_Device servo_device5;
+CANServo_Param_Typedef servo_param6;
+CAN_Device servo_device6;
 
 //エアシリの設定
 CAN_Device air_device;
@@ -214,11 +224,11 @@ void canSetting(){
 
 	CAN_SystemInit(&hcan1);
 
-//	num_of_devices.mcmd3 = 1;
-	num_of_devices.mcmd3 = 3;
+//	num_of_devices.mcmd3 = 0;
+	num_of_devices.mcmd3 = 1	;
 	num_of_devices.mcmd4 = 0;
-	num_of_devices.air = 1;
-	num_of_devices.servo = 1;
+	num_of_devices.air = 0;
+	num_of_devices.servo = 0;
 
 	printf("Start Initializing CAN System:End\n\r");
 	osDelay(10);
@@ -228,7 +238,7 @@ void canSetting(){
 //モータ1のmcmd設定
 void mcmdMoter1Setting(){
 	    mcmd4M1_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M1_struct.device.node_id = 0;
+	    mcmd4M1_struct.device.node_id = 1;
 	    mcmd4M1_struct.device.device_num = 0;
 
 	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -260,7 +270,7 @@ void mcmdMoter1Setting(){
 //モータ2のmcmd設定
 void mcmdMoter2Setting(){
 	    mcmd4M2_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M2_struct.device.node_id = 0;
+	    mcmd4M2_struct.device.node_id = 1;
 	    mcmd4M2_struct.device.device_num = 1;
 
 	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -291,7 +301,7 @@ void mcmdMoter2Setting(){
 
 void mcmdMoter3Setting(){
 	    mcmd4M3_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M3_struct.device.node_id = 5;
+	    mcmd4M3_struct.device.node_id = 2;
 	    mcmd4M3_struct.device.device_num = 0;
 
 	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -322,7 +332,7 @@ void mcmdMoter3Setting(){
 
 void mcmdMoter4Setting(){
 	    mcmd4M4_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M4_struct.device.node_id =5;
+	    mcmd4M4_struct.device.node_id =2;
 	    mcmd4M4_struct.device.device_num = 1;
 
 	    mcmd4M4_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -475,6 +485,37 @@ void mcmdMoter8Setting(){
 		 MCMD_Control_Enable(&mcmd4M8_struct);
 }
 
+void mcmdMoter_Test_Setting(){
+	    mcmd4Mt_struct.device.node_type = NODE_MCMD3;
+	    mcmd4Mt_struct.device.node_id =1;
+	    mcmd4Mt_struct.device.device_num = 1;
+
+	    mcmd4Mt_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
+	    mcmd4Mt_struct.ctrl_param.PID_param.kp = 0.075f;
+	    mcmd4Mt_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4Mt_struct.ctrl_param.PID_param.kd = 0.01f;
+	    mcmd4Mt_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
+	    mcmd4Mt_struct.ctrl_param.accel_limit_size = 2.0f;
+	    mcmd4Mt_struct.ctrl_param.feedback = MCMD_FB_ENABLE;
+	    mcmd4Mt_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
+	    mcmd4Mt_struct.enc_dir = MCMD_DIR_FW;
+	    mcmd4Mt_struct.rot_dir = MCMD_DIR_BC;
+	    mcmd4Mt_struct.quant_per_unit = 1.0/1024.0f;
+
+	    mcmd4Mt_struct.limit_sw_type = LIMIT_SW_NO;
+	    mcmd4Mt_struct.calib = CALIBRATION_DISABLE;
+	    mcmd4Mt_struct.calib_duty = -0.2f;
+	    mcmd4Mt_struct.offset = 0.0f;
+	    mcmd4Mt_struct.fb_type = MCMD_FB_POS;
+
+		 MCMD_init(&mcmd4Mt_struct);
+		 osDelay(10);
+		 MCMD_Calib(&mcmd4Mt_struct);
+		 osDelay(50);
+		 MCMD_SetTarget(&mcmd4Mt_struct, 0.00f);
+		 MCMD_Control_Enable(&mcmd4Mt_struct);
+}
+
 //サーボ基盤設定
 void servo1Setting(){
 	servo_device1.node_type = NODE_SERVO;
@@ -500,6 +541,59 @@ void servo2Setting(){
 	servo_param2.pulse_width_max=2.4f;
 	servo_param2.pulse_width_min=0.5f;
 	servo_param2.pwm_frequency=50;
+
+	osDelay(50);
+}
+
+void servo3Setting(){
+	servo_device3.node_type = NODE_SERVO;
+	servo_device3.node_id = 0;
+	servo_device3.device_num = 0;
+
+	servo_param3.angle_range=270.0f;
+	servo_param3.angle_offset=0.0f;
+	servo_param3.pulse_width_max=2.4f;
+	servo_param3.pulse_width_min=0.5f;
+	servo_param3.pwm_frequency=50;
+
+	osDelay(50);
+}
+void servo4Setting(){
+	servo_device4.node_type = NODE_SERVO;
+	servo_device4.node_id = 0;
+	servo_device4.device_num = 1;
+
+	servo_param4.angle_range=270.0f;
+	servo_param4.angle_offset=0.0f;
+	servo_param4.pulse_width_max=2.4f;
+	servo_param4.pulse_width_min=0.5f;
+	servo_param4.pwm_frequency=50;
+
+	osDelay(50);
+}
+void servo5Setting(){
+	servo_device5.node_type = NODE_SERVO;
+	servo_device5.node_id = 0;
+	servo_device5.device_num = 2;
+
+	servo_param5.angle_range=270.0f;
+	servo_param5.angle_offset=0.0f;
+	servo_param5.pulse_width_max=2.4f;
+	servo_param5.pulse_width_min=0.5f;
+	servo_param5.pwm_frequency=50;
+
+	osDelay(50);
+}
+void servo6Setting(){
+	servo_device6.node_type = NODE_SERVO;
+	servo_device6.node_id = 0;
+	servo_device6.device_num = 3;
+
+	servo_param6.angle_range=270.0f;
+	servo_param6.angle_offset=0.0f;
+	servo_param6.pulse_width_max=2.4f;
+	servo_param6.pulse_width_min=0.5f;
+	servo_param6.pwm_frequency=50;
 
 	osDelay(50);
 }
@@ -671,6 +765,30 @@ void work_arm_setter(int state){//state:{0:up,1:down}
 	  }
 }
 
+void base_hand_deployer(int state){
+	if(state == 0){
+		ServoDriver_Init(&servo_device3, &servo_param1);
+		osDelay(100);  // 適切なdelayを入れる
+		ServoDriver_SendValue(&servo_device3, 45.0f);
+		ServoDriver_Init(&servo_device4, &servo_param2);
+		osDelay(100);
+		ServoDriver_SendValue(&servo_device4, 135.0f);
+		ServoDriver_Init(&servo_device5, &servo_param2);
+		osDelay(100);
+		ServoDriver_SendValue(&servo_device5, 45.0f);
+		ServoDriver_Init(&servo_device6, &servo_param1);
+		osDelay(100);
+		ServoDriver_SendValue(&servo_device6, 135.0f);
+	}else if(state == 1){
+		ServoDriver_Init(&servo_device5, &servo_param2);
+		osDelay(100);
+		ServoDriver_SendValue(&servo_device5, 45.0f);
+		ServoDriver_Init(&servo_device6, &servo_param1);
+		osDelay(100);
+		ServoDriver_SendValue(&servo_device6, 135.0f);
+	}
+}
+
 void base1_arm_setter(int state){
 	if(state == 0){
 		MCMD_SetTarget(&mcmd4M5_struct,0.0f);
@@ -680,6 +798,7 @@ void base1_arm_setter(int state){
 }
 
 void base1_hand_setter(int state){
+
 	if(state == 0){
 		air_device.device_num=3;
 		AirCylinder_SendOutput(&air_device, AIR_OFF);
@@ -802,17 +921,22 @@ void StartDefaultTask(void *argument)
 
     //CANの設定を実行
 	canSetting();
-	mcmdMoter1Setting();
-	mcmdMoter2Setting();
-	mcmdMoter3Setting();
-	mcmdMoter4Setting();
-//	mcmdMoter5Setting();
-//	mcmdMoter6Setting();
-//	mcmdMoter7Setting();
-//	mcmdMoter8Setting();
-	servo1Setting();
-	servo2Setting();
-	airSetting();
+	mcmdMoter_Test_Setting();
+//	mcmdMoter1Setting();
+//	mcmdMoter2Setting();
+//	mcmdMoter3Setting();
+//	mcmdMoter4Setting();
+////	mcmdMoter5Setting();
+////	mcmdMoter6Setting();
+////	mcmdMoter7Setting();
+////	mcmdMoter8Setting();
+//	servo1Setting();
+//	servo2Setting();
+//	servo3Setting();
+//	servo4Setting();
+//	servo5Setting();
+//	servo6Setting();
+//	airSetting();
 
 	printf("All Setting Finished\r\n");
 	finishCANsetting = true;
@@ -823,7 +947,7 @@ void StartDefaultTask(void *argument)
   {
 	  // エグゼキューターを実行してリクエストを処理
 	  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
-	  RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
+//	  RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
 
 	  osDelay(10);
   }
@@ -922,16 +1046,12 @@ void mcmdEncChecker(MCMD_Feedback_Typedef *mcmd_fb, MCMD_HandleTypedef *mcmd_str
 }
 
 //サーボの動作確認用
-void servo1Checker(){
-	ServoDriver_Init(&servo_device1, &servo_param1);
-	osDelay(100);  // 適切なdelayを入れる
-	ServoDriver_SendValue(&servo_device1, 45.0f);
+void servoChecker(CAN_Device *servo_device,CANServo_Param_Typedef *servo_param,float target){
+	ServoDriver_Init(servo_device, servo_param);
+	osDelay(100);
+	ServoDriver_SendValue(servo_device, target);
 }
-void servo2Checker(){
-	ServoDriver_Init(&servo_device2, &servo_param2);
-	osDelay(100);  // 適切なdelayを入れる
-	ServoDriver_SendValue(&servo_device2, 135.0f);
-}
+
 
 //エアシリの動作確認用
 void airChecker(){
@@ -955,12 +1075,17 @@ void StartSysCheckTask(void *argument)
 	  if(finishCANsetting){
 		  if(!finishCheck){
 			  osDelay(1000);//このdelayは必要？
-			  //servo1Checker();
-			  //servo2Checker();
-//			  mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_DUTY,0.5f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_DUTY,0.5f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.5f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.5f,5000,0.0f);
+//			  servoChecker(&servo_device1,&servo_param1,45.0f);
+//			  servoChecker(&servo_device2,&servo_param2,135.0f);
+//			  servoChecker(&servo_device3,&servo_param1,45.0f);
+//			  servoChecker(&servo_device4,&servo_param2,45.0f);
+//			  servoChecker(&servo_device5,&servo_param1,45.0f);
+//			  servoChecker(&servo_device6,&servo_param2,45.0f);
+//			  mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+			  mcmdMotorCecker(&mcmd4Mt_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 
 			  finishCheck = true;
 		  	  }
@@ -998,7 +1123,7 @@ void StartMotorRunTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  motorRun();
+	  //motorRun();
 
     osDelay(10);
   }
@@ -1035,20 +1160,20 @@ void StartEncorderTask(void *argument)
 {
   /* USER CODE BEGIN StartEncorderTask */
 	//エンコーダーの読み取りをスタート
-	HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
-	HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL);
+//	HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
+//	HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL);
   /* Infinite loop */
   for(;;)
   {
-	  count1 += read_encoder1_value();
-	  count2 += read_encoder2_value();
+//	  count1 += read_encoder1_value();
+//	  count2 += read_encoder2_value();
 
 //	  enc.encfontright = Get_MCMD_Feedback(&(mcmd4M1_struct.device)).value;
 //	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
 //	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
 //	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
-	  enc.enclx = count2*quant_per_unit;
-	  enc.encly = count1*quant_per_unit;
+//	  enc.enclx = count2*quant_per_unit;
+//	  enc.encly = count1*quant_per_unit;
 //	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
 
 //	  printf("enc1: %d\r\n",(int)(count1*quant_per_unit));

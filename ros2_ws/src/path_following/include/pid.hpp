@@ -1,6 +1,12 @@
 #include <string>
 #include <iostream>
 
+enum Torelance_type{
+        None = 0,
+        Stop,
+        Keep
+    };
+
 class PID_ctrl{
 public:
     float Kp = 0;
@@ -19,13 +25,9 @@ public:
     bool integral_limit_flag = false;
     float integral_limit = 0;
 
+    bool torelance_judge_flag = false;
     bool torelance_flag = false;
     float torelance = 0;
-    enum Torelance_type{
-        None = 0,
-        Stop,
-        Keep
-    };
     Torelance_type torelance_type = None;
 
     bool succeed_judge_flag = false;
@@ -77,6 +79,10 @@ public:
         integral = 0;
     }
 
+    bool if_torelance(){
+        return torelance_flag;
+    }
+
     bool if_succeed(){
         return succeed_flag;
     }
@@ -106,7 +112,10 @@ private:
         }
         if (succeed_judge)
         {
+            integral = 0;
             succeed_count += ctrl_period;
+            std::cout << "succeed_count: " << succeed_count << std::endl;
+            
         }else{
             succeed_count = 0;
         }
@@ -120,15 +129,17 @@ private:
     }
 
     float torelance_executor(float val){
-        bool torelance_flag = false;
         float ans = val;
         if(diff[1] < torelance && diff[1] >= 0){
             torelance_flag = true;
         }else if (diff[1] > -1*torelance && diff[1] < 0)
         {
             torelance_flag = true;
+        }else{
+            torelance_flag = false;
         }
         if(torelance_flag){
+            integral = 0;
             switch (torelance_type)
             {
             case None:
@@ -163,10 +174,10 @@ private:
 
     float min_limiter(float val){
         if(val < min_limit && val >= 0){
-            val = min_limit;
+            val = 0;
         }else if (val > -1*min_limit && val < 0)
         {
-            val = -1*min_limit;
+            val = 0;
         }
         return val;
     }
