@@ -9,7 +9,8 @@
                 "${workspaceFolder}/ros2_ws/install/drive_msgs/include/drive_msgs",
                 "${workspaceFolder}/ros2_ws/install/manip_msgs/include/manip_msgs",
                 "${workspaceFolder}/ros2_ws/install/path_following/include/**",
-                "/opt/ros/humble/include/rcl"
+                "/opt/ros/humble/include/rcl",
+                "${workspaceFolder}/ros2_ws/install/lidar_detect/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
