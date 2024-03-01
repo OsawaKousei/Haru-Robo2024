@@ -1,7 +1,4 @@
-#include <functional>
-#include <memory>
 #include "rclcpp/rclcpp.hpp"
-#include "visualization_msgs/msg/marker.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
 #include "lidar_detect/msg/detect_result.hpp"
 
@@ -16,7 +13,6 @@ public:
         //publishreの作成<メッセージ型>(topic名,qos)
         publisher_ = this->create_publisher<lidar_detect::msg::DetectResult>("detect_result", 10);
 
-        //scanの最遠点を取得し、その位置にマーカーを表示する
         auto topic_callback = [this](const sensor_msgs::msg::LaserScan &msg) -> void {
             auto message = lidar_detect::msg::DetectResult();
 
@@ -25,6 +21,16 @@ public:
 
             message.cx = corner[0];
             message.cy = corner[1];
+
+            double edge1[2] = {0,0};
+            double edge2[2] = {0,0};
+
+            edge1[0] = msg.ranges[0] * cos(msg.angle_min);
+            edge1[1] = msg.ranges[0] * sin(msg.angle_min);
+            edge2[0] = msg.ranges[msg.ranges.size()-1] * cos(msg.angle_max);
+            edge2[1] = msg.ranges[msg.ranges.size()-1] * sin(msg.angle_max);
+
+            message.reliability = ScanDetect::corner_reliability(edge1, edge2, corner);
 
             double wall[3] = {0,0,0};
             auto w1 = sensor_msgs::msg::LaserScan();
@@ -41,11 +47,10 @@ public:
             message.b2 = wall[1];
             message.c2 = wall[2];
 
-            message.e1x = msg.ranges[0] * cos(msg.angle_min);
-            message.e1y = msg.ranges[0] * sin(msg.angle_min);
-            message.e2x = msg.ranges[msg.ranges.size()-1] * cos(msg.angle_max);
-            message.e2y = msg.ranges[msg.ranges.size()-1] * sin(msg.angle_max);
-
+            message.e1x = edge1[0];
+            message.e1y = edge1[1];
+            message.e2x = edge2[0];
+            message.e2y = edge2[1];
             this->publisher_->publish(message);
         }; 
 

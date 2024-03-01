@@ -1,11 +1,6 @@
-#include <functional>
-#include <memory>
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
-#include "visualization_msgs/msg/marker.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
 #include "tf2_msgs/msg/tf_message.hpp"
-#include "geometry_msgs/msg/transform_stamped.hpp"
 #include "tf2_ros/transform_broadcaster.h"
 #include "tf2/LinearMath/Quaternion.h"
 
@@ -66,13 +61,10 @@ public:
         };
 
         auto timer_callback = [this,tf_publisher]() -> void {
-            //scanとscan_edgeを同時にrviz2で表示するためのtfをpublish
             tf_publisher();
             this->publisher_->publish(message);
         }; 
 
-
-        //サブスクリプションの作成<メッセージ型>(topic名,qos,コールバック関数)
         subscription_ = this->create_subscription<sensor_msgs::msg::LaserScan>("scan", 10, topic_callback);
         timer_ = this->create_wall_timer(500ms, timer_callback); 
     }
@@ -82,7 +74,6 @@ private:
 
     sensor_msgs::msg::LaserScan message = sensor_msgs::msg::LaserScan();
 
-    // 上記の動作に必要なprivateメンバ
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscription_;
     rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr publisher_;

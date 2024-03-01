@@ -1,14 +1,7 @@
-#include <functional>
-#include <memory>
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
 #include "visualization_msgs/msg/marker.hpp"
-#include "sensor_msgs/msg/laser_scan.hpp"
 #include "geometry_msgs/msg/point.hpp"
-#include "tf2_msgs/msg/tf_message.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"
-#include "tf2_ros/transform_broadcaster.h"
-#include "tf2/LinearMath/Quaternion.h"
 #include "lidar_detect/msg/detect_result.hpp"
 
 #include "../include/lidar_scan.hpp"
@@ -41,6 +34,13 @@ public:
             corner_message.color.g = 0.0f;
             corner_message.color.b = 0.0f;
             corner_message.color.a = 1.0;
+            
+            if(msg.reliability < 0.5){
+                corner_message.scale.x = 0.0;
+                corner_message.scale.y = 0.0;
+                corner_message.scale.z = 0.0;
+            }
+
             corner_publisher_->publish(corner_message);
 
             auto w1_message = visualization_msgs::msg::Marker();
@@ -118,10 +118,6 @@ public:
         timer_ = this->create_wall_timer(500ms, timer_callback); 
     }
 private:
-    double corner[2] {0,0};
-
-    int count = 0;
-
     // 上記の動作に必要なprivateメンバ
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Subscription<lidar_detect::msg::DetectResult>::SharedPtr subscription_;
@@ -130,7 +126,6 @@ private:
     rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr w2_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr e1_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr e2_publisher_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 };
 
 int main(int argc, char *argv[]) {
