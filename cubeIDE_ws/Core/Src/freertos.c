@@ -225,10 +225,10 @@ void canSetting(){
 	CAN_SystemInit(&hcan1);
 
 //	num_of_devices.mcmd3 = 0;
-	num_of_devices.mcmd3 = 1	;
+	num_of_devices.mcmd3 = 2;
 	num_of_devices.mcmd4 = 0;
-	num_of_devices.air = 0;
-	num_of_devices.servo = 0;
+	num_of_devices.air = 1;
+	num_of_devices.servo = 2;
 
 	printf("Start Initializing CAN System:End\n\r");
 	osDelay(10);
@@ -238,7 +238,7 @@ void canSetting(){
 //モータ1のmcmd設定
 void mcmdMoter1Setting(){
 	    mcmd4M1_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M1_struct.device.node_id = 1;
+	    mcmd4M1_struct.device.node_id = 0;
 	    mcmd4M1_struct.device.device_num = 0;
 
 	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -270,7 +270,7 @@ void mcmdMoter1Setting(){
 //モータ2のmcmd設定
 void mcmdMoter2Setting(){
 	    mcmd4M2_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M2_struct.device.node_id = 1;
+	    mcmd4M2_struct.device.node_id = 0;
 	    mcmd4M2_struct.device.device_num = 1;
 
 	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -519,7 +519,7 @@ void mcmdMoter_Test_Setting(){
 //サーボ基盤設定
 void servo1Setting(){
 	servo_device1.node_type = NODE_SERVO;
-	servo_device1.node_id = 1;
+	servo_device1.node_id = 0;
 	servo_device1.device_num = 0;
 
 	servo_param1.angle_range=270.0f;
@@ -533,7 +533,7 @@ void servo1Setting(){
 
 void servo2Setting(){
 	servo_device2.node_type = NODE_SERVO;
-	servo_device2.node_id = 1;
+	servo_device2.node_id = 0;
 	servo_device2.device_num = 1;
 
 	servo_param2.angle_range=270.0f;
@@ -547,7 +547,7 @@ void servo2Setting(){
 
 void servo3Setting(){
 	servo_device3.node_type = NODE_SERVO;
-	servo_device3.node_id = 0;
+	servo_device3.node_id = 1;
 	servo_device3.device_num = 0;
 
 	servo_param3.angle_range=270.0f;
@@ -560,7 +560,7 @@ void servo3Setting(){
 }
 void servo4Setting(){
 	servo_device4.node_type = NODE_SERVO;
-	servo_device4.node_id = 0;
+	servo_device4.node_id = 1;
 	servo_device4.device_num = 1;
 
 	servo_param4.angle_range=270.0f;
@@ -573,7 +573,7 @@ void servo4Setting(){
 }
 void servo5Setting(){
 	servo_device5.node_type = NODE_SERVO;
-	servo_device5.node_id = 0;
+	servo_device5.node_id = 1;
 	servo_device5.device_num = 2;
 
 	servo_param5.angle_range=270.0f;
@@ -586,7 +586,7 @@ void servo5Setting(){
 }
 void servo6Setting(){
 	servo_device6.node_type = NODE_SERVO;
-	servo_device6.node_id = 0;
+	servo_device6.node_id = 1;
 	servo_device6.device_num = 3;
 
 	servo_param6.angle_range=270.0f;
@@ -767,25 +767,20 @@ void work_arm_setter(int state){//state:{0:up,1:down}
 
 void base_hand_deployer(int state){
 	if(state == 0){
-		ServoDriver_Init(&servo_device3, &servo_param1);
+		ServoDriver_Init(&servo_device3, &servo_param3);
 		osDelay(100);  // 適切なdelayを入れる
-		ServoDriver_SendValue(&servo_device3, 45.0f);
-		ServoDriver_Init(&servo_device4, &servo_param2);
+		ServoDriver_SendValue(&servo_device3, 60.0f);
+		ServoDriver_Init(&servo_device4, &servo_param4);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device4, 135.0f);
-		ServoDriver_Init(&servo_device5, &servo_param2);
+		ServoDriver_SendValue(&servo_device4, 110.0f);
+		ServoDriver_Init(&servo_device5, &servo_param5);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device5, 45.0f);
-		ServoDriver_Init(&servo_device6, &servo_param1);
+		ServoDriver_SendValue(&servo_device5, 210.0f);
+		ServoDriver_Init(&servo_device6, &servo_param6);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device6, 135.0f);
+		ServoDriver_SendValue(&servo_device6, 225.0f);
 	}else if(state == 1){
-		ServoDriver_Init(&servo_device5, &servo_param2);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device5, 45.0f);
-		ServoDriver_Init(&servo_device6, &servo_param1);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device6, 135.0f);
+
 	}
 }
 
@@ -921,22 +916,22 @@ void StartDefaultTask(void *argument)
 
     //CANの設定を実行
 	canSetting();
-	mcmdMoter_Test_Setting();
-//	mcmdMoter1Setting();
-//	mcmdMoter2Setting();
-//	mcmdMoter3Setting();
-//	mcmdMoter4Setting();
+//	mcmdMoter_Test_Setting();
+	mcmdMoter1Setting();
+	mcmdMoter2Setting();
+	mcmdMoter3Setting();
+	mcmdMoter4Setting();
 ////	mcmdMoter5Setting();
 ////	mcmdMoter6Setting();
 ////	mcmdMoter7Setting();
 ////	mcmdMoter8Setting();
-//	servo1Setting();
-//	servo2Setting();
-//	servo3Setting();
-//	servo4Setting();
-//	servo5Setting();
-//	servo6Setting();
-//	airSetting();
+	servo1Setting();
+	servo2Setting();
+	servo3Setting();
+	servo4Setting();
+	servo5Setting();
+	servo6Setting();
+	airSetting();
 
 	printf("All Setting Finished\r\n");
 	finishCANsetting = true;
@@ -1047,8 +1042,11 @@ void mcmdEncChecker(MCMD_Feedback_Typedef *mcmd_fb, MCMD_HandleTypedef *mcmd_str
 
 //サーボの動作確認用
 void servoChecker(CAN_Device *servo_device,CANServo_Param_Typedef *servo_param,float target){
+	int node_id = servo_device->node_id;
+	int device_num = servo_device->device_num;
 	ServoDriver_Init(servo_device, servo_param);
 	osDelay(100);
+	printf("servo Check node_id:%d device_num:%d\r\n",node_id,device_num);
 	ServoDriver_SendValue(servo_device, target);
 }
 
@@ -1077,15 +1075,16 @@ void StartSysCheckTask(void *argument)
 			  osDelay(1000);//このdelayは必要？
 //			  servoChecker(&servo_device1,&servo_param1,45.0f);
 //			  servoChecker(&servo_device2,&servo_param2,135.0f);
-//			  servoChecker(&servo_device3,&servo_param1,45.0f);
-//			  servoChecker(&servo_device4,&servo_param2,45.0f);
-//			  servoChecker(&servo_device5,&servo_param1,45.0f);
-//			  servoChecker(&servo_device6,&servo_param2,45.0f);
+//			  servoChecker(&servo_device3,&servo_param3,60.0f);
+//			  servoChecker(&servo_device4,&servo_param4,110.0f);
+//			  servoChecker(&servo_device5,&servo_param5,180.0f);
+//			  servoChecker(&servo_device6,&servo_param6,225.0f);
 //			  mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-			  mcmdMotorCecker(&mcmd4Mt_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4Mt_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+			  base_hand_deployer(0);
 
 			  finishCheck = true;
 		  	  }
