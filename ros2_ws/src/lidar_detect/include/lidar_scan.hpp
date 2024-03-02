@@ -120,6 +120,24 @@ class ScanDetect{
         }
     }
 
+    static float corner_reliability(double edge1[], double edge2[] ,double corner[]){
+        float val1 = distance_powed(edge1, corner);
+        float val2 = distance_powed(edge2, corner);
+        float val3 = distance_powed(edge1, edge2);
+
+        float result = 1.0;
+
+        if(val1 < 0.001 || val2 < 0.001){
+            result = 0.0;
+        }
+
+        return result;
+    }
+
+    static float distance_powed(double point1[], double point2[]){
+        return pow(point1[0] - point2[0], 2) + pow(point1[1] - point2[1], 2);
+    }
+
     private:
     
 };
