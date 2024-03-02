@@ -75,9 +75,6 @@ public:
                 error = error1;
             }
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "dist1: %f",dist1);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "dist2: %f",dist2);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "rotate error: %f",error);
         }; 
 
         auto timer_callback = [this]() -> void {

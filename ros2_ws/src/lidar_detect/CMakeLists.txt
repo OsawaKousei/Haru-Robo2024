@@ -37,6 +37,9 @@ ament_auto_add_executable(
   server_detect_node src/server_detect_node.cpp
 )
 
+ament_auto_add_executable(
+  dammy_client src/dammy_client.cpp
+)
 
 ## msg/srv generation
 file(GLOB ${PROJECT_NAME}_msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} msg/*)
@@ -54,6 +57,7 @@ rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} rosidl_type
 target_link_libraries(standalone_detect_node "${cpp_typesupport_target}")
 target_link_libraries(visualization_node "${cpp_typesupport_target}")
 target_link_libraries(server_detect_node "${cpp_typesupport_target}")
+target_link_libraries(dammy_client "${cpp_typesupport_target}")
 
 #実行ファイルのビルド、共有ファイルのインストール
 ament_auto_package(
