@@ -11,6 +11,7 @@
 #include "path_following/action/calib.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "drive_msgs/msg/omni_enc.hpp"
+#include "drive_msgs/msg/omni_enc_mod.hpp"
 #include <chrono>
 #include "../include/pid.hpp"
 
@@ -33,7 +34,8 @@ public:
     float present_theta = 0.0;
     float theta_per_enc = 0.0;
     float enc_diff = 0.0;
-    float enc_base = 0.0;
+    float enc_base_lx = 0.0;
+    float enc_base_ly = 0.0;
 
     bool enc_init_flag = false;
 
@@ -46,7 +48,8 @@ public:
       present_theta = 0.0;
       theta_per_enc = 0.0;
       enc_diff = 0.0;
-      enc_base = 0.0;
+      enc_base_lx = 0.0;
+      enc_base_ly = 0.0;
 
       cmd_vel.linear.x = 0;
       cmd_vel.linear.y = 0;
@@ -100,6 +103,8 @@ public:
         //publishreの作成<メッセージ型>(topic名,qos)
         publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
 
+        modpub = this->create_publisher<drive_msgs::msg::OmniEncMod>("enc_mod", 10);
+
         //サブスクリプションのコールバック関数
         auto topic_callback = [this](const drive_msgs::msg::OmniEnc &msg) -> void {
 
@@ -109,12 +114,15 @@ public:
             RCLCPP_INFO(this->get_logger(), "initialized path");
           }
 
+          //エンコーダーの初期値を取得
           if(!enc_init_flag){
-            enc_base = msg.enclx;
+            enc_base_lx = msg.enclx;
+            enc_base_ly = msg.encly;
             enc_init_flag = true;
           }
 
-          enc_diff = msg.enclx - enc_base;
+          //エンコーダーの変化量を取得し、radに変換
+          enc_diff = msg.enclx - enc_base_lx;
           present_theta = enc_diff * theta_per_enc;
 
           if(succeed_flag){
@@ -126,12 +134,20 @@ public:
             RCLCPP_INFO(this->get_logger(), "detect success");
           }
 
-          auto timer_callback = [this]() -> void {  
+          //制御周期ごとにpid制御を行う
+          auto timer_callback = [this,msg]() -> void {  
             if (control_flag)
             {
               if(pid_ctrl_x.if_torelance()){
                 succeed_count++;
                 if(succeed_count > succeed_time){
+
+                  //calibによるエンコーダーの変化を相殺
+                  auto modmsg = drive_msgs::msg::OmniEncMod();
+                  modmsg.enclx = enc_base_lx-msg.enclx;
+                  modmsg.encly = enc_base_ly-msg.encly;
+                  modpub->publish(modmsg);
+
                   succeed_flag = true;
                 }
               }else{
@@ -159,6 +175,7 @@ private:
     rclcpp_action::Server<path_following::action::Calib>::SharedPtr action_server_;
     rclcpp::Subscription<drive_msgs::msg::OmniEnc>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
+    rclcpp::Publisher<drive_msgs::msg::OmniEncMod>::SharedPtr modpub;
     rclcpp::TimerBase::SharedPtr timer_;  
 
     //全てのゴールをアクセプトするだけのゴールハンドラー
