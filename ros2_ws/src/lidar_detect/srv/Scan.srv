@@ -1,0 +1,8 @@
+# Request
+float64[] odom #(x,y)m
+float64[] corner #(x,y)m
+float64[] angle #(min,max)rad
+---
+# Response
+float64[] odom_error #(x,y)m
+float64 rotation_error #rad 

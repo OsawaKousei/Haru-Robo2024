@@ -139,6 +139,4 @@ namespace MyActionNodes{
                         std::cout << "interrupt path node" << std::endl;
                 }
         };
-
-
 }

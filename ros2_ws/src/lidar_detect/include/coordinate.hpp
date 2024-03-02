@@ -27,7 +27,11 @@ class Coordinate{
         y = r * sin(theta);
     }
 
-    
+    static double get_rotate_error(double a, double b, double c){
+        double error = atan(-1*b/a);
+
+        return error;
+    }
     
     private:
     
