@@ -20,6 +20,7 @@
 
   <!--カスタムメッセージの依存関係-->
   <depend>manip_msgs</depend>
+  <depend>manip</depend>
 
   <!--action通信のための依存関係-->
   <depend>action_msgs</depend>

@@ -33,21 +33,26 @@ ament_auto_add_executable(
   visualization_node src/visualization_node.cpp
 )
 
+ament_auto_add_executable(
+  action_detect_node src/action_detect_node.cpp
+)
+
 ## msg/srv generation
 file(GLOB ${PROJECT_NAME}_msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} msg/*)
 # file(GLOB ${PROJECT_NAME}_srv_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} srv/*)
-# file(GLOB ${PROJECT_NAME}_action_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} action/*)
+file(GLOB ${PROJECT_NAME}_action_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} action/*)
 rosidl_generate_interfaces(
         ${PROJECT_NAME}
         ${${PROJECT_NAME}_msg_files}  # msg使わないならコメントアウト
         # ${${PROJECT_NAME}_srv_files}  # srv使わないならコメントアウト
-        # ${${PROJECT_NAME}_action_files}  # action使わないならコメントアウト
+        ${${PROJECT_NAME}_action_files}  # action使わないならコメントアウト
         DEPENDENCIES ${${PROJECT_NAME}_FOUND_BUILD_DEPENDS}
 )
 
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} rosidl_typesupport_cpp)
 target_link_libraries(standalone_detect_node "${cpp_typesupport_target}")
 target_link_libraries(visualization_node "${cpp_typesupport_target}")
+target_link_libraries(action_detect_node "${cpp_typesupport_target}")
 
 #実行ファイルのビルド、共有ファイルのインストール
 ament_auto_package(
