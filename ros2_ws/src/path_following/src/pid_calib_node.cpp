@@ -8,57 +8,75 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "manip/action/state.hpp"
 #include "path_following/action/path.hpp"
+#include "path_following/action/calib.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "drive_msgs/msg/omni_enc.hpp"
+#include <chrono>
+#include "../include/pid.hpp"
 
-class PathfollowingNode : public rclcpp::Node {
+using namespace std::chrono_literals; // 500msとか書けるようにするため  
+
+class CalibNode : public rclcpp::Node {
 public:
-    using Path = path_following::action::Path;
-    using GoalHandlePath = rclcpp_action::ServerGoalHandle<Path>;
+    using Calib = path_following::action::Calib;
+    using GoalHandlePath = rclcpp_action::ServerGoalHandle<Calib>;
 
-      path_following::action::Path_Goal path = path_following::action::Path_Goal();
+      path_following::action::Calib_Goal calib = path_following::action::Calib_Goal();
       geometry_msgs::msg::Twist cmd_vel = geometry_msgs::msg::Twist();
-
-      struct pid_param
-    {
-      float Kp;
-      float Ki;
-      float Kd;
-    };
-
-    struct pid_param pid = {0,0,0};
 
     bool initialize_frag = false;
     bool control_flag = false;
     bool succeed_flag = false;
+    float succeed_count = 0;
+    float succeed_time = 100;
 
-    const float zone = 0.1;
+    float present_theta = 0.0;
+    float theta_per_enc = 0.0;
+    float enc_diff = 0.0;
+    float enc_base = 0.0;
+
+    bool enc_init_flag = false;
+
+    PID_ctrl pid_ctrl_x = PID_ctrl(0);
+    PID_ctrl pid_ctrl_y = PID_ctrl(0);
 
     void initialize(){
-      pid.Kp = 0.1;
-      pid.Ki = 0.0;
-      pid.Kd = 0.0;
+      calib.rad = 0.0;
 
-      path.start = {0,0};
-      path.goal = {0,0};
-      path.head = 0;
-
-      succeed_flag = false;
+      present_theta = 0.0;
+      theta_per_enc = 0.0;
+      enc_diff = 0.0;
+      enc_base = 0.0;
 
       cmd_vel.linear.x = 0;
       cmd_vel.linear.y = 0;
       cmd_vel.angular.z = 0;
+
+      succeed_count = 0;
+      succeed_flag = false;
+
+      pid_ctrl_x.cmd_debug_flag = true;
+      pid_ctrl_x.Kp = 0.1;
+      pid_ctrl_x.Ki = 0.01;
+      pid_ctrl_x.max_limit_flag = true;
+      pid_ctrl_x.max_limit = 0.2;
+      pid_ctrl_x.min_limit_flag = true;
+      pid_ctrl_x.min_limit = 0.025;
+      pid_ctrl_x.integral_limit_flag = true;
+      pid_ctrl_x.integral_limit = 6;//i項を変えるとここも変える
+      pid_ctrl_x.torelance_judge_flag = true;
+      pid_ctrl_x.torelance = 0.1;
+      pid_ctrl_x.torelance_type = Stop;
+      pid_ctrl_x.torelance_debug_flag = true;
+      //pid_ctrl_y.cmd_debug_flag = true;
     }
 
-    void set_cmd(float x_diff, float y_diff){
-      cmd_vel.linear.x = 0.0;
-      cmd_vel.linear.y = 0.0;
+    void set_cmd(){
+      cmd_vel.angular.z = 0.0;
 
-      cmd_vel.linear.x = pid.Kp*x_diff;
-      cmd_vel.linear.y = pid.Kp*y_diff;
+      cmd_vel.angular.z = pid_ctrl_x.pid_ctrl(present_theta, calib.rad);
 
-      cmd_vel.linear.x = duty_limit(cmd_vel.linear.x);
-      cmd_vel.linear.y = duty_limit(cmd_vel.linear.y);
+      cmd_vel.angular.z = duty_limit(cmd_vel.angular.z);
     }
 
     float duty_limit(float duty){
@@ -74,7 +92,7 @@ public:
       }
     }
 
-    explicit PathfollowingNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
+    explicit CalibNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
     : Node("path_following_node", options)
     {
         using namespace std::placeholders;
@@ -91,46 +109,62 @@ public:
             RCLCPP_INFO(this->get_logger(), "initialized path");
           }
 
-          float x_diff = path.goal[0] - msg.enclx;
-          float y_diff = path.goal[1] - msg.encly;
+          if(!enc_init_flag){
+            enc_base = msg.enclx;
+            enc_init_flag = true;
+          }
 
-          if(x_diff < zone && x_diff > -zone && y_diff < zone && y_diff > -zone && control_flag){
+          enc_diff = msg.enclx - enc_base;
+          present_theta = enc_diff * theta_per_enc;
+
+          if(succeed_flag){
             control_flag = false;
-            succeed_flag = true;
 
-            cmd_vel.linear.x = 0.0;
-            cmd_vel.linear.y = 0.0;
+            cmd_vel.angular.z = 0.0;
             publisher_->publish(cmd_vel);
             
             RCLCPP_INFO(this->get_logger(), "detect success");
           }
 
-          if (control_flag)
-          {
-            set_cmd(x_diff, y_diff);
-            publisher_->publish(cmd_vel);
-          }
+          auto timer_callback = [this]() -> void {  
+            if (control_flag)
+            {
+              if(pid_ctrl_x.if_torelance()){
+                succeed_count++;
+                if(succeed_count > succeed_time){
+                  succeed_flag = true;
+                }
+              }else{
+                succeed_count = 0;
+              }
+              set_cmd();
+              publisher_->publish(cmd_vel);
+            }
+          };
+
+          timer_ = this->create_wall_timer(10ms, timer_callback);  
         }; 
 
         //サブスクリプションの作成<メッセージ型>(topic名,qos,コールバック関数)
         subscription_ = this->create_subscription<drive_msgs::msg::OmniEnc>("enc_val", 10, topic_callback);
 
-        this->action_server_ = rclcpp_action::create_server<path_following::action::Path>(
+        this->action_server_ = rclcpp_action::create_server<path_following::action::Calib>(
         this,
         "path_following",
-        std::bind(&PathfollowingNode::handle_goal, this, _1, _2),
-        std::bind(&PathfollowingNode::handle_cancel, this, _1),
-        std::bind(&PathfollowingNode::handle_accepted, this, _1));
+        std::bind(&CalibNode::handle_goal, this, _1, _2),
+        std::bind(&CalibNode::handle_cancel, this, _1),
+        std::bind(&CalibNode::handle_accepted, this, _1));
     }
 private:
-    rclcpp_action::Server<path_following::action::Path>::SharedPtr action_server_;
+    rclcpp_action::Server<path_following::action::Calib>::SharedPtr action_server_;
     rclcpp::Subscription<drive_msgs::msg::OmniEnc>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
+    rclcpp::TimerBase::SharedPtr timer_;  
 
     //全てのゴールをアクセプトするだけのゴールハンドラー
     rclcpp_action::GoalResponse handle_goal(
     const rclcpp_action::GoalUUID & uuid,
-    std::shared_ptr<const Path::Goal> goal)
+    std::shared_ptr<const Calib::Goal> goal)
   {
     RCLCPP_INFO(this->get_logger(), "Received goal request");
     (void)uuid;
@@ -153,7 +187,7 @@ private:
 
     control_flag = false;
     // this needs to return quickly to avoid blocking the executor, so spin up a new thread
-    std::thread{std::bind(&PathfollowingNode::execute, this, _1), goal_handle}.detach();
+    std::thread{std::bind(&CalibNode::execute, this, _1), goal_handle}.detach();
   }
 
   void execute(const std::shared_ptr<GoalHandlePath> goal_handle)
@@ -167,15 +201,13 @@ private:
     }
     
     auto goal = goal_handle->get_goal();
-    path.goal[0] = goal->goal[0];
-    path.goal[1] = goal->goal[1];
+    calib.rad = goal->rad;
 
     succeed_flag = false;
     control_flag = true;
 
 
-    RCLCPP_INFO(this->get_logger(), "x target:%f\r\n",path.goal[0]);
-    RCLCPP_INFO(this->get_logger(), "y target:%f\r\n",path.goal[1]);
+    RCLCPP_INFO(this->get_logger(), "rad target:%f\r\n",calib.rad);
 
     while(1){
       sleep(1);
@@ -194,7 +226,7 @@ private:
   }
 
   void send_success(const std::shared_ptr<GoalHandlePath> goal_handle){
-    auto result = std::make_shared<Path::Result>();
+    auto result = std::make_shared<Calib::Result>();
 
     RCLCPP_INFO(this->get_logger(), "Goal succeeded");
     goal_handle->succeed(result);
@@ -214,7 +246,7 @@ private:
     auto goal = goal_handle->get_goal();
     std::stringstream ss;
     ss << "goal is: ";
-    for (auto const& value : goal->goal) ss << value << "; ";
+    ss << goal->rad << "; ";
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
 
   }
@@ -222,7 +254,7 @@ private:
 
 int main(int argc, char *argv[]) {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<PathfollowingNode>());
+    rclcpp::spin(std::make_shared<CalibNode>());
     rclcpp::shutdown();
     return 0;
 }
