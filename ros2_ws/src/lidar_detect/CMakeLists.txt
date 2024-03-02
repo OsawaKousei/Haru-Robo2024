@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(path_following)
+project(lidar_detect)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -22,33 +22,32 @@ if(BUILD_TESTING)
 endif()
 
 ament_auto_add_executable(
-  path_following_node src/path_following_node.cpp
+  scan_filter_node src/scan_filter_node.cpp
 )
 
 ament_auto_add_executable(
-  dammy_path_node src/dammy_path_node.cpp
+  standalone_detect_node src/standalone_detect_node.cpp
 )
 
 ament_auto_add_executable(
-  pid_pos_node src/pid_pos_node.cpp
+  visualization_node src/visualization_node.cpp
 )
 
 ## msg/srv generation
-#file(GLOB ${PROJECT_NAME}_msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} msg/*)
-#file(GLOB ${PROJECT_NAME}_srv_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} srv/*)
-file(GLOB ${PROJECT_NAME}_action_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} action/*)
+file(GLOB ${PROJECT_NAME}_msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} msg/*)
+# file(GLOB ${PROJECT_NAME}_srv_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} srv/*)
+# file(GLOB ${PROJECT_NAME}_action_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} action/*)
 rosidl_generate_interfaces(
         ${PROJECT_NAME}
-        #${${PROJECT_NAME}_msg_files}  # msg使わないならコメントアウト
-        #${${PROJECT_NAME}_srv_files}  # srv使わないならコメントアウト
-        ${${PROJECT_NAME}_action_files}  # action使わないならコメントアウト
+        ${${PROJECT_NAME}_msg_files}  # msg使わないならコメントアウト
+        # ${${PROJECT_NAME}_srv_files}  # srv使わないならコメントアウト
+        # ${${PROJECT_NAME}_action_files}  # action使わないならコメントアウト
         DEPENDENCIES ${${PROJECT_NAME}_FOUND_BUILD_DEPENDS}
 )
 
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} rosidl_typesupport_cpp)
-target_link_libraries(path_following_node "${cpp_typesupport_target}")
-target_link_libraries(dammy_path_node "${cpp_typesupport_target}")
-target_link_libraries(pid_pos_node "${cpp_typesupport_target}")
+target_link_libraries(standalone_detect_node "${cpp_typesupport_target}")
+target_link_libraries(visualization_node "${cpp_typesupport_target}")
 
 #実行ファイルのビルド、共有ファイルのインストール
 ament_auto_package(

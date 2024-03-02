@@ -30,5 +30,9 @@ ament_auto_add_executable(
 bt_node src/bt_node.cpp
 )
 
+ament_auto_add_executable(
+pos_bt_node src/pos_bt_node.cpp
+)
+
 #ライブラリのビルド
 ament_auto_package(INSTALL_TO_SHARE)
