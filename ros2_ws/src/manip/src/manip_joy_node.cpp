@@ -25,7 +25,7 @@ public:
     }
 
     explicit ManipJoyNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
-    : Node("manip_control_node", options)
+    : Node("manip_joy_node", options)
     {
         using namespace std::placeholders;
 

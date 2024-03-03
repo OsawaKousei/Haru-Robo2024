@@ -140,4 +140,4 @@ class Base1CatchNode : public rclcpp::Node{
 };
 
 // ノードのインスタンスを定義
-std::shared_ptr<Base1CatchNode> base1_catch_node;
+std::shared_ptr<Base1CatchNode> high_base_catch_node;

@@ -34,5 +34,9 @@ ament_auto_add_executable(
 pos_bt_node src/pos_bt_node.cpp
 )
 
+ament_auto_add_executable(
+joy_control_node src/joy_control_node.cpp
+)
+
 #ライブラリのビルド
 ament_auto_package(INSTALL_TO_SHARE)

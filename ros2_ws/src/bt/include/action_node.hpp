@@ -5,7 +5,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "catch_node.hpp"
 #include "calib_node.hpp"
-#include "base1_catch_node.hpp"
+#include "high_base_catch_node.hpp"
 #include "path_node.hpp"
 
 using namespace BT;
@@ -63,8 +63,8 @@ namespace MyActionNodes{
                         std::cout << "put work node running" << std::endl;
 
                         rclcpp::init(0, nullptr);
-                        base1_catch_node = std::make_shared<Base1CatchNode>();
-                        rclcpp::spin(base1_catch_node);
+                        high_base_catch_node = std::make_shared<Base1CatchNode>();
+                        rclcpp::spin(high_base_catch_node);
                         rclcpp::shutdown();
                 
                         return NodeStatus::SUCCESS;

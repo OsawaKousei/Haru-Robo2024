@@ -3,7 +3,7 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "manip/action/state.hpp"
 
-class Base1CatchNode : public rclcpp::Node{
+class Base2CatchNode : public rclcpp::Node{
     public:
 
         using State = manip::action::State;//使用するアクションメッセージの名前空間
@@ -19,7 +19,7 @@ class Base1CatchNode : public rclcpp::Node{
         Sequence sequence = hand_down;
 
         //コンストラクタ
-        Base1CatchNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions()) : Node("base1_catch_node",options){
+        Base2CatchNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions()) : Node("base1_catch_node",options){
                 using namespace std::placeholders;
 
                 this->client_ptr_ = rclcpp_action::create_client<State>(this,"manip_control");
@@ -76,11 +76,11 @@ class Base1CatchNode : public rclcpp::Node{
                 auto send_goal_options = rclcpp_action::Client<State>::SendGoalOptions();
                 //アクション通信に関する各コールバック関数の設定(response,feedback,result)
                 send_goal_options.goal_response_callback =
-                std::bind(&Base1CatchNode::goal_response_callback, this, _1);
+                std::bind(&Base2CatchNode::goal_response_callback, this, _1);
                 send_goal_options.feedback_callback =
-                std::bind(&Base1CatchNode::feedback_callback, this, _1, _2);
+                std::bind(&Base2CatchNode::feedback_callback, this, _1, _2);
                 send_goal_options.result_callback =
-                std::bind(&Base1CatchNode::result_callback, this, _1);
+                std::bind(&Base2CatchNode::result_callback, this, _1);
                 //ゴールの送信
                 this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
         }
@@ -140,4 +140,4 @@ class Base1CatchNode : public rclcpp::Node{
 };
 
 // ノードのインスタンスを定義
-std::shared_ptr<Base1CatchNode> base1_catch_node;
+std::shared_ptr<Base2CatchNode> low_base_catch_node;

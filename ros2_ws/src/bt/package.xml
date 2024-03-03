@@ -14,6 +14,7 @@
 
   <depend>manip</depend>
   <depend>path_following</depend>
+  <depend>lidar_detect</depend>
   
   <depend>rosidl_default_generators</depend>
   <depend>behaviortree_cpp</depend>

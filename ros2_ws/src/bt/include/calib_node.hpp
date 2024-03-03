@@ -8,7 +8,7 @@
 
 using namespace std::chrono_literals;
 
-class CatchNode : public rclcpp::Node{
+class CalibNode : public rclcpp::Node{
     public:
 
         using Calib = path_following::action::Calib;//使用するアクションメッセージの名前空間
@@ -27,7 +27,7 @@ class CatchNode : public rclcpp::Node{
         std::double_t max_angle;
 
         //コンストラクタ
-        CatchNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions()) : Node("catch_node",options){
+        CalibNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions()) : Node("catch_node",options){
                 using namespace std::placeholders;
 
                 //パラメータの宣言
@@ -119,11 +119,11 @@ class CatchNode : public rclcpp::Node{
                 auto send_goal_options = rclcpp_action::Client<Calib>::SendGoalOptions();
                 //アクション通信に関する各コールバック関数の設定(response,feedback,result)
                 send_goal_options.goal_response_callback =
-                std::bind(&CatchNode::goal_response_callback, this, _1);
+                std::bind(&CalibNode::goal_response_callback, this, _1);
                 send_goal_options.feedback_callback =
-                std::bind(&CatchNode::feedback_callback, this, _1, _2);
+                std::bind(&CalibNode::feedback_callback, this, _1, _2);
                 send_goal_options.result_callback =
-                std::bind(&CatchNode::result_callback, this, _1);
+                std::bind(&CalibNode::result_callback, this, _1);
                 //ゴールの送信
                 this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
         }
@@ -185,4 +185,4 @@ class CatchNode : public rclcpp::Node{
 };
 
 // ノードのインスタンスを定義
-std::shared_ptr<CatchNode> calib_node;
+std::shared_ptr<CalibNode> calib_node;
