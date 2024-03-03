@@ -367,8 +367,8 @@ void mcmdMoter5Setting(){
 	    mcmd4M5_struct.device.device_num = 0;
 
 	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
-	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.2f;
-	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.05f;
+	    mcmd4M5_struct.ctrl_param.PID_param.kp = 4.5f;
+	    mcmd4M5_struct.ctrl_param.PID_param.ki = 1.0f;
 	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
 	    mcmd4M5_struct.ctrl_param.accel_limit_size = 2.0f;
@@ -376,7 +376,7 @@ void mcmdMoter5Setting(){
 	    mcmd4M5_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
 	    mcmd4M5_struct.enc_dir = MCMD_DIR_BC;
 	    mcmd4M5_struct.rot_dir = MCMD_DIR_BC;
-	    mcmd4M5_struct.quant_per_unit = 1.0/1024.0f;
+	    mcmd4M5_struct.quant_per_unit = 1.0/8230.0f;
 
 	    mcmd4M5_struct.limit_sw_type = LIMIT_SW_NO;
 	    mcmd4M5_struct.calib = CALIBRATION_DISABLE;
@@ -398,8 +398,8 @@ void mcmdMoter6Setting(){
 	    mcmd4M6_struct.device.device_num = 1;
 
 	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
-	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.2f;
-	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.05f;
+	    mcmd4M6_struct.ctrl_param.PID_param.kp = 4.5f;
+	    mcmd4M6_struct.ctrl_param.PID_param.ki = 1.0f;
 	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M6_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
 	    mcmd4M6_struct.ctrl_param.accel_limit_size = 2.0f;
@@ -407,7 +407,7 @@ void mcmdMoter6Setting(){
 	    mcmd4M6_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
 	    mcmd4M6_struct.enc_dir = MCMD_DIR_FW;
 	    mcmd4M6_struct.rot_dir = MCMD_DIR_FW;
-	    mcmd4M6_struct.quant_per_unit = 1.0/1024.0f;
+	    mcmd4M6_struct.quant_per_unit = 1.0/8230.0f;
 
 	    mcmd4M6_struct.limit_sw_type = LIMIT_SW_NO;
 	    mcmd4M6_struct.calib = CALIBRATION_DISABLE;
@@ -772,23 +772,24 @@ void base_hand_deployer(int state){
 		ServoDriver_SendValue(&servo_device3, 60.0f);
 		ServoDriver_Init(&servo_device4, &servo_param4);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device4, 110.0f);
+		ServoDriver_SendValue(&servo_device4, 90.0f);
 		ServoDriver_Init(&servo_device5, &servo_param5);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device5, 210.0f);
+		ServoDriver_SendValue(&servo_device5, 200.0f);
 		ServoDriver_Init(&servo_device6, &servo_param6);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device6, 225.0f);
+		ServoDriver_SendValue(&servo_device6, 210.0f);
 	}else if(state == 1){
 
 	}
 }
-
+//base1 high
+//base2 low
 void base1_arm_setter(int state){
 	if(state == 0){
 		MCMD_SetTarget(&mcmd4M5_struct,0.0f);
 	}else if(state == 1){
-		MCMD_SetTarget(&mcmd4M5_struct,0.5f);
+		MCMD_SetTarget(&mcmd4M5_struct,0.23f);
 	}
 }
 
@@ -807,7 +808,7 @@ void base2_arm_setter(int state){
 	if(state == 0){
 		MCMD_SetTarget(&mcmd4M6_struct,0.0f);
 	}else if(state == 1){
-		MCMD_SetTarget(&mcmd4M6_struct,0.75f);
+		MCMD_SetTarget(&mcmd4M6_struct,0.12f);
 	}
 }
 
@@ -921,10 +922,10 @@ void StartDefaultTask(void *argument)
 	mcmdMoter2Setting();
 	mcmdMoter3Setting();
 	mcmdMoter4Setting();
-////	mcmdMoter5Setting();
-////	mcmdMoter6Setting();
-////	mcmdMoter7Setting();
-////	mcmdMoter8Setting();
+	mcmdMoter5Setting();
+	mcmdMoter6Setting();
+	mcmdMoter7Setting();
+	mcmdMoter8Setting();
 	servo1Setting();
 	servo2Setting();
 	servo3Setting();
@@ -1084,8 +1085,12 @@ void StartSysCheckTask(void *argument)
 //			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4Mt_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-			  //base_hand_deployer(0);
-
+//			  base_hand_deployer(0);
+//			  base1_arm_setter(1);
+//			  osDelay(10000);
+//			  base2_arm_setter(1);
+			  base1_hand_setter(1);
+			  base2_hand_setter(1);
 			  finishCheck = true;
 		  	  }
 	  }
@@ -1171,14 +1176,20 @@ void StartEncorderTask(void *argument)
 //	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
 //	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
 //	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
-//	  enc.enclx = count2*quant_per_unit;
-//	  enc.encly = count1*quant_per_unit;
-//	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
+	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M7_struct.device)).value;;
+	  enc.encly = Get_MCMD_Feedback(&(mcmd4M8_struct.device)).value;;
+	  enc.encadditional = 0.0;
+
+//	  float base1 = Get_MCMD_Feedback(&(mcmd4M5_struct.device)).value;
+//	  float base2 = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
+//
+//	  printf("base1 %f \r\n",base1);
+//	  printf("base2 %f \r\n",base2);
 
 //	  printf("enc1: %d\r\n",(int)(count1*quant_per_unit));
 //	  printf("enc2: %d\r\n",(int)(count2*quant_per_unit));
 
-    osDelay(10);
+    osDelay(1000);
   }
   /* USER CODE END StartEncorderTask */
 }
