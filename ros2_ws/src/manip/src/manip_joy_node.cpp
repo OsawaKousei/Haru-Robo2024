@@ -43,72 +43,42 @@ public:
           bool send_goal_frag = false;
 
           if(msg.buttons[7] == 1 && buttons[7] == 0){
-            if(state.base2[1] == 0){
-              state.base2[1] = 1;
-            }else{
-              state.base2[1] = 0;
-            }
             send_goal_frag = true;
           }
 
           if(msg.buttons[6] == 1 && buttons[6] == 0){
-            if(state.base2[0] == 0){
-              state.base2[0] = 1;
-            }else{
-              state.base2[0] = 0;
-            }
             send_goal_frag = true;
           }
 
           if(msg.buttons[5] == 1 && buttons[5] == 0){
-            if(state.base1[1] == 0){
-              state.base1[1] = 1;
-            }else{
-              state.base1[1] = 0;
-            }
             send_goal_frag = true;
           }
 
           if(msg.buttons[4] == 1 && buttons[4] == 0){
-            if(state.base1[0] == 0){
-              state.base1[0] = 1;
-            }else{
-              state.base1[0] = 0;
-            }
-            send_goal_frag = true;
-          }
-
-          if(msg.buttons[3] == 1 && buttons[3] == 0){
-            if(state.work[0] == 0){
-              state.work[0] = 1;
-            }else{
-              state.work[0] = 0;
-            }
-            send_goal_frag = true;
-          }
-
-          if(msg.buttons[2] == 1 && buttons[2] == 0){
-            if(state.work[1] == 0){
-              state.work[1] = 1;
-            }else{ 
-              state.work[1] = 0;
-            }
-            send_goal_frag = true;
-          }
-
-          if(msg.buttons[1] == 1 && buttons[1] == 0){
-            if(state.work[2] == 0){
-              state.work[2] = 1;
-            }else{ 
-              state.work[2] = 0;
-            }
-            send_goal_frag = true;
-          }
-
-          if(msg.buttons[0] == 1 && buttons[0] == 0){
             
+            send_goal_frag = true;
           }
 
+          if(msg.buttons[3] == 1 && buttons[3] == 0){//Y
+            state.work[1] = 1;
+            send_goal_frag = true;
+          }
+
+          if(msg.buttons[2] == 1 && buttons[2] == 0){//X
+            state.work[1] = 0;
+            send_goal_frag = true;
+          }
+
+          if(msg.buttons[1] == 1 && buttons[1] == 0){//B
+            state.work[2] = 1;
+            send_goal_frag = true;
+          }
+
+          if(msg.buttons[0] == 1 && buttons[0] == 0){//A
+            state.work[2] = 0;
+            send_goal_frag = true;
+          }
+          buttons[0] = msg.buttons[0];
           buttons[1] = msg.buttons[1];
           buttons[2] = msg.buttons[2];
           buttons[3] = msg.buttons[3];

@@ -225,7 +225,7 @@ void canSetting(){
 	CAN_SystemInit(&hcan1);
 
 //	num_of_devices.mcmd3 = 0;
-	num_of_devices.mcmd3 = 2;
+	num_of_devices.mcmd3 = 4;
 	num_of_devices.mcmd4 = 0;
 	num_of_devices.air = 1;
 	num_of_devices.servo = 2;
@@ -363,7 +363,7 @@ void mcmdMoter4Setting(){
 
 void mcmdMoter5Setting(){
 	    mcmd4M5_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M5_struct.device.node_id =2;
+	    mcmd4M5_struct.device.node_id =5;
 	    mcmd4M5_struct.device.device_num = 0;
 
 	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
@@ -394,7 +394,7 @@ void mcmdMoter5Setting(){
 
 void mcmdMoter6Setting(){
 	    mcmd4M6_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M6_struct.device.node_id =2;
+	    mcmd4M6_struct.device.node_id =5;
 	    mcmd4M6_struct.device.device_num = 1;
 
 	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
@@ -734,14 +734,14 @@ void work_arm_deployer(int state){//state:{0:close,1:open}
 		ServoDriver_SendValue(&servo_device1, 45.0f);
 		ServoDriver_Init(&servo_device2, &servo_param2);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device2, 135.0f);
+		ServoDriver_SendValue(&servo_device2, 145.0f);
 	}else if(state == 1){
-		ServoDriver_Init(&servo_device2, &servo_param2);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device2, 45.0f);
 		ServoDriver_Init(&servo_device1, &servo_param1);
 		osDelay(100);
 		ServoDriver_SendValue(&servo_device1, 135.0f);
+		ServoDriver_Init(&servo_device2, &servo_param2);
+		osDelay(100);
+		ServoDriver_SendValue(&servo_device2, 60.0f);
 	}
 }
 
@@ -1084,7 +1084,7 @@ void StartSysCheckTask(void *argument)
 //			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4Mt_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-			  base_hand_deployer(0);
+			  //base_hand_deployer(0);
 
 			  finishCheck = true;
 		  	  }
