@@ -9,7 +9,17 @@ using namespace std::chrono_literals;
 
 class DammyClient : public rclcpp::Node {
 public:
+    std::double_t min_angle;
+    std::double_t max_angle;
+
     DammyClient() : Node("dammy_client") {//nodeを作成
+        //パラメータの宣言
+        declare_parameter("min", 0.0);
+        declare_parameter("max", 0.0);
+
+        min_angle = get_parameter("min").as_double();
+        max_angle = get_parameter("max").as_double();
+
         std::cout << "dammy_client" << std::endl;
         rclcpp::Client<lidar_detect::srv::Scan>::SharedPtr client = create_client<lidar_detect::srv::Scan>("server_detect");
         std::cout << "dammy_client1" << std::endl;
@@ -32,6 +42,8 @@ public:
                 request->odom[1] = 0;
                 request->corner[0] = 0;
                 request->corner[1] = 0;
+                request->angle[0] = min_angle;
+                request->angle[1] = max_angle;
 
                 auto result = client->async_send_request(request);  // ServerにRequestを送信
 

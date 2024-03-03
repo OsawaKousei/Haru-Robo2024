@@ -11,7 +11,8 @@ using namespace std::chrono_literals;
 
 class ServerDetectNode : public rclcpp::Node{
     public:
-    sensor_msgs::msg::LaserScan scan;   
+    sensor_msgs::msg::LaserScan scan;
+    sensor_msgs::msg::LaserScan filtered_scan;
 
     ServerDetectNode() : Node("server_detect_node"){
         publisher_ = this->create_publisher<lidar_detect::msg::DetectResult>("detect_result", 10);
@@ -110,6 +111,31 @@ class ServerDetectNode : public rclcpp::Node{
     rclcpp::Service<lidar_detect::srv::Scan>::SharedPtr srv;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscription_;
     rclcpp::Publisher<lidar_detect::msg::DetectResult>::SharedPtr publisher_;
+
+    void filter_scan(float angle[]){
+        //scanメッセージを変更
+        filtered_scan = scan;
+
+        double min_angle = angle[0];
+        double max_angle = angle[1];
+
+        filtered_scan.angle_max = max_angle;
+        filtered_scan.angle_min = min_angle;
+
+        //scanデータを変更
+        int start_index = 0;
+        int end_index = 0;
+
+        start_index = (int)((min_angle - scan.angle_min) / scan.angle_increment);
+        end_index = (int)((max_angle - scan.angle_min) / scan.angle_increment);
+
+        int size = end_index - start_index + 1;
+
+        filtered_scan.ranges.resize(size);
+        for(int i = 0; i < size; i++){
+            filtered_scan.ranges[i] = scan.ranges[start_index + i];
+        }
+    }
 };
 
 int main(int argc, char **argv){

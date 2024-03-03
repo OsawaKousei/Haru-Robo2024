@@ -4,6 +4,7 @@
 #include "behaviortree_cpp/bt_factory.h"
 #include "rclcpp/rclcpp.hpp"
 #include "catch_node.hpp"
+#include "calib_node.hpp"
 #include "base1_catch_node.hpp"
 #include "path_node.hpp"
 

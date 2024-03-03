@@ -23,9 +23,19 @@ class CatchNode : public rclcpp::Node{
         };
         Sequence sequence = get_error; 
 
+        std::double_t min_angle;
+        std::double_t max_angle;
+
         //コンストラクタ
         CatchNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions()) : Node("catch_node",options){
                 using namespace std::placeholders;
+
+                //パラメータの宣言
+                declare_parameter("min", 0.0);
+                declare_parameter("max", 0.0);
+
+                min_angle = get_parameter("min").as_double();
+                max_angle = get_parameter("max").as_double();
 
                 this->client_ptr_ = rclcpp_action::create_client<Calib>(this,"manip_control");
                 rclcpp::Client<lidar_detect::srv::Scan>::SharedPtr client = create_client<lidar_detect::srv::Scan>("server_detect");
