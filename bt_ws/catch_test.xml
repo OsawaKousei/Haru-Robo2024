@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="base_test">
+    <Sequence>
+      <pos_control x_target="1"
+                   y_target="0"/>
+      <catch_base/>
+      <pos_control x_target="0"
+                   y_target="1"/>
+      <put_base/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="simple_base_test">
+    <Sequence>
+      <catch_base/>
+      <put_base/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="simple_work_test">
+    <Sequence>
+      <catch_work/>
+      <put_work/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="work_test">
+    <Sequence>
+      <pos_control x_target="1"
+                   y_target="0"/>
+      <catch_work/>
+      <pos_control x_target="0"
+                   y_target="1"/>
+      <put_work/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="catch_base"
+            editable="true"/>
+    <Action ID="catch_work"
+            editable="true"/>
+    <Action ID="pos_control"
+            editable="true">
+      <input_port name="x_target"/>
+      <input_port name="y_target"/>
+    </Action>
+    <Action ID="put_base"
+            editable="true"/>
+    <Action ID="put_work"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>

@@ -1,4 +1,3 @@
-#pragma once
 #include <functional>
 #include <future>
 #include <memory>
@@ -6,53 +5,45 @@
 #include <sstream>
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
-#include "path_following/action/path.hpp"
+#include "path_following/action/calib.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
-class PathNode : public rclcpp::Node {
+class DammyCalibNode : public rclcpp::Node {
 public:
-    using Path = path_following::action::Path;
-    using GoalHandleState = rclcpp_action::ClientGoalHandle<Path>;
+    using Calib = path_following::action::Calib;
+    using GoalHandleState = rclcpp_action::ClientGoalHandle<Calib>;
 
-    path_following::action::Path_Goal path = path_following::action::Path_Goal();
+    path_following::action::Calib_Goal calib = path_following::action::Calib_Goal();
     bool state_initialize_frag = false;
 
     std::vector<int> buttons = {0,0,0,0,0,0,0,0};
 
-    void initialize_path(){
-      path.start = {0,0};
-      path.goal = {0,0};
-      path.head = 0;
+    void initialize_calib(){
+      calib.rad = 0.0;
     }
 
-    void set_goal(double x, double y){
-      path.goal = {x,y};
+    void set_goal(double rad){
+      calib.rad = rad;
     }
 
-    std::double_t x_target;
-    std::double_t y_target;
+    std::double_t rad_target;
 
-    explicit PathNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
-    : Node("path_node", options)
+    explicit DammyCalibNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
+    : Node("dammy_calib_node", options)
     {
       //パラメータの宣言
-      declare_parameter("x", 0.0);
-      declare_parameter("y", 0.0);
+      declare_parameter("rad", 0.0);
 
-      x_target = get_parameter("x").as_double();
-      y_target = get_parameter("y").as_double();
-
-      RCLCPP_INFO(this->get_logger(), "x target:%f\r\n",x_target);
-      RCLCPP_INFO(this->get_logger(), "y target:%f\r\n",y_target);
+      rad_target = get_parameter("rad").as_double();
 
       using namespace std::placeholders;
 
-      this->client_ptr_ = rclcpp_action::create_client<Path>(this,"path_following");
+      this->client_ptr_ = rclcpp_action::create_client<Calib>(this,"path_following");
 
       //this->timer_ = this->create_wall_timer(,manip::msg::Cmd message
         // std::bind(&ManipJoyNode::send_goal, this));
 
-      set_goal(x_target,y_target);
+      set_goal(rad_target);
       send_goal();
     }
 
@@ -67,22 +58,22 @@ public:
       rclcpp::shutdown();
     }
 
-    auto goal_msg = Path::Goal();
-    goal_msg = path;
+    auto goal_msg = Calib::Goal();
+    goal_msg = calib;
 
     RCLCPP_INFO(this->get_logger(), "Sending goal");
 
-    auto send_goal_options = rclcpp_action::Client<Path>::SendGoalOptions();
+    auto send_goal_options = rclcpp_action::Client<Calib>::SendGoalOptions();
     send_goal_options.goal_response_callback =
-      std::bind(&PathNode::goal_response_callback, this, _1);
+      std::bind(&DammyCalibNode::goal_response_callback, this, _1);
     send_goal_options.feedback_callback =
-      std::bind(&PathNode::feedback_callback, this, _1, _2);
+      std::bind(&DammyCalibNode::feedback_callback, this, _1, _2);
     send_goal_options.result_callback =
-      std::bind(&PathNode::result_callback, this, _1);
+      std::bind(&DammyCalibNode::result_callback, this, _1);
     this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
   }
 private:
-    rclcpp_action::Client<Path>::SharedPtr client_ptr_;
+    rclcpp_action::Client<Calib>::SharedPtr client_ptr_;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_;
 
@@ -98,14 +89,10 @@ private:
   
   void feedback_callback(
     GoalHandleState::SharedPtr,
-    const std::shared_ptr<const Path::Feedback> feedback)
+    const std::shared_ptr<const Calib::Feedback> feedback)
   {
     std::stringstream ss;
     ss << "feedback received: ";
-    for (auto number : feedback->posi) {
-      ss << number << " ";
-    }
-    RCLCPP_INFO(this->get_logger(), ss.str().c_str());
   }
 
   void result_callback(const GoalHandleState::WrappedResult & result)
@@ -131,4 +118,9 @@ private:
   }
 };
 
-std::shared_ptr<PathNode> path_node;
+int main(int argc, char *argv[]) {
+    rclcpp::init(argc, argv);
+    rclcpp::spin(std::make_shared<DammyCalibNode>());
+    rclcpp::shutdown();
+    return 0;
+}

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4" project_name="Project">
+    <include path="catch_test.xml"/>
+    <include path="integrated_test.xml"/>
     <include path="pos_control.xml"/>
     <!-- Description of Node Models (used by Groot) -->
     <TreeNodesModel>
+        <Action ID="calib" editable="true">
+            <input_port name="min_angle"/>
+            <input_port name="max_angle"/>
+        </Action>
         <Action ID="catch_base" editable="true"/>
         <Action ID="catch_work" editable="true"/>
         <Action ID="pos_control" editable="true">
             <input_port name="x_target"/>
             <input_port name="y_target"/>
-        </Action>
-        <Action ID="positionaize" editable="true">
-            <input_port name="goal"/>
         </Action>
         <Action ID="put_base" editable="true"/>
         <Action ID="put_work" editable="true"/>

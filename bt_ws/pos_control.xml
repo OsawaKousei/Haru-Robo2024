@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4">
+  <BehaviorTree ID="calib_test">
+    <calib min_angle=""
+           max_angle=""/>
+  </BehaviorTree>
+
+  <BehaviorTree ID="pos-calib_test">
+    <Sequence>
+      <pos_control x_target=""
+                   y_target=""/>
+      <calib min_angle=""
+             max_angle=""/>
+      <pos_control x_target=""
+                   y_target=""/>
+    </Sequence>
+  </BehaviorTree>
+
   <BehaviorTree ID="pos_control_test">
     <Sequence>
       <pos_control x_target="2"
@@ -20,6 +36,11 @@
 
   <!-- Description of Node Models (used by Groot) -->
   <TreeNodesModel>
+    <Action ID="calib"
+            editable="true">
+      <input_port name="min_angle"/>
+      <input_port name="max_angle"/>
+    </Action>
     <Action ID="pos_control"
             editable="true">
       <input_port name="x_target"/>

@@ -52,6 +52,29 @@ public:
             message.e2x = edge2[0];
             message.e2y = edge2[1];
             this->publisher_->publish(message);
+
+            double error2 = Coordinate::get_rotate_error(message.a2, message.b2, message.c2);
+            double error1 = Coordinate::get_rotate_error(message.a1, message.b1, message.c1);
+            double error;
+
+            //誤差が少ない方を正面の壁とみなす　←45度以上傾いていたら誤検出するので注意
+            if(abs(error1) > abs(error2)){
+                error = error2;
+            }else{
+                error = error1;
+            }
+
+            double dist1 = ScanDetect::distance_powed(edge1, corner);
+            double dist2 = ScanDetect::distance_powed(edge2, corner);
+            double dist_threshold = 0.01;
+
+            //壁の長さが閾値以下の場合は除外
+            if(dist1 < dist_threshold){
+                error = error2;
+            }else if(dist2 < dist_threshold){
+                error = error1;
+            }
+
         }; 
 
         auto timer_callback = [this]() -> void {

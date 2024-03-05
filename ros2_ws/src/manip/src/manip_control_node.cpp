@@ -20,8 +20,8 @@ public:
     manip_msgs::msg::Cmd cmd = manip_msgs::msg::Cmd();//送信するコマンドを保持する変数
 
     void initialize_state(){
-      state.base1 = {0,0};
-      state.base2 = {0,0};
+      state.base1 = {1,1};
+      state.base2 = {1,1};
       state.work = {0,0,0};
     }
 
@@ -104,6 +104,8 @@ private:
     make_cmd(goal_handle);
     execute_cmd(goal_handle);
 
+    sleep(4);
+
     auto feedback = std::make_shared<State::Feedback>();//適当なフィードバックを作成
     auto result = std::make_shared<State::Result>();//適当なリザルトを作成
 
@@ -147,7 +149,6 @@ private:
 
     this->publisher_->publish(cmd);
     show_message(cmd);
-    sleep(2);
 
     state.base1 = goal->base1;
     state.base2 = goal->base2;

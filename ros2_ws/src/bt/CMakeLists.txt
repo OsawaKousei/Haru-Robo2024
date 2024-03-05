@@ -11,6 +11,7 @@ ament_auto_find_build_dependencies()  # packageから自動でfind_packageして
 
 install(DIRECTORY
   config
+  launch
   DESTINATION share/${PROJECT_NAME}/
 )
 
@@ -32,6 +33,10 @@ bt_node src/bt_node.cpp
 
 ament_auto_add_executable(
 pos_bt_node src/pos_bt_node.cpp
+)
+
+ament_auto_add_executable(
+joy_control_node src/joy_control_node.cpp
 )
 
 #ライブラリのビルド

@@ -1,9 +1,0 @@
-#request
-float64[] corner
-float64[] odom
----
-#result
-float64[] error
----
-#feedback
-string feedback

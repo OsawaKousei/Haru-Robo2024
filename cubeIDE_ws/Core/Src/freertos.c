@@ -225,7 +225,7 @@ void canSetting(){
 	CAN_SystemInit(&hcan1);
 
 //	num_of_devices.mcmd3 = 0;
-	num_of_devices.mcmd3 = 2;
+	num_of_devices.mcmd3 = 3;
 	num_of_devices.mcmd4 = 0;
 	num_of_devices.air = 1;
 	num_of_devices.servo = 2;
@@ -238,7 +238,7 @@ void canSetting(){
 //モータ1のmcmd設定
 void mcmdMoter1Setting(){
 	    mcmd4M1_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M1_struct.device.node_id = 0;
+	    mcmd4M1_struct.device.node_id = 3;
 	    mcmd4M1_struct.device.device_num = 0;
 
 	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -270,7 +270,7 @@ void mcmdMoter1Setting(){
 //モータ2のmcmd設定
 void mcmdMoter2Setting(){
 	    mcmd4M2_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M2_struct.device.node_id = 0;
+	    mcmd4M2_struct.device.node_id = 3;
 	    mcmd4M2_struct.device.device_num = 1;
 
 	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -363,12 +363,12 @@ void mcmdMoter4Setting(){
 
 void mcmdMoter5Setting(){
 	    mcmd4M5_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M5_struct.device.node_id =2;
+	    mcmd4M5_struct.device.node_id =5;
 	    mcmd4M5_struct.device.device_num = 0;
 
 	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
-	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.2f;
-	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.05f;
+	    mcmd4M5_struct.ctrl_param.PID_param.kp = 4.5f;
+	    mcmd4M5_struct.ctrl_param.PID_param.ki = 1.0f;
 	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
 	    mcmd4M5_struct.ctrl_param.accel_limit_size = 2.0f;
@@ -376,7 +376,7 @@ void mcmdMoter5Setting(){
 	    mcmd4M5_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
 	    mcmd4M5_struct.enc_dir = MCMD_DIR_BC;
 	    mcmd4M5_struct.rot_dir = MCMD_DIR_BC;
-	    mcmd4M5_struct.quant_per_unit = 1.0/1024.0f;
+	    mcmd4M5_struct.quant_per_unit = 1.0/8230.0f;
 
 	    mcmd4M5_struct.limit_sw_type = LIMIT_SW_NO;
 	    mcmd4M5_struct.calib = CALIBRATION_DISABLE;
@@ -394,12 +394,12 @@ void mcmdMoter5Setting(){
 
 void mcmdMoter6Setting(){
 	    mcmd4M6_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M6_struct.device.node_id =2;
+	    mcmd4M6_struct.device.node_id =5;
 	    mcmd4M6_struct.device.device_num = 1;
 
 	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_POS;
-	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.2f;
-	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.05f;
+	    mcmd4M6_struct.ctrl_param.PID_param.kp = 4.5f;
+	    mcmd4M6_struct.ctrl_param.PID_param.ki = 1.0f;
 	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M6_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;
 	    mcmd4M6_struct.ctrl_param.accel_limit_size = 2.0f;
@@ -407,7 +407,7 @@ void mcmdMoter6Setting(){
 	    mcmd4M6_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;
 	    mcmd4M6_struct.enc_dir = MCMD_DIR_FW;
 	    mcmd4M6_struct.rot_dir = MCMD_DIR_FW;
-	    mcmd4M6_struct.quant_per_unit = 1.0/1024.0f;
+	    mcmd4M6_struct.quant_per_unit = 1.0/8230.0f;
 
 	    mcmd4M6_struct.limit_sw_type = LIMIT_SW_NO;
 	    mcmd4M6_struct.calib = CALIBRATION_DISABLE;
@@ -573,7 +573,7 @@ void servo4Setting(){
 }
 void servo5Setting(){
 	servo_device5.node_type = NODE_SERVO;
-	servo_device5.node_id = 1;
+	servo_device5.node_id = 0;
 	servo_device5.device_num = 2;
 
 	servo_param5.angle_range=270.0f;
@@ -712,9 +712,9 @@ void manipsub_callback(const void * msgin)
 	 // Cast received message to used type
 	  const manip_msgs__msg__Cmd * msub = (const manip_msgs__msg__Cmd *)msgin;
 
-	  print_int(msub->num);
-	  print_int(msub->top_base_arm);
-	  print_int(msub->top_base_hand);
+//	  print_int(msub->num);
+//	  print_int(msub->top_base_arm);
+//	  print_int(msub->top_base_hand);
 
 	  work_arm_deployer(msub->work_arm_deploy);
 	  work_arm_setter(msub->work_arm);
@@ -734,14 +734,17 @@ void work_arm_deployer(int state){//state:{0:close,1:open}
 		ServoDriver_SendValue(&servo_device1, 45.0f);
 		ServoDriver_Init(&servo_device2, &servo_param2);
 		osDelay(100);
-		ServoDriver_SendValue(&servo_device2, 135.0f);
+		ServoDriver_SendValue(&servo_device2, 145.0f);
 	}else if(state == 1){
-		ServoDriver_Init(&servo_device2, &servo_param2);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device2, 45.0f);
 		ServoDriver_Init(&servo_device1, &servo_param1);
 		osDelay(100);
 		ServoDriver_SendValue(&servo_device1, 135.0f);
+		ServoDriver_Init(&servo_device2, &servo_param2);
+		osDelay(100);
+		ServoDriver_SendValue(&servo_device2, 60.0f);
+		ServoDriver_Init(&servo_device5, &servo_param5);
+		osDelay(200);
+		ServoDriver_SendValue(&servo_device5, 180.0f);
 	}
 }
 
@@ -768,27 +771,29 @@ void work_arm_setter(int state){//state:{0:up,1:down}
 void base_hand_deployer(int state){
 	if(state == 0){
 		ServoDriver_Init(&servo_device3, &servo_param3);
-		osDelay(100);  // 適切なdelayを入れる
+		osDelay(200);  // 適切なdelayを入れる
 		ServoDriver_SendValue(&servo_device3, 60.0f);
 		ServoDriver_Init(&servo_device4, &servo_param4);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device4, 110.0f);
-		ServoDriver_Init(&servo_device5, &servo_param5);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device5, 210.0f);
+		osDelay(200);
+		ServoDriver_SendValue(&servo_device4, 90.0f);
 		ServoDriver_Init(&servo_device6, &servo_param6);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device6, 225.0f);
+		osDelay(200);
+		ServoDriver_SendValue(&servo_device6, 180.0f);
+		osDelay(1000);
+
 	}else if(state == 1){
 
 	}
 }
-
+//base1 high
+//base2 low
 void base1_arm_setter(int state){
-	if(state == 0){
+	if(state == 1){
 		MCMD_SetTarget(&mcmd4M5_struct,0.0f);
-	}else if(state == 1){
-		MCMD_SetTarget(&mcmd4M5_struct,0.5f);
+	}else if(state == 0){
+		MCMD_SetTarget(&mcmd4M5_struct,0.23f);
+	}else if(state == 2){
+		MCMD_SetTarget(&mcmd4M5_struct,0.11f);
 	}
 }
 
@@ -804,10 +809,10 @@ void base1_hand_setter(int state){
 }
 
 void base2_arm_setter(int state){
-	if(state == 0){
+	if(state == 1){
 		MCMD_SetTarget(&mcmd4M6_struct,0.0f);
-	}else if(state == 1){
-		MCMD_SetTarget(&mcmd4M6_struct,0.75f);
+	}else if(state == 0){
+		MCMD_SetTarget(&mcmd4M6_struct,0.12f);
 	}
 }
 
@@ -921,10 +926,10 @@ void StartDefaultTask(void *argument)
 	mcmdMoter2Setting();
 	mcmdMoter3Setting();
 	mcmdMoter4Setting();
-////	mcmdMoter5Setting();
-////	mcmdMoter6Setting();
-////	mcmdMoter7Setting();
-////	mcmdMoter8Setting();
+	mcmdMoter5Setting();
+	mcmdMoter6Setting();
+//	mcmdMoter7Setting();
+//	mcmdMoter8Setting();
 	servo1Setting();
 	servo2Setting();
 	servo3Setting();
@@ -934,6 +939,12 @@ void StartDefaultTask(void *argument)
 	airSetting();
 
 	printf("All Setting Finished\r\n");
+	base_hand_deployer(0);
+	work_arm_deployer(1);
+	osDelay(2000);
+	base1_hand_setter(1);
+	base2_hand_setter(1);
+	printf("work arm deployed \r\n");
 	finishCANsetting = true;
 	osDelay(100);
 
@@ -942,7 +953,7 @@ void StartDefaultTask(void *argument)
   {
 	  // エグゼキューターを実行してリクエストを処理
 	  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
-//	  RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
+	  //RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
 
 	  osDelay(10);
   }
@@ -1077,15 +1088,21 @@ void StartSysCheckTask(void *argument)
 //			  servoChecker(&servo_device2,&servo_param2,135.0f);
 //			  servoChecker(&servo_device3,&servo_param3,60.0f);
 //			  servoChecker(&servo_device4,&servo_param4,110.0f);
-//			  servoChecker(&servo_device5,&servo_param5,180.0f);
-//			  servoChecker(&servo_device6,&servo_param6,225.0f);
-//			  mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+//			  servoChecker(&servo_device5,&servo_param5,0.0f);
+//			  servoChecker(&servo_device6,&servo_param6,0.0f);
+//			  mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4Mt_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-			  base_hand_deployer(0);
-
+//			  base_hand_deployer(0);
+//			  base1_arm_setter(1);
+//			  osDelay(10000);
+//			  base2_arm_setter(1);
+//			  base1_hand_setter(1);
+//			  base2_hand_setter(1);
+			  	osDelay(1000);
+			  	osDelay(3000);
 			  finishCheck = true;
 		  	  }
 	  }
@@ -1122,7 +1139,7 @@ void StartMotorRunTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  //motorRun();
+	  motorRun();
 
     osDelay(10);
   }
@@ -1171,14 +1188,20 @@ void StartEncorderTask(void *argument)
 //	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
 //	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
 //	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
-//	  enc.enclx = count2*quant_per_unit;
-//	  enc.encly = count1*quant_per_unit;
-//	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
+//	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M7_struct.device)).value;;
+//	  enc.encly = Get_MCMD_Feedback(&(mcmd4M8_struct.device)).value;;
+//	  enc.encadditional = 0.0;
+
+//	  float base1 = Get_MCMD_Feedback(&(mcmd4M5_struct.device)).value;
+//	  float base2 = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
+//
+//	  printf("base1 %f \r\n",base1);
+//	  printf("base2 %f \r\n",base2);
 
 //	  printf("enc1: %d\r\n",(int)(count1*quant_per_unit));
 //	  printf("enc2: %d\r\n",(int)(count2*quant_per_unit));
 
-    osDelay(10);
+    osDelay(1000);
   }
   /* USER CODE END StartEncorderTask */
 }
