@@ -65,17 +65,29 @@ public:
           }
 
           if(msg.buttons[2] == 1 && buttons[2] == 0){//X
-            state.work[1] = 0;
+            if(state.work[1] == 1){
+              state.work[1] = 0;
+            }else{
+              state.work[1] = 1;
+            }
             send_goal_frag = true;
           }
 
           if(msg.buttons[1] == 1 && buttons[1] == 0){//B
-            state.work[2] = 1;
+            if(state.work[2] == 0){
+              state.work[2] = 1;
+            }else{
+              state.work[2] = 0;
+            }
             send_goal_frag = true;
           }
 
           if(msg.buttons[0] == 1 && buttons[0] == 0){//A
-            state.work[2] = 0;
+            if(state.work[0] == 0){
+              state.work[0] = 1;
+            }else{
+              state.work[0] = 0;
+            }
             send_goal_frag = true;
           }
           buttons[0] = msg.buttons[0];

@@ -225,7 +225,7 @@ void canSetting(){
 	CAN_SystemInit(&hcan1);
 
 //	num_of_devices.mcmd3 = 0;
-	num_of_devices.mcmd3 = 4;
+	num_of_devices.mcmd3 = 3;
 	num_of_devices.mcmd4 = 0;
 	num_of_devices.air = 1;
 	num_of_devices.servo = 2;
@@ -238,7 +238,7 @@ void canSetting(){
 //モータ1のmcmd設定
 void mcmdMoter1Setting(){
 	    mcmd4M1_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M1_struct.device.node_id = 0;
+	    mcmd4M1_struct.device.node_id = 3;
 	    mcmd4M1_struct.device.device_num = 0;
 
 	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -270,7 +270,7 @@ void mcmdMoter1Setting(){
 //モータ2のmcmd設定
 void mcmdMoter2Setting(){
 	    mcmd4M2_struct.device.node_type = NODE_MCMD3;
-	    mcmd4M2_struct.device.node_id = 0;
+	    mcmd4M2_struct.device.node_id = 3;
 	    mcmd4M2_struct.device.device_num = 1;
 
 	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;
@@ -573,7 +573,7 @@ void servo4Setting(){
 }
 void servo5Setting(){
 	servo_device5.node_type = NODE_SERVO;
-	servo_device5.node_id = 1;
+	servo_device5.node_id = 0;
 	servo_device5.device_num = 2;
 
 	servo_param5.angle_range=270.0f;
@@ -712,9 +712,9 @@ void manipsub_callback(const void * msgin)
 	 // Cast received message to used type
 	  const manip_msgs__msg__Cmd * msub = (const manip_msgs__msg__Cmd *)msgin;
 
-	  print_int(msub->num);
-	  print_int(msub->top_base_arm);
-	  print_int(msub->top_base_hand);
+//	  print_int(msub->num);
+//	  print_int(msub->top_base_arm);
+//	  print_int(msub->top_base_hand);
 
 	  work_arm_deployer(msub->work_arm_deploy);
 	  work_arm_setter(msub->work_arm);
@@ -742,6 +742,9 @@ void work_arm_deployer(int state){//state:{0:close,1:open}
 		ServoDriver_Init(&servo_device2, &servo_param2);
 		osDelay(100);
 		ServoDriver_SendValue(&servo_device2, 60.0f);
+		ServoDriver_Init(&servo_device5, &servo_param5);
+		osDelay(200);
+		ServoDriver_SendValue(&servo_device5, 180.0f);
 	}
 }
 
@@ -768,17 +771,16 @@ void work_arm_setter(int state){//state:{0:up,1:down}
 void base_hand_deployer(int state){
 	if(state == 0){
 		ServoDriver_Init(&servo_device3, &servo_param3);
-		osDelay(100);  // 適切なdelayを入れる
+		osDelay(200);  // 適切なdelayを入れる
 		ServoDriver_SendValue(&servo_device3, 60.0f);
 		ServoDriver_Init(&servo_device4, &servo_param4);
-		osDelay(100);
+		osDelay(200);
 		ServoDriver_SendValue(&servo_device4, 90.0f);
-		ServoDriver_Init(&servo_device5, &servo_param5);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device5, 200.0f);
 		ServoDriver_Init(&servo_device6, &servo_param6);
-		osDelay(100);
-		ServoDriver_SendValue(&servo_device6, 210.0f);
+		osDelay(200);
+		ServoDriver_SendValue(&servo_device6, 180.0f);
+		osDelay(1000);
+
 	}else if(state == 1){
 
 	}
@@ -786,10 +788,12 @@ void base_hand_deployer(int state){
 //base1 high
 //base2 low
 void base1_arm_setter(int state){
-	if(state == 0){
+	if(state == 1){
 		MCMD_SetTarget(&mcmd4M5_struct,0.0f);
-	}else if(state == 1){
+	}else if(state == 0){
 		MCMD_SetTarget(&mcmd4M5_struct,0.23f);
+	}else if(state == 2){
+		MCMD_SetTarget(&mcmd4M5_struct,0.11f);
 	}
 }
 
@@ -805,9 +809,9 @@ void base1_hand_setter(int state){
 }
 
 void base2_arm_setter(int state){
-	if(state == 0){
+	if(state == 1){
 		MCMD_SetTarget(&mcmd4M6_struct,0.0f);
-	}else if(state == 1){
+	}else if(state == 0){
 		MCMD_SetTarget(&mcmd4M6_struct,0.12f);
 	}
 }
@@ -924,8 +928,8 @@ void StartDefaultTask(void *argument)
 	mcmdMoter4Setting();
 	mcmdMoter5Setting();
 	mcmdMoter6Setting();
-	mcmdMoter7Setting();
-	mcmdMoter8Setting();
+//	mcmdMoter7Setting();
+//	mcmdMoter8Setting();
 	servo1Setting();
 	servo2Setting();
 	servo3Setting();
@@ -935,6 +939,12 @@ void StartDefaultTask(void *argument)
 	airSetting();
 
 	printf("All Setting Finished\r\n");
+	base_hand_deployer(0);
+	work_arm_deployer(1);
+	osDelay(2000);
+	base1_hand_setter(1);
+	base2_hand_setter(1);
+	printf("work arm deployed \r\n");
 	finishCANsetting = true;
 	osDelay(100);
 
@@ -943,7 +953,7 @@ void StartDefaultTask(void *argument)
   {
 	  // エグゼキューターを実行してリクエストを処理
 	  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
-//	  RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
+	  //RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));//printfを見たいときはコメントアウト
 
 	  osDelay(10);
   }
@@ -1078,19 +1088,21 @@ void StartSysCheckTask(void *argument)
 //			  servoChecker(&servo_device2,&servo_param2,135.0f);
 //			  servoChecker(&servo_device3,&servo_param3,60.0f);
 //			  servoChecker(&servo_device4,&servo_param4,110.0f);
-//			  servoChecker(&servo_device5,&servo_param5,180.0f);
-//			  servoChecker(&servo_device6,&servo_param6,225.0f);
-//			  mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
-//			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
+//			  servoChecker(&servo_device5,&servo_param5,0.0f);
+//			  servoChecker(&servo_device6,&servo_param6,0.0f);
+//			  mcmdMotorCecker(&mcmd4M1_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M2_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M3_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
+//			  mcmdMotorCecker(&mcmd4M4_struct,MCMD_CTRL_DUTY,0.3f,5000,0.0f);
 //			  mcmdMotorCecker(&mcmd4Mt_struct,MCMD_CTRL_DUTY,0.2f,5000,0.0f);
 //			  base_hand_deployer(0);
 //			  base1_arm_setter(1);
 //			  osDelay(10000);
 //			  base2_arm_setter(1);
-			  base1_hand_setter(1);
-			  base2_hand_setter(1);
+//			  base1_hand_setter(1);
+//			  base2_hand_setter(1);
+			  	osDelay(1000);
+			  	osDelay(3000);
 			  finishCheck = true;
 		  	  }
 	  }
@@ -1127,7 +1139,7 @@ void StartMotorRunTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  //motorRun();
+	  motorRun();
 
     osDelay(10);
   }
@@ -1176,9 +1188,9 @@ void StartEncorderTask(void *argument)
 //	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
 //	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
 //	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
-	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M7_struct.device)).value;;
-	  enc.encly = Get_MCMD_Feedback(&(mcmd4M8_struct.device)).value;;
-	  enc.encadditional = 0.0;
+//	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M7_struct.device)).value;;
+//	  enc.encly = Get_MCMD_Feedback(&(mcmd4M8_struct.device)).value;;
+//	  enc.encadditional = 0.0;
 
 //	  float base1 = Get_MCMD_Feedback(&(mcmd4M5_struct.device)).value;
 //	  float base2 = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;

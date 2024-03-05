@@ -20,8 +20,8 @@ public:
     manip_msgs::msg::Cmd cmd = manip_msgs::msg::Cmd();//送信するコマンドを保持する変数
 
     void initialize_state(){
-      state.base1 = {0,0};
-      state.base2 = {0,0};
+      state.base1 = {1,1};
+      state.base2 = {1,1};
       state.work = {0,0,0};
     }
 

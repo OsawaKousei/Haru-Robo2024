@@ -1,5 +1,5 @@
 #request(goal)　-1:no action
-int64[] base1 #0:updown(0:up,1:down),1:open_close(0:close,1:open) top_base,2:servo(0:close,1:open)
+int64[] base1 #0:updown(0:up,1:down,2:middle),1:open_close(0:close,1:open) top_base,2:servo(0:close,1:open)
 int64[] base2 
 int64[] work #0:servo(0:close,1:open),1:updown(0:up,1:down),2:open_close(0:close,1:open) bottom_base
 ---

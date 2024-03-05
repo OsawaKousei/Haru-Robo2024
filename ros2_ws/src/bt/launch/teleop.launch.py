@@ -50,9 +50,9 @@ def generate_launch_description():
 
     return LaunchDescription([
         joy_node,
-        # omni_joy_node,
-        # omni_drive_node,
-        # omni_hardware_node,
+        omni_joy_node,
+        omni_drive_node,
+        omni_hardware_node,
         joy_control_node,
         manip_control_node
     ])

@@ -20,20 +20,70 @@ public:
     //シーケンスの定義
         enum Tasks{
                 null,
-                work,
-                high_base,
-                low_base
+                catch_work,
+                put_work,
+                catch_high_base,
+                put_high_base,
+                set_high_base,
+                catch_low_base,
+                put_low_base,
+                set_low_base
         };
         Tasks task = null;
 
-        enum WorkSequence{
-                deploy,
+        enum CatchWorkSequence{
                 hand_down,
                 work_catch,
                 hand_up,
-                finish
+                catch_work_finish
         };
-        WorkSequence work_sequence = deploy;
+        CatchWorkSequence catch_work_sequence = hand_down;
+
+        enum PutWorkSequence{
+                hand_open,
+                put_work_finish = 0
+        };
+        PutWorkSequence put_work_sequence = hand_open;
+
+        enum CatchHBaseSequence{
+                Hbase_catch,
+                Hbase_up,
+                catch_Hbase_finish
+        };
+        CatchHBaseSequence catch_Hbase_sequence = Hbase_catch;
+
+        enum PutHbaseSequence{
+                Hbase_arm_set,
+                Hbase_put,
+                put_high_base_finish
+        };
+        PutHbaseSequence put_Hbase_sequence = Hbase_arm_set;
+
+        enum SetHBaseSequence{
+                Hbase_set,
+                Hbase_finish
+        };
+        SetHBaseSequence set_Hbase_sequence = Hbase_set;
+
+        enum CatchLBaseSequence{
+                Lbase_catch,
+                Lbase_up,
+                catch_Lbase_finish
+        };
+        CatchLBaseSequence catch_Lbase_sequence = Lbase_catch;
+
+        enum PutLbaseSequence{
+                Lbase_arm_set,
+                Lbase_put,
+                put_low_base_finish
+        };
+        PutLbaseSequence put_Lbase_sequence = Lbase_arm_set;
+
+        enum SetLBaseSequence{
+                Lbase_set,
+                Lbase_finish
+        };
+        SetLBaseSequence set_Lbase_sequence = Lbase_set;
 
 
     explicit JoyControlNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
@@ -44,6 +94,8 @@ public:
         this->client_ptr_ = rclcpp_action::create_client<State>(this,"manip_control");
 
         auto topic_callback = [this](const sensor_msgs::msg::Joy &msg) -> void {
+        
+                auto pub_goal_msg = State::Goal();
 
           if(msg.buttons[7] == 1 && buttons[7] == 0){
                 RCLCPP_INFO(this->get_logger(), "button 7");
@@ -69,16 +121,68 @@ public:
                 RCLCPP_INFO(this->get_logger(), "button 2");
           }
 
-          if(msg.buttons[1] == 1 && buttons[1] == 0){//B
+          if(msg.buttons[1] == 1 && buttons[1] == 0 && task == null && msg.buttons[5] == 0 && msg.buttons[4] == 0){//B
                 RCLCPP_INFO(this->get_logger(), "button 1");
+
+                put_work_sequence = hand_open;
+                task = put_work;
+                put_work_task();
           }
 
-          if(msg.buttons[0] == 1 && buttons[0] == 0 && task == null){//A
+          if(msg.buttons[0] == 1 && buttons[0] == 0 && task == null  && msg.buttons[5] == 0 && msg.buttons[4] == 0){//A
                 RCLCPP_INFO(this->get_logger(), "button 0");
 
-                work_sequence = deploy;
-                task = work;
-                work_task();
+                catch_work_sequence = hand_down;
+                task = catch_work;
+                catch_work_task();
+          }
+
+          if(msg.buttons[2] == 1 && buttons[2] == 0 && task == null && msg.buttons[5] == 1 && msg.buttons[4] == 0){//X RB
+                RCLCPP_INFO(this->get_logger(), "button 2");
+
+                catch_Hbase_sequence = Hbase_catch;
+                task = catch_high_base;
+                catch_high_base_task();
+          }
+
+          if(msg.buttons[1] == 1 && buttons[1] == 0 && task == null && msg.buttons[5] == 1 && msg.buttons[4] == 0){//B RB
+                RCLCPP_INFO(this->get_logger(), "button 1");
+
+                put_Hbase_sequence = Hbase_arm_set;
+                task = put_high_base;
+                put_high_base_task();
+          }
+
+          if(msg.buttons[0] == 1 && buttons[0] == 0 && task == null  && msg.buttons[5] == 1 && msg.buttons[4] == 0){//A RB
+                RCLCPP_INFO(this->get_logger(), "button 0");
+
+               set_Hbase_sequence = Hbase_set;
+               task = set_high_base;
+               set_high_base_task();
+          }
+
+          if(msg.buttons[2] == 1 && buttons[2] == 0 && task == null && msg.buttons[5] == 0 && msg.buttons[4] == 1){//X LB
+                RCLCPP_INFO(this->get_logger(), "button 2");
+
+                catch_Lbase_sequence = Lbase_catch;
+                task = catch_low_base;
+                catch_low_base_task();
+          }
+
+          if(msg.buttons[1] == 1 && buttons[1] == 0 && task == null && msg.buttons[5] == 0 && msg.buttons[4] == 1){//B LB
+                RCLCPP_INFO(this->get_logger(), "button 1");
+
+                put_Lbase_sequence = Lbase_arm_set;
+                task = put_low_base;
+                put_low_base_task();
+          }
+
+          if(msg.buttons[0] == 1 && buttons[0] == 0 && task == null  && msg.buttons[5] == 0 && msg.buttons[4] == 1){//A LB
+                RCLCPP_INFO(this->get_logger(), "button 0");
+
+               set_Lbase_sequence = Lbase_set;
+               task = set_low_base;
+               set_low_base_task();
           }
 
           buttons[0] = msg.buttons[0];
@@ -97,7 +201,7 @@ public:
     }
 
     //シーケンスごとにゴールを作成して送信
-        void work_task()
+        void catch_work_task()
         {
                 //this->timer_->cancel(); //チュートリアルにはあったけど、エラーが出たのでコメントアウト
 
@@ -108,42 +212,210 @@ public:
 
                 auto goal_msg = State::Goal();
 
-                switch (work_sequence)
+                switch (catch_work_sequence)
                 {
-                case deploy:
-                        goal_msg.base1 = {-1,-1};
-                        goal_msg.base2 = {-1,-1};
-                        goal_msg.work = {1,0,1};
-                        send_goal(goal_msg);
-                        work_sequence = hand_down;//次のシーケンスへ
-                        break;
                 case hand_down:
                         goal_msg.base1 = {-1,-1};
                         goal_msg.base2 = {-1,-1};
                         goal_msg.work = {1,1,1};
                         send_goal(goal_msg);
-                        work_sequence = work_catch;
+                        catch_work_sequence = work_catch;
                         break;
                 case work_catch:
                         goal_msg.base1 = {-1,-1};
                         goal_msg.base2 = {-1,-1};
                         goal_msg.work = {1,1,0};
                         send_goal(goal_msg);
-                        work_sequence = hand_up;
+                        catch_work_sequence = hand_up;
                         break;
                 case hand_up:
                         goal_msg.base1 = {-1,-1};
                         goal_msg.base2 = {-1,-1};
                         goal_msg.work = {1,0,0};
                         send_goal(goal_msg);
-                        work_sequence = finish;
+                        catch_work_sequence = catch_work_finish;
                         break;
                 default:
                         break;
                 }              
         }
 
-         void send_goal(State::Goal goal_msg){
+        void put_work_task(){
+                if (!this->client_ptr_->wait_for_action_server()) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+                rclcpp::shutdown();
+                }
+
+                auto goal_msg = State::Goal();
+
+                switch (put_work_sequence){
+                case hand_open:
+                        goal_msg.base1 = {-1,-1};
+                        goal_msg.base2 = {-1,-1};
+                        goal_msg.work = {-1,-1,1};
+                        send_goal(goal_msg);
+                        put_work_sequence = put_work_finish;
+                        break;
+                default:        
+                        break;
+                }
+        }
+
+        void catch_high_base_task(){
+                if (!this->client_ptr_->wait_for_action_server()) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+                rclcpp::shutdown();
+                }
+
+                auto goal_msg = State::Goal();
+
+                switch (catch_Hbase_sequence){
+                case Hbase_catch:
+                        goal_msg.base1 = {-1,0};
+                        goal_msg.base2 = {-1,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        catch_Hbase_sequence = Hbase_up;
+                        break;
+                case Hbase_up:
+                        goal_msg.base1 = {0,-1};
+                        goal_msg.base2 = {-1,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        catch_Hbase_sequence = catch_Hbase_finish;
+                        break;
+                default:        
+                        break;
+                }
+        }
+
+        void put_high_base_task(){
+                if (!this->client_ptr_->wait_for_action_server()) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+                rclcpp::shutdown();
+                }
+
+                auto goal_msg = State::Goal();
+
+                switch (put_Hbase_sequence){
+                case Hbase_arm_set:
+                        goal_msg.base1 = {2,-1};
+                        goal_msg.base2 = {-1,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        put_Hbase_sequence = Hbase_put;
+                        break;
+                case Hbase_put:
+                        goal_msg.base1 = {-1,1};
+                        goal_msg.base2 = {-1,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        put_Hbase_sequence = put_high_base_finish;
+                        break;
+                default:        
+                        break;
+                }
+        }
+
+        void set_high_base_task(){
+                if (!this->client_ptr_->wait_for_action_server()) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+                rclcpp::shutdown();
+                }
+
+                auto goal_msg = State::Goal();
+
+                switch (set_Hbase_sequence){
+                case Hbase_set:
+                        goal_msg.base1 = {0,-1};
+                        goal_msg.base2 = {-1,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        set_Hbase_sequence = Hbase_finish;
+                        break;
+                default:        
+                        break;
+                }
+        }
+
+        void catch_low_base_task(){
+                if (!this->client_ptr_->wait_for_action_server()) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+                rclcpp::shutdown();
+                }
+
+                auto goal_msg = State::Goal();
+
+                switch (catch_Lbase_sequence){
+                case Lbase_catch:
+                        goal_msg.base1 = {-1,-1};
+                        goal_msg.base2 = {-1,0};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        catch_Lbase_sequence = Lbase_up;
+                        break;
+                case Lbase_up:
+                        goal_msg.base1 = {-1,-1};
+                        goal_msg.base2 = {0,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        catch_Lbase_sequence = catch_Lbase_finish;
+                        break;
+                default:        
+                        break;
+                }
+        }
+
+        void put_low_base_task(){
+                if (!this->client_ptr_->wait_for_action_server()) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+                rclcpp::shutdown();
+                }
+
+                auto goal_msg = State::Goal();
+
+                switch (put_Lbase_sequence){
+                case Lbase_arm_set:
+                        goal_msg.base1 = {-1,-1};
+                        goal_msg.base2 = {1,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        put_Lbase_sequence = Lbase_put;
+                        break;
+                case Lbase_put:
+                        goal_msg.base1 = {-1,-1};
+                        goal_msg.base2 = {-1,1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        put_Lbase_sequence = put_low_base_finish;
+                        break;
+                default:        
+                        break;
+                }
+        }
+
+        void set_low_base_task(){
+                if (!this->client_ptr_->wait_for_action_server()) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+                rclcpp::shutdown();
+                }
+
+                auto goal_msg = State::Goal();
+
+                switch (set_Lbase_sequence){
+                case Lbase_set:
+                        goal_msg.base1 = {-1,-1};
+                        goal_msg.base2 = {0,-1};
+                        goal_msg.work = {-1,-1,-1};
+                        send_goal(goal_msg);
+                        set_Lbase_sequence = Lbase_finish;
+                        break;
+                default:        
+                        break;
+                }
+        }
+
+        void send_goal(State::Goal goal_msg){
                 using namespace std::placeholders;
 
                 RCLCPP_INFO(this->get_logger(), "Sending goal");
@@ -208,16 +480,79 @@ private:
 
                 switch (task)
                 {
-                case work:
-                        if(work_sequence == finish){
+                case catch_work:
+                        if(catch_work_sequence == catch_work_finish){
                         RCLCPP_INFO(this->get_logger(), "Finish the work");
                         task = null;
                         }else{
                                 RCLCPP_INFO(this->get_logger(), "execute next sequence");
-                                work_task();//次のシーケンスを実行
+                                catch_work_task();//次のシーケンスを実行
                         }
                         break;
-                
+                case put_work:
+                        if(put_work_sequence == put_work_finish){
+                        RCLCPP_INFO(this->get_logger(), "Finish the work");
+                        task = null;
+                        }else{
+                                RCLCPP_INFO(this->get_logger(), "execute next sequence");
+                                put_work_task();//次のシーケンスを実行
+                        }
+                        break;
+                case catch_high_base:
+                        if(catch_Hbase_sequence == catch_Hbase_finish){
+                        RCLCPP_INFO(this->get_logger(), "Finish the work");
+                        task = null;
+                        }else{
+                                RCLCPP_INFO(this->get_logger(), "execute next sequence");
+                                catch_high_base_task();//次のシーケンスを実行
+                        }
+                        break;
+                case put_high_base:
+                        if(put_Hbase_sequence == put_high_base_finish){
+                        RCLCPP_INFO(this->get_logger(), "Finish the work");
+                        task = null;
+                        }else{
+                                RCLCPP_INFO(this->get_logger(), "execute next sequence");
+                                put_high_base_task();//次のシーケンスを実行
+                        }
+                        break;
+                case set_high_base:
+                        if(set_Hbase_sequence == Hbase_finish){
+                        RCLCPP_INFO(this->get_logger(), "Finish the work");
+                        task = null;
+                        }else{
+                                RCLCPP_INFO(this->get_logger(), "execute next sequence");
+                                set_high_base_task();//次のシーケンスを実行
+                        }
+                        break;
+
+                case catch_low_base:
+                        if(catch_Lbase_sequence == catch_Lbase_finish){
+                        RCLCPP_INFO(this->get_logger(), "Finish the work");
+                        task = null;
+                        }else{
+                                RCLCPP_INFO(this->get_logger(), "execute next sequence");
+                                catch_low_base_task();//次のシーケンスを実行
+                        }
+                        break;
+                case put_low_base:
+                        if(put_Lbase_sequence == put_low_base_finish){
+                        RCLCPP_INFO(this->get_logger(), "Finish the work");
+                        task = null;
+                        }else{
+                                RCLCPP_INFO(this->get_logger(), "execute next sequence");
+                                put_low_base_task();//次のシーケンスを実行
+                        }
+                        break;
+                case set_low_base:
+                        if(set_Lbase_sequence == Lbase_finish){
+                        RCLCPP_INFO(this->get_logger(), "Finish the work");
+                        task = null;
+                        }else{
+                                RCLCPP_INFO(this->get_logger(), "execute next sequence");
+                                set_low_base_task();//次のシーケンスを実行
+                        }
+                        break;
                 default:
                         break;
                 }
